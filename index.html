@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roxxem — Interactive Language Lessons Based on Culture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#">roxxem</a>
+      <nav class="nav__links">
+        <a href="#pricing">Pricing</a>
+        <a href="#blog">Blog</a>
+        <a href="#wall">Wall of Love</a>
+        <a href="#publishers">For Publishers</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <h1>Interactive language lessons based on culture your students already love</h1>
+        <p class="hero__sub">Build a lesson plan for your class level in just minutes.</p>
+        <form class="email-pill email-pill--cream" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="Get Started For Free" aria-label="Email" />
+          <button type="submit" aria-label="Submit">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </form>
+        <div class="lang-row">
+          <button class="lang-chip"><span class="flag">🇪🇸</span>Spanish</button>
+          <button class="lang-chip"><span class="flag">🇫🇷</span>French</button>
+          <button class="lang-chip"><span class="flag">🇩🇪</span>German</button>
+          <button class="lang-chip"><span class="flag">🇬🇧</span>English</button>
+          <button class="lang-chip"><span class="flag">🇨🇳</span>Chinese</button>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="app-card">
+          <div class="app-card__topbar">
+            <span class="app-card__brand">roxxem</span>
+            <div class="app-card__nav">
+              <span>Browse</span><span>Challenges</span><span>Leaderboard</span>
+            </div>
+            <div class="app-card__search">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>Search songs, artists</span>
+            </div>
+          </div>
+
+          <div class="app-card__hero">
+            <div class="app-card__hero-text">
+              <span class="badge badge--cream">Most Popular</span>
+              <h3>Waka Waka <span>(Esto es Africa)</span></h3>
+              <div class="app-card__hero-cta">
+                <span class="pill pill--lime">Get Started</span>
+                <span class="pill pill--ghost">▶ Preview</span>
+              </div>
+            </div>
+            <div class="app-card__hero-img" aria-hidden="true"></div>
+          </div>
+
+          <div class="app-card__row">
+            <span class="row-label">Popular</span>
+            <div class="row-grid">
+              <div class="thumb thumb--1"></div>
+              <div class="thumb thumb--2"></div>
+              <div class="thumb thumb--3"></div>
+              <div class="thumb thumb--4"></div>
+              <div class="thumb thumb--5"></div>
+            </div>
+          </div>
+        </div>
+
+        <img class="hero__fox" src="mascot-full.png" alt="Roxxem fox mascot" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__inner">
+      <div class="stat"><div class="stat__num">1M+</div><div class="stat__label">Students Worldwide</div></div>
+      <div class="stat"><div class="stat__num">4,000+</div><div class="stat__label">School Districts</div></div>
+      <div class="stat"><div class="stat__num">45%</div><div class="stat__label">Increase in<br/>Student Engagement</div></div>
+      <div class="stat"><div class="stat__num">3 hours</div><div class="stat__label">Saved Per Teacher<br/>Each Week on Prep</div></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <p class="eyebrow eyebrow--purple">How it Works</p>
+      <h2 class="section-title section-title--purple">Use today's pop culture to teach fluency</h2>
+      <p class="how__desc">
+        Pick any <span class="hl hl--lime">song, video, or podcast</span> and Roxxem will turn it into an interactive lesson with vocabulary drills, listening exercises, and more equipped with slides, handouts, and other tools you can use to teach. It's all aligned to your <span class="hl hl--blue">curriculum standards</span> too.
+      </p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-cat="music" role="tab">Music</button>
+        <button class="tab" data-cat="tv" role="tab">TV &amp; Film</button>
+        <button class="tab" data-cat="viral" role="tab">Viral Videos</button>
+        <button class="tab" data-cat="social" role="tab">Social Media</button>
+        <button class="tab" data-cat="podcasts" role="tab">Podcasts</button>
+        <button class="tab" data-cat="news" role="tab">News &amp; Media</button>
+      </div>
+
+      <div class="tab-panels"></div>
+    </div>
+  </section>
+
+  <!-- LESSON STEPS -->
+  <section class="lesson">
+    <div class="container">
+      <p class="eyebrow eyebrow--orange">For Teachers</p>
+      <h2 class="section-title">Lesson Ready in 3 Steps</h2>
+      <p class="section-sub">Pick any pop-culture topic for a complete print-ready lesson plan — no marking required.</p>
+
+      <div class="step step--1">
+        <div class="step__copy">
+          <p class="step__num">Step 1</p>
+          <h3>Tell us your topic</h3>
+          <p>Paste your textbook content, a chapter title, or just a topic name. We'll take it from there.</p>
+        </div>
+        <div class="step__visual">
+          <div class="card-mock card-mock--purple">
+            <p class="card-mock__title">What should your students learn today?</p>
+            <input type="text" placeholder="ex. lesson on Bad Bunny and Puerto Rican Culture" />
+            <div class="card-mock__chips">
+              <span class="chip">A1</span>
+              <span class="chip">A2</span>
+              <span class="chip chip--active">B1</span>
+              <span class="chip">B2</span>
+              <span class="chip">C1</span>
+            </div>
+            <div class="card-mock__footer">
+              <span class="card-mock__lang">🇪🇸 Spanish</span>
+              <button class="btn btn--mini btn--orange">Generate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step step--2 step--reverse">
+        <div class="step__copy">
+          <p class="step__num">Step 2</p>
+          <h3>Generate everything you need for class</h3>
+          <p>Get customizable lesson plans, slides, activities, and homework instantly.</p>
+        </div>
+        <div class="step__visual">
+          <div class="card-mock card-mock--white">
+            <p class="card-mock__title card-mock__title--dark">Your lesson is ready</p>
+            <ul class="check-list">
+              <li>Lesson plan</li>
+              <li>Vocabulary deck</li>
+              <li>Listening activity</li>
+              <li>Speaking prompts</li>
+              <li>Reading exercise</li>
+              <li>Assessment quiz</li>
+              <li>Homework set</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="step step--3">
+        <div class="step__copy">
+          <p class="step__num">Step 3</p>
+          <h3>Track your students' progress</h3>
+          <p>Get detailed reports on proficiency and engagement for every student.</p>
+        </div>
+        <div class="step__visual step__visual--row">
+          <div class="card-mock card-mock--white card-mock--small">
+            <p class="card-mock__title card-mock__title--dark">Class Dashboard</p>
+            <div class="bar"><span style="width: 80%;"></span></div>
+            <div class="bar"><span style="width: 64%;"></span></div>
+            <div class="bar"><span style="width: 92%;"></span></div>
+            <div class="bar"><span style="width: 48%;"></span></div>
+          </div>
+          <div class="card-mock card-mock--lime card-mock--small">
+            <p class="card-mock__title card-mock__title--dark">Your Proficiency Score</p>
+            <div class="big-num">94<span>/100</span></div>
+            <p class="card-mock__title card-mock__title--dark" style="margin-top: 1rem;">Level Progression</p>
+            <div class="bar bar--dark"><span style="width: 78%;"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson__cta">
+        <a href="#" class="btn btn--orange btn--lg">Create a Free Lesson →</a>
+        <div class="badges">
+          <span class="seal">ISTE Seal</span>
+          <span class="seal">Student Privacy Pledge</span>
+          <span class="seal">CASEL</span>
+          <span class="seal">SOC 2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum" id="publishers">
+    <div class="container">
+      <p class="eyebrow eyebrow--orange">For Publishers</p>
+      <h2 class="section-title section-title--purple">Your Curriculum: AI-Native &amp; Packed<br/>with Popular Content</h2>
+      <p class="section-sub section-sub--orange">Publishers — plug in. Three upgrades. Zero rebuild.</p>
+
+      <div class="cur-card cur-card--blue">
+        <div>
+          <h4>Popular Content, Curriculum-Aligned</h4>
+          <p>Match every unit to music, videos, and social content your students already love, personalized by class, refreshed automatically.</p>
+        </div>
+        <div class="cur-card__icon" aria-hidden="true">
+          <img src="mascot-peek-head.png" alt="" />
+        </div>
+      </div>
+
+      <div class="cur-card cur-card--lime">
+        <div class="cur-card__icon" aria-hidden="true">
+          <img src="mascot-peek-head.png" alt="" />
+        </div>
+        <div>
+          <h4>Know Every Student</h4>
+          <p>See what each student has mastered, where they're stuck, and who's falling behind — before it's too late.</p>
+        </div>
+      </div>
+
+      <div class="cur-card cur-card--orange">
+        <div>
+          <h4>Turn Data Into Action</h4>
+          <p>Roxxem tells teachers precisely what to review and reinforce, based on where their class actually is.</p>
+        </div>
+        <div class="cur-card__icon" aria-hidden="true">
+          <img src="mascot-peek-head.png" alt="" />
+        </div>
+      </div>
+
+      <div class="curriculum__footer">
+        <p>Your content. Their attention. Real results.</p>
+        <a href="#" class="btn btn--purple btn--lg">Book a Publisher Demo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGE DEPT HEAD -->
+  <section class="langdept">
+    <img class="langdept__head" src="mascot-peek-head.png" alt="" />
+    <div class="langdept__band">
+      <h2 class="section-title section-title--cream">For Language Dept. Head</h2>
+      <div class="langdept__grid">
+        <div class="ld-stats">
+          <div class="ld-stat">
+            <div class="ld-stat__num">70%</div>
+            <p>Aren't at the level of their textbook</p>
+          </div>
+          <div class="ld-stat ld-stat--tall">
+            <div class="ld-stat__num">Every<br/>5 Years</div>
+            <p>Textbooks replaced for $450 / student &amp; subject</p>
+          </div>
+          <div class="ld-stat ld-stat--tall">
+            <div class="ld-stat__num">18<br/>hours/week</div>
+            <p>Spent adapting materials from rigid textbooks</p>
+          </div>
+          <div class="ld-stat">
+            <div class="ld-stat__num">61%</div>
+            <p>Don't see interests reflected</p>
+          </div>
+        </div>
+
+        <form class="quote-card" onsubmit="event.preventDefault();">
+          <h3>Get a quote</h3>
+          <div class="quote-card__field">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit" aria-label="Submit">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <img class="langdept__tail" src="mascot-peek-tail.png" alt="" />
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="wall">
+    <div class="container">
+      <h2 class="section-title">What People are Saying</h2>
+      <div class="video-card">
+        <div class="video-card__bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <div class="video-card__url">roxxem.com/wall</div>
+        </div>
+        <div class="video-card__main">
+          <button class="video-arrow video-arrow--left" aria-label="Previous">‹</button>
+          <div class="video-stage">
+            <div class="video-stage__inner">
+              <div class="video-thumb"></div>
+              <div class="video-quote">
+                <p class="video-quote__name">Andrea Sotelo | Spanish Teacher 🇲🇽</p>
+                <p class="video-quote__role">at Winnebago High School</p>
+              </div>
+            </div>
+          </div>
+          <button class="video-arrow video-arrow--right" aria-label="Next">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title section-title--purple">Pricing Options</h2>
+      <p class="section-sub section-sub--orange">Start for free, then supercharge your teaching with Pro</p>
+
+      <div class="price-grid">
+        <div class="price-card">
+          <p class="price-card__tier">Basic</p>
+          <h3 class="price-card__price">Free</h3>
+          <ul>
+            <li>Popular videos</li>
+            <li>Study Games</li>
+            <li>Vocab Lists</li>
+          </ul>
+          <button class="btn btn--ghost btn--full">Select Plan</button>
+          <a class="price-card__more" href="#">Learn More</a>
+        </div>
+
+        <div class="price-card price-card--featured">
+          <p class="price-card__tier">Pro Teacher</p>
+          <h3 class="price-card__price">$120</h3>
+          <p class="price-card__period">per year</p>
+          <ul>
+            <li>Vocab Lists</li>
+            <li>Personalized Lesson Plan Builder Assignments</li>
+            <li>Progress Tracking</li>
+          </ul>
+          <button class="btn btn--orange btn--full">Select Plan</button>
+          <a class="price-card__more" href="#">Learn More</a>
+        </div>
+
+        <div class="price-card">
+          <p class="price-card__tier">For Districts</p>
+          <h3 class="price-card__price">Custom</h3>
+          <p class="price-card__period">student per year</p>
+          <ul>
+            <li>Unlock Pro Teacher for teachers, students &amp; admin</li>
+            <li>A full AI textbook aligned to your curriculum</li>
+          </ul>
+          <button class="btn btn--ghost btn--full">Select Plan</button>
+          <a class="price-card__more" href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter__card">
+        <img class="newsletter__fox" src="mascot-full.png" alt="Roxxem fox holding sign" />
+        <div class="newsletter__copy">
+          <h3>Get your first, free lesson plan</h3>
+          <p>Personalizable content that aligns to your curriculum and student interests</p>
+          <form class="newsletter__form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit" class="btn btn--orange">Get Started →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="brand-mark">roxxem</p>
+          <p class="footer__tag">Interactive language lessons based<br/>on culture your students already love</p>
+          <div class="socials">
+            <a class="social" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a class="social" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+            <a class="social" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a class="social" aria-label="Music">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__head">PRODUCT</p>
+          <a href="#">Pricing</a>
+          <a href="#">Wall of Love</a>
+          <a href="#">For Teachers</a>
+          <a href="#">For Districts</a>
+          <a href="#">For Publishers</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__head">COMPANY</p>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__head">RESOURCES</p>
+          <a href="#">Help Center</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__head">LEGAL</p>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Roxxem W-9</a>
+          <a href="#">Sole Source Letter</a>
+        </div>
+      </div>
+      <div class="footer__base">
+        <p>© 2026 Roxxem, Inc. All rights reserved.</p>
+        <p><em>Made with love for teachers and students everywhere.</em></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="how-it-works.js"></script>
+</body>
+</html>

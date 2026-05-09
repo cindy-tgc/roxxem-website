@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roxxem — Interactive Language Lessons Based on Culture</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,7 +11,9 @@
   <!-- NAV -->
   <header class="nav">
     <div class="nav__inner">
-      <a class="nav__brand" href="#">roxxem</a>
+      <a class="nav__brand" href="#" aria-label="Roxxem home">
+        <img src="roxxem-logo.svg" alt="Roxxem" />
+      </a>
       <nav class="nav__links">
         <a href="#pricing">Pricing</a>
         <a href="#blog">Blog</a>
@@ -27,63 +26,136 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__grid">
+    <div class="hero__inner">
       <div class="hero__copy">
-        <h1>Interactive language lessons based on culture your students already love</h1>
+        <h1 class="hero__title">Interactive language lessons based on culture your students already love</h1>
         <p class="hero__sub">Build a lesson plan for your class level in just minutes.</p>
-        <form class="email-pill email-pill--cream" onsubmit="event.preventDefault();">
+        <form class="hero__email" onsubmit="event.preventDefault();">
           <input type="email" placeholder="Get Started For Free" aria-label="Email" />
           <button type="submit" aria-label="Submit">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
         </form>
-        <div class="lang-row">
-          <button class="lang-chip"><span class="flag">🇪🇸</span>Spanish</button>
-          <button class="lang-chip"><span class="flag">🇫🇷</span>French</button>
-          <button class="lang-chip"><span class="flag">🇩🇪</span>German</button>
-          <button class="lang-chip"><span class="flag">🇬🇧</span>English</button>
-          <button class="lang-chip"><span class="flag">🇨🇳</span>Chinese</button>
+        <div class="hero__langs">
+          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇪🇸</span></span>Spanish</button>
+          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇫🇷</span></span>French</button>
+          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇩🇪</span></span>German</button>
+          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇬🇧</span></span>English</button>
+          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇨🇳</span></span>Chinese</button>
         </div>
       </div>
 
-      <div class="hero__visual">
-        <div class="app-card">
-          <div class="app-card__topbar">
-            <span class="app-card__brand">roxxem</span>
-            <div class="app-card__nav">
-              <span>Browse</span><span>Challenges</span><span>Leaderboard</span>
+      <div class="hero__app">
+        <div class="appcard">
+          <!-- Sidebar -->
+          <aside class="appcard__sidebar">
+            <div class="appcard__brand-tile">r</div>
+            <div class="appcard__nav-group">
+              <button class="appcard__icon appcard__icon--active" aria-label="Home"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3l9-8z"/></svg></button>
+              <button class="appcard__icon" aria-label="Music"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></button>
+              <button class="appcard__icon" aria-label="Charts"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></button>
+              <button class="appcard__icon" aria-label="Heart"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
             </div>
-            <div class="app-card__search">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <div class="appcard__divider"></div>
+            <div class="appcard__nav-group">
+              <button class="appcard__icon" aria-label="Cloud"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></button>
+              <button class="appcard__icon" aria-label="Trophy"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22h10c0-1.76-.85-3.25-2.03-3.79-.5-.23-.97-.66-.97-1.21v-2.34M18 2H6v7a6 6 0 0012 0V2z"/></svg></button>
+              <button class="appcard__icon" aria-label="Refresh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg></button>
+              <button class="appcard__icon" aria-label="Book"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V2H6.5A2.5 2.5 0 004 4.5v15z"/></svg></button>
+            </div>
+            <div class="appcard__divider"></div>
+            <div class="appcard__nav-group">
+              <button class="appcard__icon" aria-label="Help"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></button>
+              <button class="appcard__icon" aria-label="Chat"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+              <button class="appcard__icon" aria-label="Plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+            </div>
+            <div class="appcard__divider"></div>
+            <div class="appcard__nav-group">
+              <button class="appcard__icon" aria-label="Settings"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+            </div>
+          </aside>
+
+          <!-- Top bar -->
+          <div class="appcard__topbar">
+            <span class="appcard__wordmark">roxxem</span>
+            <nav class="appcard__topnav">
+              <span>Browse</span>
+              <span>Challenges</span>
+              <span>Leaderboard</span>
+            </nav>
+            <div class="appcard__search">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <span>Search songs, artists</span>
             </div>
+            <button class="appcard__topicon" aria-label="Notifications"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></button>
+            <button class="appcard__topicon appcard__topicon--filled" aria-label="Avatar"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></button>
           </div>
 
-          <div class="app-card__hero">
-            <div class="app-card__hero-text">
-              <span class="badge badge--cream">Most Popular</span>
-              <h3>Waka Waka <span>(Esto es Africa)</span></h3>
-              <div class="app-card__hero-cta">
-                <span class="pill pill--lime">Get Started</span>
-                <span class="pill pill--ghost">▶ Preview</span>
+          <!-- Main content -->
+          <div class="appcard__main">
+            <!-- Shakira hero card -->
+            <div class="appcard__hero-card">
+              <img class="appcard__hero-img" src="assets/hero-shakira.png" alt="" />
+              <div class="appcard__hero-overlay">
+                <span class="appcard__hero-badge"><span class="appcard__hero-dot"></span>NEW CHALLENGE</span>
+                <h3 class="appcard__hero-title">Waka Waka<br/>(Esto es África)</h3>
+                <p class="appcard__hero-meta">Shakira · Latin Pop · 3:33</p>
+                <div class="appcard__hero-actions">
+                  <button class="appcard__btn appcard__btn--orange"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>Play Challenge</button>
+                  <button class="appcard__btn appcard__btn--ghost"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>Leaderboard</button>
+                </div>
               </div>
             </div>
-            <div class="app-card__hero-img" aria-hidden="true"></div>
-          </div>
 
-          <div class="app-card__row">
-            <span class="row-label">Popular</span>
-            <div class="row-grid">
-              <div class="thumb thumb--1"></div>
-              <div class="thumb thumb--2"></div>
-              <div class="thumb thumb--3"></div>
-              <div class="thumb thumb--4"></div>
-              <div class="thumb thumb--5"></div>
+            <!-- Whats new strip -->
+            <div class="appcard__whatsnew">
+              <span class="appcard__whatsnew-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.5 5.8 22l2.4-8.1L2 9.4h7.6L12 2z"/></svg></span>
+              <span class="appcard__whatsnew-link">Read <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <div class="appcard__whatsnew-bars">
+                <span class="bar-skel" style="width: 35%;"></span>
+                <span class="bar-skel" style="width: 100%;"></span>
+              </div>
             </div>
+
+            <!-- Most Popular row -->
+            <section class="appcard__row">
+              <header class="appcard__row-header">
+                <div>
+                  <p class="appcard__kicker">TOP CHARTS</p>
+                  <h4 class="appcard__row-title">Most Popular</h4>
+                </div>
+                <a class="appcard__seeall">See All <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </header>
+              <div class="appcard__cards">
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-1.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-2.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-3.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-4.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-5.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+              </div>
+            </section>
+
+            <!-- Hip Hop Essentials row -->
+            <section class="appcard__row">
+              <header class="appcard__row-header">
+                <div>
+                  <p class="appcard__kicker">GENRE</p>
+                  <h4 class="appcard__row-title">Hip Hop Essentials</h4>
+                </div>
+                <a class="appcard__seeall">See All <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </header>
+              <div class="appcard__cards">
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-6.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-7.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-8.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-9.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-10.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+              </div>
+            </section>
           </div>
         </div>
 
-        <img class="hero__fox" src="mascot-full.png" alt="Roxxem fox mascot" />
+        <img class="hero__roxxy" src="assets/roxxy-body.png" alt="Roxxy mascot" />
       </div>
     </div>
   </section>
@@ -123,173 +195,392 @@
   <!-- LESSON STEPS -->
   <section class="lesson">
     <div class="container">
-      <p class="eyebrow eyebrow--orange">For Teachers</p>
-      <h2 class="section-title">Lesson Ready in 3 Steps</h2>
-      <p class="section-sub">Pick any pop-culture topic for a complete print-ready lesson plan — no marking required.</p>
+      <div class="lesson__head">
+        <p class="eyebrow eyebrow--orange">For Teachers</p>
+        <h2 class="section-title section-title--purple">Lesson Ready in 3 Steps</h2>
+        <p class="lesson__desc">From any piece of pop culture to a complete, print-ready lesson plan — no extra prep needed.</p>
+      </div>
 
-      <div class="step step--1">
-        <div class="step__copy">
-          <p class="step__num">Step 1</p>
-          <h3>Tell us your topic</h3>
-          <p>Paste your textbook content, a chapter title, or just a topic name. We'll take it from there.</p>
-        </div>
-        <div class="step__visual">
-          <div class="card-mock card-mock--purple">
-            <p class="card-mock__title">What should your students learn today?</p>
-            <input type="text" placeholder="ex. lesson on Bad Bunny and Puerto Rican Culture" />
-            <div class="card-mock__chips">
-              <span class="chip">A1</span>
-              <span class="chip">A2</span>
-              <span class="chip chip--active">B1</span>
-              <span class="chip">B2</span>
-              <span class="chip">C1</span>
+      <!-- Step 1: form mock LEFT, copy RIGHT -->
+      <div class="lstep lstep--1">
+        <div class="lstep__visual">
+          <div class="form-mock">
+            <div class="form-mock__heading">
+              <p class="form-mock__q">What should your students learn today?</p>
+              <p class="form-mock__lang"><span>🇪🇸</span> Lesson language: Spanish</p>
             </div>
-            <div class="card-mock__footer">
-              <span class="card-mock__lang">🇪🇸 Spanish</span>
-              <button class="btn btn--mini btn--orange">Generate</button>
+
+            <div class="form-mock__metas">
+              <div class="form-mock__meta">
+                <p class="form-mock__meta-label">⏱  Duration</p>
+                <div class="form-mock__meta-pill">30 min <span class="caret">▾</span></div>
+              </div>
+              <div class="form-mock__meta">
+                <p class="form-mock__meta-label">📊  Difficulty</p>
+                <div class="form-mock__meta-pill">Novice Low (Pre-A1) <span class="caret">▾</span></div>
+              </div>
+              <div class="form-mock__meta">
+                <p class="form-mock__meta-label">👥  Class</p>
+                <div class="form-mock__meta-pill">No class <span class="caret">▾</span></div>
+              </div>
+            </div>
+
+            <div class="form-mock__chips">
+              <span class="form-chip">＋ Add Video</span>
+              <span class="form-chip">＋ Add Vocab List</span>
+              <span class="form-chip">＋ Add Question Set</span>
+              <span class="form-chip">＋ Attach File</span>
+            </div>
+
+            <div class="form-mock__input">
+              <span class="form-mock__cursor">Create a lesson on Bad Bunny and Puerto Rican Culture<span class="form-mock__caret">|</span></span>
+              <button class="form-mock__cta">Start Building</button>
+            </div>
+          </div>
+        </div>
+        <div class="lstep__copy">
+          <p class="lstep__num">Step 1</p>
+          <h3 class="lstep__title">Tell us your topic</h3>
+          <p class="lstep__sub">Paste your textbook content, a chapter title, or just a topic name. We'll take it from there.</p>
+          <p class="lstep__extra">Perfect for a fun warm-up or break! Show music videos, podcasts, or short clips — Roxxem turns whatever you pick into a complete lesson plan.</p>
+        </div>
+      </div>
+
+      <!-- Step 2: copy LEFT, video RIGHT -->
+      <div class="lstep lstep--2">
+        <div class="lstep__copy">
+          <p class="lstep__num">Step 2</p>
+          <h3 class="lstep__title">Generate everything you need for class</h3>
+          <p class="lstep__sub">Get customizable lesson plans, slides, activities, and homework instantly.</p>
+          <p class="lstep__extra">Invited students get access to all Roxxem features — vocabulary drills, listening exercises, reading prompts, quizzes, and homework — all aligned to your curriculum.</p>
+        </div>
+        <div class="lstep__visual">
+          <div class="video-mock" aria-label="Generating your lesson preview">
+            <video class="video-mock__media" autoplay loop muted playsinline poster="assets/generating-lesson-poster.png">
+              <source src="assets/generating-lesson.mp4" type="video/mp4" />
+            </video>
+            <div class="video-mock__fallback">
+              <div class="video-mock__bar">
+                <span class="video-mock__check">✓</span>
+                <span class="video-mock__title">Generating your Lesson</span>
+              </div>
+              <ul class="video-mock__list">
+                <li>✓ Lesson plan</li>
+                <li>✓ Vocabulary deck</li>
+                <li>✓ Listening activity</li>
+                <li>✓ Speaking prompts</li>
+                <li>✓ Reading exercise</li>
+                <li>○ Assessment quiz</li>
+                <li>○ Homework set</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="step step--2 step--reverse">
-        <div class="step__copy">
-          <p class="step__num">Step 2</p>
-          <h3>Generate everything you need for class</h3>
-          <p>Get customizable lesson plans, slides, activities, and homework instantly.</p>
+      <!-- Step 3: centered copy on top, two panels below -->
+      <div class="lstep lstep--3">
+        <div class="lstep__copy lstep__copy--center">
+          <p class="lstep__num">Step 3</p>
+          <h3 class="lstep__title">Track your students' progress</h3>
+          <p class="lstep__sub">Assign any song, lesson, or game for homework. Track real-time proficiency and engagement for every student.</p>
         </div>
-        <div class="step__visual">
-          <div class="card-mock card-mock--white">
-            <p class="card-mock__title card-mock__title--dark">Your lesson is ready</p>
-            <ul class="check-list">
-              <li>Lesson plan</li>
-              <li>Vocabulary deck</li>
-              <li>Listening activity</li>
-              <li>Speaking prompts</li>
-              <li>Reading exercise</li>
-              <li>Assessment quiz</li>
-              <li>Homework set</li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      <div class="step step--3">
-        <div class="step__copy">
-          <p class="step__num">Step 3</p>
-          <h3>Track your students' progress</h3>
-          <p>Get detailed reports on proficiency and engagement for every student.</p>
-        </div>
-        <div class="step__visual step__visual--row">
-          <div class="card-mock card-mock--white card-mock--small">
-            <p class="card-mock__title card-mock__title--dark">Class Dashboard</p>
-            <div class="bar"><span style="width: 80%;"></span></div>
-            <div class="bar"><span style="width: 64%;"></span></div>
-            <div class="bar"><span style="width: 92%;"></span></div>
-            <div class="bar"><span style="width: 48%;"></span></div>
+        <div class="lstep__panels">
+          <!-- LEFT PANEL: Dashboard Proficiency Container (orange gradient wrapper) -->
+          <div class="dashboard-mock">
+            <div class="dashboard-root">
+              <!-- Navy top nav -->
+              <div class="d-topnav">
+                <div class="d-topnav__left">
+                  <span class="d-topnav__brand">roxxem</span>
+                  <div class="d-topnav__search">
+                    <svg width="7.4" height="7.4" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>Search…</span>
+                  </div>
+                </div>
+                <div class="d-topnav__right">
+                  <span class="d-topnav__icon" aria-hidden="true">📥</span>
+                  <span class="d-topnav__icon" aria-hidden="true">👤</span>
+                  <span class="d-topnav__icon" aria-hidden="true">📥</span>
+                  <span class="d-topnav__flag" aria-hidden="true">
+                    <span style="background:#CC0000;flex:1"></span>
+                    <span style="background:#FFC400;flex:1.5"></span>
+                    <span style="background:#CC0000;flex:1"></span>
+                  </span>
+                  <span class="d-topnav__avatar" aria-hidden="true">🐻</span>
+                </div>
+              </div>
+
+              <div class="d-body">
+                <!-- Filter chips -->
+                <div class="d-filters">
+                  <span class="d-chip d-chip--active">All</span>
+                  <span class="d-chip">Spanish 1</span>
+                  <span class="d-chip">Spanish 2</span>
+                  <span class="d-chip">Spanish 3</span>
+                  <span class="d-chip">French 1</span>
+                  <span class="d-chip">ESL intermediate</span>
+                  <span class="d-chip">Spanish 4</span>
+                  <span class="d-chip">Class 2026</span>
+                  <span class="d-chip">Test class 1</span>
+                  <span class="d-chip">AP Chinese</span>
+                </div>
+
+                <!-- Proficiency card (white inner) -->
+                <div class="d-card">
+                  <div class="d-overview">
+                    <p class="d-overview__title">Student Proficiency Overview</p>
+                    <div class="d-overview__bar"></div>
+                    <div class="d-overview__alert">All classes synced and tracking — no action needed today.</div>
+                  </div>
+
+                  <div class="d-stats">
+                    <div class="d-stat"><div class="d-stat__num d-stat__num--students">26</div><div class="d-stat__label">Students</div></div>
+                    <div class="d-stat"><div class="d-stat__num d-stat__num--songs">142</div><div class="d-stat__label">Songs</div></div>
+                    <div class="d-stat"><div class="d-stat__num d-stat__num--lyrics">2,841</div><div class="d-stat__label">Lyrics</div></div>
+                    <div class="d-stat"><div class="d-stat__num d-stat__num--words">418</div><div class="d-stat__label">Words</div></div>
+                  </div>
+
+                  <div class="d-legend">
+                    <span class="d-legend__item d-legend__item--games"><span class="d-dot" style="background:#F43F5E"></span>Games</span>
+                    <span class="d-legend__item d-legend__item--hours"><span class="d-dot" style="background:#8B5CF6"></span>Hours</span>
+                    <span class="d-legend__item d-legend__item--lyrics"><span class="d-dot" style="background:#F59E0B"></span>Lyrics</span>
+                    <span class="d-legend__item d-legend__item--songs"><span class="d-dot" style="background:#10B981"></span>Songs</span>
+                    <span class="d-legend__item d-legend__item--words"><span class="d-dot" style="background:#3B82F6"></span>Words</span>
+                  </div>
+
+                  <div class="d-chart">
+                    <div class="d-chart__yaxis">
+                      <span>600</span><span>450</span><span>300</span><span>150</span><span>0</span>
+                    </div>
+                    <svg class="d-chart__canvas" viewBox="0 0 502.59 170.9" preserveAspectRatio="none" aria-hidden="true">
+                      <line x1="0" y1="0" x2="502.59" y2="0" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
+                      <line x1="0" y1="42.73" x2="502.59" y2="42.73" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
+                      <line x1="0" y1="85.45" x2="502.59" y2="85.45" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
+                      <line x1="0" y1="128.18" x2="502.59" y2="128.18" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
+                      <line x1="0" y1="170.9" x2="502.59" y2="170.9" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+                      <!-- Words (#3B82F6) at y=53.28 -->
+                      <polyline points="0,53.28 71.87,53.28 143.74,53.28 215.61,53.28 286.98,53.28 358.85,53.28 430.72,53.28 502.59,53.28" fill="none" stroke="#3B82F6" stroke-width="1.26"/>
+                      <!-- Lyrics (#F59E0B) at y=76.91 -->
+                      <polyline points="0,76.91 71.87,76.91 143.74,76.91 215.61,76.91 286.98,76.91 358.85,76.91 430.72,76.91 502.59,76.91" fill="none" stroke="#F59E0B" stroke-width="1.26"/>
+                      <!-- Games (#F43F5E) sloping from 97 down to 82 -->
+                      <polyline points="0,97.01 71.87,95.51 143.74,88.47 215.61,82.44 286.98,82.44 358.85,82.44 430.72,82.44 502.59,82.44" fill="none" stroke="#F43F5E" stroke-width="1.26"/>
+                      <!-- Hours (#8B5CF6) near bottom -->
+                      <polyline points="0,164.87 71.87,164.87 143.74,163.87 215.61,163.87 286.98,162.86 358.85,163.36 430.72,163.36 502.59,163.36" fill="none" stroke="#8B5CF6" stroke-width="1.26"/>
+                      <!-- Songs (#10B981) at the very bottom -->
+                      <polyline points="0,166.88 71.87,166.88 143.74,166.88 215.61,166.88 286.98,166.88 358.85,166.88 430.72,166.88 502.59,166.88" fill="none" stroke="#10B981" stroke-width="1.26"/>
+
+                      <!-- Data point dots -->
+                      <g fill="#3B82F6" stroke="#FFFFFF" stroke-width="0.5">
+                        <circle cx="0" cy="53.28" r="2.26"/><circle cx="71.87" cy="53.28" r="2.26"/><circle cx="143.74" cy="53.28" r="2.26"/><circle cx="215.61" cy="53.28" r="2.26"/><circle cx="286.98" cy="53.28" r="2.26"/><circle cx="358.85" cy="53.28" r="2.26"/><circle cx="430.72" cy="53.28" r="2.26"/><circle cx="502.59" cy="53.28" r="2.26"/>
+                      </g>
+                      <g fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.5">
+                        <circle cx="0" cy="76.91" r="2.26"/><circle cx="71.87" cy="76.91" r="2.26"/><circle cx="143.74" cy="76.91" r="2.26"/><circle cx="215.61" cy="76.91" r="2.26"/><circle cx="286.98" cy="76.91" r="2.26"/><circle cx="358.85" cy="76.91" r="2.26"/><circle cx="430.72" cy="76.91" r="2.26"/><circle cx="502.59" cy="76.91" r="2.26"/>
+                      </g>
+                      <g fill="#F43F5E" stroke="#FFFFFF" stroke-width="0.5">
+                        <circle cx="0" cy="97.01" r="2.26"/><circle cx="71.87" cy="95.51" r="2.26"/><circle cx="143.74" cy="93.24" r="2.26"/><circle cx="215.61" cy="86.21" r="2.26"/><circle cx="286.98" cy="80.17" r="2.26"/><circle cx="358.85" cy="80.17" r="2.26"/><circle cx="430.72" cy="80.17" r="2.26"/><circle cx="502.59" cy="80.17" r="2.26"/>
+                      </g>
+                      <g fill="#8B5CF6" stroke="#FFFFFF" stroke-width="0.5">
+                        <circle cx="0" cy="164.87" r="2.26"/><circle cx="71.87" cy="164.87" r="2.26"/><circle cx="143.74" cy="163.87" r="2.26"/><circle cx="215.61" cy="163.87" r="2.26"/><circle cx="286.98" cy="162.86" r="2.26"/><circle cx="358.85" cy="162.86" r="2.26"/><circle cx="430.72" cy="163.36" r="2.26"/><circle cx="502.59" cy="163.36" r="2.26"/>
+                      </g>
+                      <g fill="#10B981" stroke="#FFFFFF" stroke-width="0.5">
+                        <circle cx="0" cy="166.88" r="2.26"/><circle cx="71.87" cy="166.88" r="2.26"/><circle cx="143.74" cy="166.88" r="2.26"/><circle cx="215.61" cy="166.88" r="2.26"/><circle cx="286.98" cy="166.88" r="2.26"/><circle cx="358.85" cy="166.88" r="2.26"/><circle cx="430.72" cy="166.88" r="2.26"/><circle cx="502.59" cy="166.88" r="2.26"/>
+                      </g>
+                    </svg>
+                  </div>
+
+                  <div class="d-dates">
+                    <span>4/20/26</span><span>4/22/26</span><span>4/25/26</span><span>4/27/26</span><span>4/29/26</span><span>5/01/26</span><span>5/03/26</span><span>5/05/26</span>
+                  </div>
+                </div>
+
+                <!-- Footer row: sync note + help button -->
+                <div class="d-footer">
+                  <div class="d-footer__sync">
+                    <span class="d-footer__sync-icon" aria-hidden="true">ℹ</span>
+                    <span>Last synced 2 mins ago</span>
+                  </div>
+                  <button class="d-footer__help">
+                    <span aria-hidden="true">?</span>
+                    Help
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-mock card-mock--lime card-mock--small">
-            <p class="card-mock__title card-mock__title--dark">Your Proficiency Score</p>
-            <div class="big-num">94<span>/100</span></div>
-            <p class="card-mock__title card-mock__title--dark" style="margin-top: 1rem;">Level Progression</p>
-            <div class="bar bar--dark"><span style="width: 78%;"></span></div>
+
+          <!-- RIGHT PANEL: Proficiency Secondary Container (lime gradient wrapper) -->
+          <div class="proficiency-mock">
+            <!-- Score card (#EFFDF3 bg) -->
+            <div class="prof-card prof-card--score">
+              <div class="prof-card__row">
+                <p class="prof-card__title">Your Proficiency Score</p>
+                <p class="prof-card__score">94 <span>/100</span></p>
+              </div>
+              <div class="prof-card__bar-wrap">
+                <div class="prof-card__bar">
+                  <div class="prof-card__bar-track"></div>
+                  <div class="prof-card__bar-fill"></div>
+                </div>
+                <div class="prof-card__markers">
+                  <span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+                </div>
+              </div>
+              <div class="prof-card__note">
+                <span class="prof-card__note-text">Progress in last 5 weeks: +41 points</span>
+                <span class="prof-card__improving">
+                  <span class="prof-card__improving-icon" aria-hidden="true">↑</span>
+                  Improving!
+                </span>
+              </div>
+            </div>
+
+            <!-- Level progression card (#F0F4FF bg) -->
+            <div class="prof-card prof-card--level">
+              <p class="prof-card__title">Level Progression</p>
+              <div class="prof-track">
+                <div class="prof-node">
+                  <div class="prof-node__circle prof-node__circle--navy">1</div>
+                  <p class="prof-node__label prof-node__label--navy">Novice Low</p>
+                </div>
+                <div class="prof-line">
+                  <div class="prof-line__bar"></div>
+                  <div class="prof-line__arrow"></div>
+                </div>
+                <div class="prof-node">
+                  <div class="prof-node__circle prof-node__circle--purple">2</div>
+                  <p class="prof-node__label prof-node__label--purple">Novice Mid</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="lesson__cta">
-        <a href="#" class="btn btn--orange btn--lg">Create a Free Lesson →</a>
-        <div class="badges">
-          <span class="seal">ISTE Seal</span>
-          <span class="seal">Student Privacy Pledge</span>
-          <span class="seal">CASEL</span>
-          <span class="seal">SOC 2</span>
+        <a href="#" class="btn-mega">Create a Free Lesson <span>→</span></a>
+        <div class="trust-badges">
+          <div class="trust-badge trust-badge--launchpad">LaunchPad<br/><small>Education Award</small></div>
+          <div class="trust-badge trust-badge--privacy">Student<br/>Privacy<br/>Pledge</div>
+          <div class="trust-badge trust-badge--coppa">COPPA<br/><small>Compliant</small></div>
+          <div class="trust-badge trust-badge--cosn">CoSN<br/><small>Trusted</small></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CURRICULUM -->
+  <!-- CURRICULUM (Figma node 129:812) -->
   <section class="curriculum" id="publishers">
     <div class="container">
-      <p class="eyebrow eyebrow--orange">For Publishers</p>
-      <h2 class="section-title section-title--purple">Your Curriculum: AI-Native &amp; Packed<br/>with Popular Content</h2>
-      <p class="section-sub section-sub--orange">Publishers — plug in. Three upgrades. Zero rebuild.</p>
+      <div class="curriculum__head">
+        <p class="curriculum__eyebrow">For Publishers</p>
+        <h2 class="curriculum__title">Your Curriculum: AI-Native &amp; Packed with Popular Content</h2>
+        <p class="curriculum__sub">Publishers — plug us in. Three upgrades. Zero rebuild.</p>
+      </div>
 
+      <!-- Card 1: blue, text on LEFT (right-aligned), socials image on RIGHT -->
       <div class="cur-card cur-card--blue">
-        <div>
-          <h4>Popular Content, Curriculum-Aligned</h4>
-          <p>Match every unit to music, videos, and social content your students already love, personalized by class, refreshed automatically.</p>
+        <div class="cur-card__copy cur-card__copy--right">
+          <p class="cur-card__title">Popular Content, Curriculum-Aligned </p>
+          <p class="cur-card__desc">Match every unit to music, videos, and social content your students already love, personalized by class, refreshed automatically.</p>
         </div>
-        <div class="cur-card__icon" aria-hidden="true">
-          <img src="mascot-peek-head.png" alt="" />
+        <div class="cur-card__visual cur-card__visual--socials">
+          <img src="assets/curriculum-socials.png" alt="" />
         </div>
       </div>
 
+      <!-- Card 2: lime, image on LEFT, text on RIGHT (left-aligned) -->
       <div class="cur-card cur-card--lime">
-        <div class="cur-card__icon" aria-hidden="true">
-          <img src="mascot-peek-head.png" alt="" />
+        <div class="cur-card__visual cur-card__visual--stats">
+          <img src="assets/curriculum-stats.png" alt="" />
         </div>
-        <div>
-          <h4>Know Every Student</h4>
-          <p>See what each student has mastered, where they're stuck, and who's falling behind — before it's too late.</p>
+        <div class="cur-card__copy cur-card__copy--left">
+          <p class="cur-card__title">Know Every Student</p>
+          <p class="cur-card__desc">See what each student has mastered, where they're stuck, and who's falling behind — before it's too late.</p>
         </div>
       </div>
 
+      <!-- Card 3: orange, cream text on LEFT, lime circle with action image on RIGHT -->
       <div class="cur-card cur-card--orange">
-        <div>
-          <h4>Turn Data Into Action</h4>
-          <p>Roxxem tells teachers precisely what to review and reinforce, based on where their class actually is.</p>
+        <div class="cur-card__copy cur-card__copy--left cur-card__copy--cream">
+          <p class="cur-card__title">Turn Data Into Action</p>
+          <p class="cur-card__desc">Roxxem tells teachers precisely what to review and reinforce, based on where their class actually is.</p>
         </div>
-        <div class="cur-card__icon" aria-hidden="true">
-          <img src="mascot-peek-head.png" alt="" />
+        <div class="cur-card__action">
+          <img src="assets/curriculum-action.png" alt="" />
         </div>
       </div>
 
       <div class="curriculum__footer">
-        <p>Your content. Their attention. Real results.</p>
-        <a href="#" class="btn btn--purple btn--lg">Book a Publisher Demo →</a>
+        <p class="curriculum__footer-tag">Your content. Their attention. Real results.</p>
+        <a href="#" class="curriculum__cta">
+          <span>Book a Publisher Demo</span>
+          <svg width="40" height="41" viewBox="0 0 24 24" fill="none" stroke="#190288" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- LANGUAGE DEPT HEAD -->
+  <!-- LANGUAGE DEPT HEAD (Figma 129:692) -->
   <section class="langdept">
-    <img class="langdept__head" src="mascot-peek-head.png" alt="" />
-    <div class="langdept__band">
-      <h2 class="section-title section-title--cream">For Language Dept. Head</h2>
-      <div class="langdept__grid">
+    <!-- Background: orange shape with peeking foxes -->
+    <div class="langdept__bg">
+      <img class="langdept__fox-head" src="assets/ld-fox-head.svg" alt="" aria-hidden="true" />
+      <div class="langdept__shape"></div>
+      <img class="langdept__fox-tail" src="assets/ld-fox-tail.svg" alt="" aria-hidden="true" />
+    </div>
+
+    <!-- Foreground content -->
+    <div class="langdept__content">
+      <h2 class="langdept__title">For Language Dept. Head</h2>
+
+      <div class="langdept__row">
+        <!-- Stats grid (2 columns x 2 rows, alternating tall/short) -->
         <div class="ld-stats">
-          <div class="ld-stat">
-            <div class="ld-stat__num">70%</div>
-            <p>Aren't at the level of their textbook</p>
+          <div class="ld-stats__col ld-stats__col--1">
+            <div class="ld-stat ld-stat--short">
+              <p class="ld-stat__num">70%</p>
+              <p class="ld-stat__desc" style="width:215px;">Aren't at the level of their textbook</p>
+            </div>
+            <div class="ld-stat ld-stat--tall">
+              <p class="ld-stat__num ld-stat__num--mixed">
+                <span class="ld-stat__num--big">18</span><br/>
+                <span class="ld-stat__num--small">hours/week</span>
+              </p>
+              <p class="ld-stat__desc" style="width:200px;">Spent adapting materials from rigid textbooks</p>
+            </div>
           </div>
-          <div class="ld-stat ld-stat--tall">
-            <div class="ld-stat__num">Every<br/>5 Years</div>
-            <p>Textbooks replaced for $450 / student &amp; subject</p>
-          </div>
-          <div class="ld-stat ld-stat--tall">
-            <div class="ld-stat__num">18<br/>hours/week</div>
-            <p>Spent adapting materials from rigid textbooks</p>
-          </div>
-          <div class="ld-stat">
-            <div class="ld-stat__num">61%</div>
-            <p>Don't see interests reflected</p>
+          <div class="ld-stats__col ld-stats__col--2">
+            <div class="ld-stat ld-stat--tall">
+              <p class="ld-stat__num" style="width:140px;">Every<br/>5 Years</p>
+              <p class="ld-stat__desc" style="width:215px;">Textbooks replaced for $450 / student &amp; subject</p>
+            </div>
+            <div class="ld-stat ld-stat--short">
+              <p class="ld-stat__num">61%</p>
+              <p class="ld-stat__desc">Don't see interests reflected</p>
+            </div>
           </div>
         </div>
 
+        <!-- Quote section (lime card) -->
         <form class="quote-card" onsubmit="event.preventDefault();">
-          <h3>Get a quote</h3>
-          <div class="quote-card__field">
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit" aria-label="Submit">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </button>
+          <div class="quote-card__inner">
+            <p class="quote-card__title">Get a quote</p>
+            <div class="quote-card__form">
+              <input class="quote-card__input" type="email" placeholder="Enter your email" />
+              <button class="quote-card__submit" type="submit" aria-label="Submit">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#190288" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
           </div>
         </form>
       </div>
     </div>
-    <img class="langdept__tail" src="mascot-peek-tail.png" alt="" />
   </section>
 
   <!-- TESTIMONIALS -->

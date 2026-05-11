@@ -73,6 +73,15 @@ html, body {
   position: relative;
   overscroll-behavior-x: none;
 }
+/* html bg shows only in the iOS overscroll-bounce zone above the page
+   (when you pull-to-refresh). Navy keeps the area above the nav looking
+   continuous on iPhone without affecting any section. */
+html { background: var(--navy); }
+
+/* The How-It-Works content data lives in index.html as hidden <a> tags.
+   The hidden attribute should suffice, but be explicit so no CSS rule
+   for `a` accidentally exposes them. */
+#hiw-content, #hiw-content a { display: none !important; }
 body {
   font-family: var(--font-body);
   background: var(--cream);
@@ -3227,12 +3236,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Typography continues to scale via clamp() — no font-size
    overrides here.                                                */
 @media (max-width: 640px) {
-  /* Extend the navy past the top edge of the viewport on iPhones so the
-     iOS safe-area / status-bar zone (and the 24px gaps to either side of
-     the nav pill) read as one continuous navy block. The nav itself is
-     unchanged — its content stays in the same visual spot. */
-  body { background: var(--navy); }
-
   /* Hero: stack and center everything; show app card scaled to fit. */
   .hero__inner {
     grid-template-columns: 1fr !important;

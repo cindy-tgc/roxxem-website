@@ -1,37 +1,44 @@
-/* === Klima (display) ===
- * Drop your licensed Klima .woff (and/or .woff2) files in ./fonts/
- * with the filenames below; .woff2 is used when present.
- */
+/* === Klima (display) === */
 @font-face {
   font-family: 'Klima';
-  src: url('fonts/Klima-Regular.woff2') format('woff2'),
-       url('fonts/Klima-Regular.woff') format('woff');
+  src: url('fonts/klima-regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Klima';
-  src: url('fonts/Klima-Medium.woff2') format('woff2'),
-       url('fonts/Klima-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
+  src: url('fonts/klima-regular-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Klima';
-  src: url('fonts/Klima-Bold.woff2') format('woff2'),
-       url('fonts/Klima-Bold.woff') format('woff');
+  src: url('fonts/klima-bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Klima';
-  src: url('fonts/Klima-Black.woff2') format('woff2'),
-       url('fonts/Klima-Black.woff') format('woff');
+  src: url('fonts/klima-bold-italic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Klima';
+  src: url('fonts/klima-black.woff') format('woff');
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Klima';
+  src: url('fonts/klima-black-italic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
   font-display: swap;
 }
 

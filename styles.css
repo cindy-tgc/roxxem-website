@@ -1995,9 +1995,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   display: flex;
   align-items: center;
+  /* Image + text are kept together with a fixed 28px gap and centered
+     as a unit inside the card (justify-content: center). Children do
+     NOT flex-grow — they keep their natural widths. */
   justify-content: center;
   box-sizing: border-box;
-  gap: clamp(16px, 2.2vw, 28px);
+  gap: 28px;
   min-height: 216px;
 }
 .cur-card--blue  { background: #d3e4f8; }
@@ -2010,7 +2013,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: clamp(10px, 1.4vw, 20px);
   justify-content: center;
   line-height: 1.1;
-  flex: 1 1 0;
+  /* Don't grow — size to content (capped by title/desc max-width).
+     This lets image+text sit centered as a unit inside the card. */
+  flex: 0 1 auto;
   min-width: 0;
 }
 /* Both copy modifiers are left-aligned text — the modifier only

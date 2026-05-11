@@ -90,6 +90,11 @@ a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
 .container {
+  /* Always at least 24px from each viewport edge until mobile, matching
+     the nav. width = min(1256px, 100% - 48px), centered via margin auto.
+     With global box-sizing: border-box, the 24px padding sits inside
+     the width — content is inset 24px from the container's outer edge. */
+  width: calc(100% - 48px);
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 24px;
@@ -106,6 +111,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   justify-content: center;
   max-width: 1256px;
+  /* Always keep at least 24px margin from each viewport edge until mobile.
+     width = min(1256px, viewport - 48px), centered via margin: auto. */
+  width: calc(100% - 48px);
+  box-sizing: border-box;
   margin: 0 auto;
 }
 .nav__inner {
@@ -149,6 +158,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 0;
 }
 .hero__inner {
+  /* Same 24px-from-edge rule as the nav: width = min(1256px, 100% - 48px),
+     centered. Keeps the hero copy's left edge aligned with the nav bar's
+     left edge at every viewport down to mobile. */
+  width: calc(100% - 48px);
   max-width: 1256px;
   margin: 0 auto;
   display: grid;
@@ -181,7 +194,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(13px, 1.6vw, 19px);
+  font-size: clamp(14px, 1.7vw, 21px);
   color: var(--orange);
   margin: 0 0 72px;
   white-space: normal;
@@ -701,7 +714,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .section-sub {
   text-align: center;
-  font-size: 16px;
+  font-size: clamp(14px, 1.7vw, 21px);
   font-weight: 500;
   color: var(--ink);
   max-width: 720px;
@@ -717,26 +730,37 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-align: center;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 26px;
+  font-size: clamp(14px, 1.7vw, 21px);
   line-height: 1.32;
   color: var(--orange);
   max-width: 920px;
   margin: 12px auto 72px;
   letter-spacing: -0.01em;
 }
+/* Inline highlight stripes — marker-pen style. A colored band covers
+   only the bottom portion of the line box, so the text sits taller
+   than the highlight. box-decoration-break:clone makes the band
+   repeat correctly if the highlight wraps across lines. */
 .how__desc .hl {
-  background-image: linear-gradient(transparent 64%, currentColor 64%, currentColor 92%, transparent 92%);
-  padding: 0 2px;
+  display: inline;
+  padding: 0 0.2em;
+  color: var(--orange);
+  border-radius: 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
-.hl--lime { color: var(--lime); -webkit-text-fill-color: var(--orange); background-image: linear-gradient(transparent 64%, var(--lime) 64%, var(--lime) 92%, transparent 92%); }
-.hl--blue { color: var(--periwinkle); -webkit-text-fill-color: var(--orange); background-image: linear-gradient(transparent 64%, var(--periwinkle) 64%, var(--periwinkle) 92%, transparent 92%); }
+.hl--lime { background: linear-gradient(to top, var(--lime) 55%, transparent 55%); }
+.hl--blue { background: linear-gradient(to top, var(--periwinkle) 55%, transparent 55%); }
 
 .tabs {
   display: flex;
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 54px;
+  /* Breathing room so hover translateY(-1px) and the active tab's
+     4×4 box-shadow are never clipped by row/section boundaries. */
+  padding: 6px 6px 10px;
+  margin: -6px -6px 44px; /* keep visual position unchanged */
 }
 .tab {
   background: transparent;
@@ -882,10 +906,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* === LESSON STEPS — values from Figma node 129:1971 === */
 .lesson { padding: 128px 0 108px; }
 
-/* Lesson steps span the full 1256px container box (matching the nav-bar
-   outer edges), so the form-mock and walkthrough video reach the same
-   left/right edges as the navigation above. Narrow viewports get the
-   default 24px padding restored further below. */
+/* Lesson container has no inner padding so its content (form-mock, video)
+   reaches the same outer edge as the nav above (both inset 24px from the
+   viewport via .container's width calc). */
 .lesson .container {
   padding-left: 0;
   padding-right: 0;
@@ -921,7 +944,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .lesson__desc {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(14px, 1.6vw, 20px);
+  font-size: clamp(14px, 1.7vw, 21px);
   color: #ff5e32;
   letter-spacing: -0.3086px;
   line-height: 1.3;
@@ -936,7 +959,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   margin-bottom: 108px;
 }
-.lstep--1 { grid-template-columns: 696fr 559.137fr; justify-content: center; }
+.lstep--1 { grid-template-columns: 696fr 559.137fr; justify-content: space-between; }
 .lstep--2 { grid-template-columns: 566fr 724fr; justify-content: space-between; }
 .lstep--3 {
   display: flex;
@@ -949,25 +972,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   min-height: 610px;
   margin: 0 auto;
 }
-.lstep--3 .lstep__copy { width: 520px; align-items: center; gap: 8px; }
+.lstep--3 .lstep__copy { width: 100%; max-width: 680px; margin: 0 auto; align-items: center; gap: 0; }
 .lstep--3 .lstep__copy * { text-align: center; }
 .lstep--3 .lstep__title { font-size: 37.779px; line-height: 43px; letter-spacing: -0.314826px; }
 .lstep--3 .lstep__sub {
-  width: 506px;
-  font-size: 28.334px;
-  line-height: 32px;
+  width: auto;
+  /* font-size inherited from base .lstep__sub (clamp max 21px) so all
+     three steps' body texts match. */
   letter-spacing: -0.314826px;
   font-weight: 400;
 }
 
 .lstep__num {
+  /* Eyebrow-style label — matches .eyebrow size + spacing exactly,
+     so it sits directly on top of the title with no visible gap. */
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(16px, 1.8vw, 24px);
+  font-size: clamp(15px, 1.7vw, 21px);
   color: #ff5e32;
   letter-spacing: -0.3086px;
+  line-height: 1.28;
   margin: 0;
-  line-height: 1.1;
 }
 .lstep__title {
   font-family: var(--font-display);
@@ -984,7 +1009,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .lstep__sub {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(15px, 2.1vw, 28px);
+  font-size: clamp(16px, 2vw, 21px);
   color: #0a0911;
   margin: 0;
   line-height: 1.3;
@@ -994,11 +1019,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .lstep__copy {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  /* No gap — step num sits flush on top of the title (eyebrow style).
+     Title→sub spacing is handled by margin-top on .lstep__sub below. */
+  gap: 0;
+  min-width: 0; /* allow grid item to shrink below content width */
 }
-.lstep--1 .lstep__copy { width: 559.137px; align-items: flex-end; text-align: right; }
+.lstep__visual { min-width: 0; }
+/* Grid items default to justify-self: stretch, so each visual/copy fills
+   its column. With width:100% + max-width on the inner elements, they
+   either fill the column (when column < max-width) or sit at the column's
+   natural edge. No justify-self override needed. */
+.lstep__sub { margin-top: 12px; }
+.lstep--1 .lstep__copy { width: 100%; max-width: 559.137px; align-items: flex-end; text-align: right; }
 .lstep--1 .lstep__copy * { text-align: right; }
-.lstep--2 .lstep__copy { width: 566px; gap: 19px; }
+.lstep--2 .lstep__copy { width: 100%; max-width: 566px; }
 .lstep__copy--center {
   text-align: center;
   max-width: 600px;
@@ -1011,13 +1045,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #f8f7ec;
   border-radius: 16px;
   padding: 34px 20px 28px;
-  width: 625px;
+  width: 100%;
+  max-width: 625px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
   box-sizing: border-box;
 }
-.form-mock__heading { display: flex; flex-direction: column; gap: 11.346px; width: 585px; }
+.form-mock__heading { display: flex; flex-direction: column; gap: 11.346px; width: 100%; }
 .form-mock__q {
   font-family: 'Inter', var(--font-body);
   font-weight: 700;
@@ -1043,7 +1079,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   gap: 14.183px;
   height: 42.856px;
-  width: 585px;
+  width: 100%;
 }
 .form-mock__meta {
   display: flex;
@@ -1085,7 +1121,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   flex-wrap: wrap;
   gap: 12px 10.212px;
-  width: 504.626px;
+  width: 100%;
 }
 .form-chip {
   background: #190288;
@@ -1111,7 +1147,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   flex-direction: column;
   gap: 16px;
   min-height: 85.097px;
-  width: 585px;
+  width: 100%;
   box-sizing: border-box;
 }
 .form-mock__cursor {
@@ -1150,7 +1186,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   width: 100%;
   aspect-ratio: 724 / 464;
-  border-radius: 24px;
+  border-radius: 12px;
   overflow: hidden;
   border: none;
   box-shadow: none;
@@ -1264,7 +1300,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   min-width: 0;
   height: 520px;
-  border-radius: 24px;
+  border-radius: 12px;
   padding: 36px 28px 0;
   background: linear-gradient(180deg, rgba(255, 94, 50, 0.8) 0%, #F8F7EC 91.35%);
   box-sizing: border-box;
@@ -1275,7 +1311,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* dashboard-root (cream-bg inner card, 129:856) */
 .dashboard-root {
-  width: 555px;
+  width: 100%;
+  max-width: 555px;
   min-height: 474px;
   background: #F8F7EC;
   border-radius: 16px;
@@ -1594,7 +1631,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   min-width: 0;
   height: 520px;
-  border-radius: 24px;
+  border-radius: 12px;
   padding: 36px 28px;
   background: linear-gradient(180deg, rgba(227, 245, 13, 0.8) 0%, #F8F7EC 91.83%);
   box-sizing: border-box;
@@ -1606,8 +1643,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .prof-card {
-  width: 516px;
-  height: 210px;
+  width: 100%;
+  max-width: 516px;
+  min-height: 210px;
   border: 1px solid #E5E7EB;
   border-radius: 12px;
   padding: 24px;
@@ -1659,7 +1697,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .prof-card__bar {
   position: relative;
-  width: 468px;
+  width: 100%;
   height: 10px;
 }
 .prof-card__bar-track {
@@ -1672,7 +1710,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: absolute;
   left: 0;
   top: 0;
-  width: 434px;
+  width: 93%;
   height: 10px;
   background: linear-gradient(90deg, #FF5E32 0%, #FFB800 33%, #A3D133 66%, #4CAF50 100%);
   border-radius: 5px;
@@ -1680,7 +1718,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .prof-card__markers {
   display: flex;
   justify-content: space-between;
-  width: 468px;
+  width: 100%;
   height: 11px;
   font-family: var(--font-body);
   font-weight: 400;
@@ -1716,20 +1754,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .prof-card__improving-icon {
   width: 14.86px;
   height: 14.86px;
-  border: 2.476px solid #4CAF50;
+  border: 1.8px solid #4CAF50;
   border-radius: 50%;
-  display: grid;
+  display: inline-grid;
   place-items: center;
-  font-size: 10px;
-  font-weight: 800;
+  flex: 0 0 auto;
+}
+.prof-card__improving-icon svg {
+  display: block;
 }
 
 /* Level progression track */
 .prof-track {
   background: linear-gradient(90deg, #F0F6FF 0%, #FCF6FF 100%);
   border-radius: 6px;
-  width: 468px;
-  height: 119px;
+  width: 100%;
+  min-height: 119px;
   padding: 12px 0;
   display: flex;
   justify-content: center;
@@ -1777,14 +1817,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .prof-node__label--purple { color: #A855F7; font-size: 15.015px; line-height: 17px; }
 
 .prof-line {
-  width: 248px;
+  flex: 1 1 0;
+  min-width: 0;
   height: 50px;
   position: relative;
-  flex: 0 0 auto;
 }
 .prof-line__bar {
   position: absolute;
-  width: 248px;
+  width: 100%;
   height: 8px;
   left: 0;
   top: 0;
@@ -1795,7 +1835,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: absolute;
   width: 26px;
   height: 0;
-  left: 111px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 25.5px;
   border-top: 2.5px solid #8B5CF6;
 }
@@ -1934,13 +1975,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* === CURRICULUM (Figma 129:812) === */
 .curriculum { padding: 128px 0; }
 .curriculum .container {
-  /* Side margin between viewport edge and card SHRINKS smoothly as the
-     viewport narrows — wide screens get generous breathing room around
-     the cards (~28px), narrow tablets/phones let the cards fill more of
-     the available width (~6px) so we don't lose screen real estate.
-     Below 640px the layout switches to stacked mobile. */
-  padding-left:  clamp(6px, calc((100vw - 320px) * 0.025), 28px);
-  padding-right: clamp(6px, calc((100vw - 320px) * 0.025), 28px);
+  /* Cards align with the nav-bar edges; both are inset 24px from the
+     viewport edge until the mobile breakpoint (handled by .container). */
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   flex-direction: column;
   gap: 56px;
@@ -1978,7 +2016,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .curriculum__sub {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(15px, 1.7vw, 21px);
+  font-size: clamp(14px, 1.7vw, 21px);
   line-height: 1.28;
   letter-spacing: -0.3086px;
   color: #ff5e32;
@@ -2040,10 +2078,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cur-card__desc {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(14px, 1.8vw, 25px);
+  font-size: clamp(14px, 1.7vw, 21px);
   letter-spacing: 0.3px;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.3;
   max-width: 500px;
 }
 
@@ -2107,8 +2145,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .curriculum__footer-tag {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
-  line-height: 26.743px;
+  font-size: clamp(14px, 1.7vw, 21px);
+  line-height: 1.28;
   letter-spacing: -0.3086px;
   color: #ff5e32;
   text-align: center;
@@ -2266,9 +2304,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .ld-stat__desc {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(14px, 1.5vw, 21px);
+  font-size: 18px;
   letter-spacing: 0.3px;
-  line-height: 1.15;
+  line-height: 1.25;
   color: #190288;
   margin: 0;
 }
@@ -2418,18 +2456,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: block;
   background: #000; /* letterbox colour while loading */
 }
-.video-quote {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  background: var(--navy);
-  border: 1.5px solid var(--white);
-  border-radius: 12px;
-  padding: 12px 16px;
-  color: white;
-}
-.video-quote__name { margin: 0; font-weight: 700; font-size: 14px; }
-.video-quote__role { margin: 2px 0 0; font-size: 12px; opacity: 0.7; }
+.video-quote { display: none; }
 
 /* === TESTIMONIAL MARQUEE (129:740) === */
 .marquee-reviews {
@@ -2438,6 +2465,36 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 64px 0 86px;
   background: var(--cream);
 }
+
+/* See the Wall of Love CTA (Figma 129:795) — sits below the marquee */
+.wall-of-love-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 36px auto 0;
+  width: max-content;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -1px;
+  color: var(--navy);
+  text-decoration: none;
+  transition: opacity .15s ease;
+}
+.wall-of-love-cta:hover { opacity: 0.85; }
+.wall-of-love-cta__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  transition: background .15s ease;
+}
+.wall-of-love-cta:hover .wall-of-love-cta__icon { background: var(--lime-2); }
 
 /* Track — doubled content for seamless loop */
 .marquee-reviews__track {
@@ -2518,8 +2575,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .tcard__quote {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.04;
+  font-size: clamp(14px, 1.7vw, 21px);
+  line-height: 1.3;
   margin: 0;
 }
 
@@ -2546,8 +2603,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--cream);
 }
 
-/* Pricing container spans the full 1256px nav-width lane (cards reach
-   the nav-bar's left and right edges via justify-content: space-between). */
+/* Pricing container aligns with the nav-bar edges (both inset 24px
+   via .container's width calc). */
 .pricing .container {
   padding-left: 0;
   padding-right: 0;
@@ -2575,8 +2632,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .pricing__sub {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: clamp(14px, 1.7vw, 21px);
+  line-height: 1.3;
   letter-spacing: -0.3086px;
   color: #ff5e32;
   margin: 0;
@@ -2768,7 +2825,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* === NEWSLETTER === */
 .newsletter { padding: 86px 0; }
 
-/* Newsletter container also spans the full 1256px nav-width lane. */
+/* Newsletter container aligns with the nav-bar edges (both inset 24px
+   via .container's width calc). */
 .newsletter .container {
   padding-left: 0;
   padding-right: 0;
@@ -2776,14 +2834,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .newsletter__card {
   background: var(--lime);
-  border: 2px solid var(--ink);
+  border: 2.5px solid #0a0911;
   border-radius: var(--radius-lg);
   padding: 32px 56px 32px 32px;
   display: grid;
   grid-template-columns: 280px 1fr;
   align-items: center;
   gap: 32px;
-  box-shadow: 8px 8px 0 var(--ink);
 }
 .newsletter__fox {
   width: 260px;
@@ -2802,29 +2859,64 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0 0 16px;
   color: var(--orange);
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(14px, 1.7vw, 21px);
+  line-height: 1.3;
 }
+/* Newsletter email pill — same visual pattern as .hero__email:
+   squared-off white pill with thick ink border, input on left
+   (grey placeholder), lime-circle arrow button on the right. */
 .newsletter__form {
   display: flex;
-  gap: 12px;
   align-items: center;
+  background: var(--white);
+  border: 2.714px solid var(--ink);
+  border-radius: 10.855px;
+  padding: 2.714px;
+  width: 100%;
+  max-width: 490.032px;
+  height: clamp(56px, 6.5vw, 78.794px);
+  overflow: hidden;
+  min-width: 0;
 }
 .newsletter__form input {
   flex: 1;
-  padding: 14px 18px;
-  border-radius: 999px;
-  border: 1.5px solid var(--ink);
-  font-size: 15px;
-  font-family: inherit;
+  min-width: 0;
+  border: none;
   outline: none;
-  background: white;
+  background: transparent;
+  padding: 0 14px 0 clamp(14px, 2.4vw, 32px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(14px, 1.85vw, 21.711px);
+  color: var(--ink);
+  height: 100%;
 }
+.newsletter__form input::placeholder {
+  color: rgba(10, 9, 17, 0.5);
+  font-weight: 400;
+}
+.newsletter__form button {
+  width: 38.585px;
+  height: 38.585px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  margin-right: 18px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.newsletter__form button:hover { background: var(--lime-2); }
 
 /* === FOOTER === */
 /* === FOOTER (Figma 129:600) === */
 .footer {
   background: #190288;
   color: #fdf3e3;
+  /* Same 24px-from-edge rule as the nav: width = min(1256px, 100% - 48px),
+     centered. Keeps the rounded footer inset from the viewport edges. */
+  width: calc(100% - 48px);
   max-width: 1256px;
   margin: 0 auto;
   padding: 74px 64px 45px;
@@ -2864,7 +2956,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.3;
+  line-height: 1.4;
   letter-spacing: -0.24px;
   color: #fdf3e3;
   margin: 14px 0 34px;
@@ -2917,7 +3009,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   letter-spacing: -0.25px;
   color: #fdf3e3;
   opacity: 0.9;
@@ -2944,7 +3036,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.4;
   letter-spacing: -0.17px;
   color: #fdf3e3;
   opacity: 0.8;
@@ -2971,13 +3063,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Multi-column desktop layouts collapse to single-column stacks
    where they need to. Typography keeps scaling via clamp().      */
 @media (max-width: 1024px) {
-  /* Container side padding for non-curriculum sections (curriculum
-     uses its own clamp-based padding). Single value — no more jumps. */
-  .lesson .container,
-  .pricing .container,
-  .newsletter .container { padding-left: 24px; padding-right: 24px; }
-  .container { padding-left: 20px; padding-right: 20px; }
-
   /* Nav: hide link list (hamburger TBD). Logo stays. */
   .nav__links { display: none; }
 
@@ -3063,10 +3148,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px 32px; margin-bottom: 36px; }
   .footer__brand { grid-column: 1 / -1; }
   .footer__logo img { width: 180px; }
-  .footer__head { font-size: 16px; margin-bottom: 16px; }
-  .footer__col a { font-size: 16px; line-height: 24px; }
+  .footer__head { margin-bottom: 16px; }
   .footer__base { flex-direction: column; gap: 8px; align-items: flex-start; padding-top: 32px; }
-  .footer__base p { font-size: 16px; }
 
   /* Mega CTA — scale down */
   .btn-mega { padding: 14px 22px; gap: 10px; }
@@ -3096,18 +3179,92 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Typography continues to scale via clamp() — no font-size
    overrides here.                                                */
 @media (max-width: 640px) {
-  /* Hero: stack (text above, app card hidden) */
-  .hero__inner { grid-template-columns: 1fr !important; min-height: 0 !important; }
-  .hero__copy { width: auto !important; padding: 32px 20px 0 !important; }
-  .hero__sub { white-space: normal !important; }
-  .email-pill { width: 100%; max-width: 480px; }
-  .hero__app { display: none; }
+  /* Hero: stack and center everything; show app card scaled to fit. */
+  .hero__inner {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+    gap: 0 !important;
+  }
+  .hero__copy {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 40px 0 0 !important;
+    align-items: center !important;
+    text-align: center;
+  }
+  .hero__title {
+    /* Bigger on mobile so the headline breaks into roughly 3 lines and
+       reads as a strong opening like the reference design. */
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.05;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .hero__sub { white-space: normal !important; text-align: center; margin-bottom: 32px; }
+  .hero__email {
+    /* Smaller email pill on mobile — narrower & shorter than desktop. */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height: 56px;
+  }
+  .hero__email input { font-size: 16px; }
+  .hero__email button { width: 34px; height: 34px; margin-right: 12px; }
+  .hero__langs { justify-content: center; }
+  .email-pill { width: 100%; max-width: 360px; }
+
+  /* App card on mobile: the orange shape sits BEHIND the appcard,
+     covering only the lower portion so the top of the UI rises above it.
+     Bottom of the orange is flat (no border-radius) so it merges into
+     the stats section directly below.
+     - .hero__app has the same aspect ratio as the scaled appcard, so
+       both end at the same baseline.
+     - .hero__app::before is the orange backplate, starting 30% from the
+       top and extending to the bottom.
+     - .appcard scales to fit the inner 90% width and sits at top: 0,
+       so its upper 30% pokes above the orange. */
+  .hero__app {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    /* Aspect = scaled-appcard width vs scaled-appcard height.
+       Scaled width = container_width * 0.9, scaled height = scaled_width * 932/947
+       → height / width = 0.9 * 932/947 = 0.8856 → ratio 947 : 838 */
+    aspect-ratio: 947 / 838;
+    height: auto;
+    min-height: 0;
+    margin: 32px auto 0;
+    background: transparent;
+    overflow: visible;
+  }
+  .hero__app::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+    bottom: 0;
+    background: var(--orange);
+    border-radius: 24px 24px 0 0;
+    z-index: 1;
+  }
+  .hero__fox, .hero__roxxy { display: none !important; }
+  .appcard {
+    position: absolute !important;
+    top: 0 !important;
+    left: 5% !important;
+    bottom: auto !important;
+    z-index: 2;
+    transform-origin: top left;
+    transform: scale(calc(((100vw - 48px) * 0.9) / 947px));
+    filter: none !important;
+  }
 
   /* Footer to single column */
   .footer { padding: 44px 28px 28px; border-radius: 28px 28px 0 0; }
   .footer__grid { grid-template-columns: 1fr; gap: 28px; }
   .footer__logo img { width: 150px; }
-  .footer__tag { font-size: 15px; margin-bottom: 24px; }
+  .footer__tag { margin-bottom: 24px; }
   .social { width: 46px; height: 46px; }
   .social svg { width: 20px; height: 20px; }
 
@@ -3134,4 +3291,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .cur-card__visual--stats { width: 150px; }
   .cur-card__action       { width: 130px; height: 130px; }
   .cur-card__action img   { width: 170px; height: 170px; }
+
+  /* Trust badges fit on one line on mobile — shrink and tighten gap,
+     no wrapping. Sized to fit even the narrowest typical mobile (320px).
+     Total ≈ 60+78+48+48 + 3×6 gap = 252px ≤ 272px content area. */
+  .trust-badges { gap: 6px; flex-wrap: nowrap; margin-top: 36px; }
+  .trust-badge--launchpad { width: 60px; height: auto; }
+  .trust-badge--privacy   { width: 78px; height: auto; }
+  .trust-badge--coppa,
+  .trust-badge--cosn {
+    width: 48px; height: 57px;
+    background-size: 103.5px 57px;
+  }
+  .trust-badge--cosn { background-position: -55.5px 0; }
 }

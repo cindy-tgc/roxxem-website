@@ -438,7 +438,12 @@
               <div class="prof-card__note">
                 <span class="prof-card__note-text">Progress in last 5 weeks: +41 points</span>
                 <span class="prof-card__improving">
-                  <span class="prof-card__improving-icon" aria-hidden="true">↑</span>
+                  <span class="prof-card__improving-icon" aria-hidden="true">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="19" x2="12" y2="5"></line>
+                      <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                  </span>
                   Improving!
                 </span>
               </div>
@@ -492,18 +497,20 @@
         <p class="curriculum__sub">Publishers — plug us in. Three upgrades. Zero rebuild.</p>
       </div>
 
-      <!-- Card 1: blue, text on LEFT (right-aligned), socials image on RIGHT -->
+      <!-- All 3 cards: image on LEFT, text on RIGHT (left-aligned) -->
+
+      <!-- Card 1: blue, socials image on LEFT, text on RIGHT -->
       <div class="cur-card cur-card--blue">
-        <div class="cur-card__copy cur-card__copy--right">
-          <p class="cur-card__title">Popular Content, Curriculum-Aligned </p>
-          <p class="cur-card__desc">Match every unit to music, videos, and social content your students already love, personalized by class, refreshed automatically.</p>
-        </div>
         <div class="cur-card__visual cur-card__visual--socials">
           <img src="assets/curriculum-socials.png" alt="" />
         </div>
+        <div class="cur-card__copy cur-card__copy--left">
+          <p class="cur-card__title">Popular Content, Curriculum-Aligned</p>
+          <p class="cur-card__desc">Match every unit to music, videos, and social content your students already love, personalized by class, refreshed automatically.</p>
+        </div>
       </div>
 
-      <!-- Card 2: lime, image on LEFT, text on RIGHT (left-aligned) -->
+      <!-- Card 2: lime, stats image on LEFT, text on RIGHT -->
       <div class="cur-card cur-card--lime">
         <div class="cur-card__visual cur-card__visual--stats">
           <img src="assets/curriculum-stats.png" alt="" />
@@ -514,14 +521,14 @@
         </div>
       </div>
 
-      <!-- Card 3: orange, cream text on LEFT, lime circle with action image on RIGHT -->
+      <!-- Card 3: orange, lime circle (action) on LEFT, cream text on RIGHT -->
       <div class="cur-card cur-card--orange">
+        <div class="cur-card__action">
+          <img src="assets/curriculum-action.png" alt="" />
+        </div>
         <div class="cur-card__copy cur-card__copy--left cur-card__copy--cream">
           <p class="cur-card__title">Turn Data Into Action</p>
           <p class="cur-card__desc">Roxxem tells teachers precisely what to review and reinforce, based on where their class actually is.</p>
-        </div>
-        <div class="cur-card__action">
-          <img src="assets/curriculum-action.png" alt="" />
         </div>
       </div>
 
@@ -795,6 +802,17 @@
       </div>
 
     </div>
+
+    <!-- See the Wall of Love CTA (Figma 129:795) -->
+    <a class="wall-of-love-cta" href="https://www.roxxem.com/wall-of-love">
+      See the Wall of Love
+      <span class="wall-of-love-cta__icon" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </span>
+    </a>
   </section>
 
   <!-- PRICING -->
@@ -879,8 +897,10 @@
           <h3>Get your first, free lesson plan</h3>
           <p>Personalizable content that aligns to your curriculum and student interests</p>
           <form class="newsletter__form" onsubmit="event.preventDefault();">
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit" class="btn btn--orange">Get Started →</button>
+            <input type="email" placeholder="Get Started For Free" aria-label="Email" />
+            <button type="submit" aria-label="Submit">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
           </form>
         </div>
       </div>
@@ -895,7 +915,7 @@
           <a class="footer__logo" href="#" aria-label="Roxxem home">
             <img src="roxxem-logo.svg" alt="Roxxem" />
           </a>
-          <p class="footer__tag">Interactive language lessons based<br/>on culture your students already love</p>
+          <p class="footer__tag">Interactive language lessons based on culture your students already love</p>
           <div class="socials">
             <a class="social" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>

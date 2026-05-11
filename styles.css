@@ -1934,11 +1934,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* === CURRICULUM (Figma 129:812) === */
 .curriculum { padding: 128px 0; }
 .curriculum .container {
-  /* Cards span the full 1256px container box (matching the nav-bar
-     outer edges), same as lesson steps. Narrow viewports restore the
-     default 24px padding below. */
-  padding-left: 0;
-  padding-right: 0;
+  /* Side margin between viewport edge and card SHRINKS smoothly as the
+     viewport narrows — wide screens get generous breathing room around
+     the cards (~28px), narrow tablets/phones let the cards fill more of
+     the available width (~6px) so we don't lose screen real estate.
+     Below 640px the layout switches to stacked mobile. */
+  padding-left:  clamp(6px, calc((100vw - 320px) * 0.025), 28px);
+  padding-right: clamp(6px, calc((100vw - 320px) * 0.025), 28px);
   display: flex;
   flex-direction: column;
   gap: 56px;
@@ -2011,15 +2013,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   flex: 1 1 0;
   min-width: 0;
 }
-.cur-card__copy--right {
-  align-items: flex-end;
-  text-align: left;
-  padding: 0 clamp(8px, 1.2vw, 16px);
-  color: #190288;
-}
+/* Both copy modifiers are left-aligned text — the modifier only
+   reflects DOM position (copy first vs. copy after visual). */
+.cur-card__copy--right,
 .cur-card__copy--left {
   align-items: flex-start;
-  padding: 0 clamp(8px, 1.2vw, 16px);
+  text-align: left;
+  padding: 0 clamp(8px, 1.2vw, 24px);
   color: #190288;
 }
 .cur-card__copy--cream { color: #fdf3e3; }
@@ -3029,9 +3029,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* --- < 1100px: stack columns where they don't fit side by side --- */
 @media (max-width: 1100px) {
   /* At narrow viewports, restore the default 24px side padding on the
-     full-nav-width sections so the content doesn't touch the screen edge. */
+     full-nav-width sections so the content doesn't touch the screen edge.
+     (Curriculum handles this fluidly via clamp() in its base styles.) */
   .lesson .container,
-  .curriculum .container,
   .pricing .container,
   .newsletter .container {
     padding-left: 24px;

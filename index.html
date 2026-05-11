@@ -607,10 +607,10 @@
           <button class="video-arrow video-arrow--left" aria-label="Previous">‹</button>
           <div class="video-stage">
             <div class="video-stage__inner">
-              <div class="video-thumb"></div>
+              <video id="testi-video" class="video-thumb" playsinline controls></video>
               <div class="video-quote">
-                <p class="video-quote__name">Andrea Sotelo | Spanish Teacher 🇲🇽</p>
-                <p class="video-quote__role">at Winnebago High School</p>
+                <p class="video-quote__name" id="testi-name">Andrea Sotelo | Spanish Teacher 🇲🇽</p>
+                <p class="video-quote__role" id="testi-role">at Winnebago High School</p>
               </div>
             </div>
           </div>
@@ -947,6 +947,40 @@
   </footer>
 
   <script src="how-it-works.js"></script>
+  <script>
+    /* Testimonials video carousel */
+    (function () {
+      var TESTIMONIALS = [
+        { name: 'Andrea Sotelo | Spanish Teacher 🇲🇽', role: 'at Winnebago High School',   src: 'assets/Andrea.mov'  },
+        { name: 'Brandon | Language Teacher',           role: 'Roxxem User',                src: 'assets/Brandon.mov' },
+        { name: 'Brynell | Language Teacher',           role: 'Roxxem User',                src: 'assets/Brynell.mov' },
+        { name: 'Menya | Language Teacher',             role: 'Roxxem User',                src: 'assets/Menya.mov'   }
+      ];
+
+      var current  = 0;
+      var video    = document.getElementById('testi-video');
+      var nameEl   = document.getElementById('testi-name');
+      var roleEl   = document.getElementById('testi-role');
+      var btnLeft  = document.querySelector('.video-arrow--left');
+      var btnRight = document.querySelector('.video-arrow--right');
+
+      if (!video || !nameEl || !roleEl || !btnLeft || !btnRight) return;
+
+      function load(i) {
+        current = (i + TESTIMONIALS.length) % TESTIMONIALS.length;
+        var t = TESTIMONIALS[current];
+        video.src = t.src;
+        video.load();
+        nameEl.textContent = t.name;
+        roleEl.textContent = t.role;
+      }
+
+      btnLeft.addEventListener('click',  function () { load(current - 1); });
+      btnRight.addEventListener('click', function () { load(current + 1); });
+
+      load(0); // initialise with first video
+    })();
+  </script>
   <script>
     (function () {
       var btn = document.getElementById('walkthrough-sound');

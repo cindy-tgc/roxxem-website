@@ -14,15 +14,42 @@
       <a class="nav__brand" href="#" aria-label="Roxxem home">
         <img src="roxxem-logo.svg" alt="Roxxem" />
       </a>
-      <nav class="nav__links">
+      <nav class="nav__links" id="nav-links">
         <a href="#pricing">Pricing</a>
         <a href="#blog">Blog</a>
         <a href="#wall">Wall of Love</a>
         <a href="#publishers">For Publishers</a>
         <a href="#resources">Resources</a>
       </nav>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
     </div>
   </header>
+  <script>
+    // Hamburger menu toggle (mobile)
+    (function () {
+      const btn = document.getElementById('nav-hamburger');
+      const links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        links.classList.toggle('is-open', !open);
+        btn.classList.toggle('is-open', !open);
+      });
+      // Close menu when a link is tapped
+      links.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          btn.setAttribute('aria-expanded', 'false');
+          links.classList.remove('is-open');
+          btn.classList.remove('is-open');
+        }
+      });
+    })();
+  </script>
 
   <!-- HERO -->
   <section class="hero">
@@ -199,6 +226,264 @@
       </div>
 
       <div class="tab-panels"></div>
+
+      <!-- ════════════════════════════════════════════════════════════
+           VIDEO LINKS — edit any href below to change where the card
+           links. Each <a> below is one video card. data-lang + data-cat
+           group cards into the tabs/dropdown above.
+           Attributes:
+             href        → the link destination (where the card goes)
+             data-lang   → language tab (spanish/french/german/english/chinese)
+             data-cat    → category tab (music/tv/viral/social/podcasts/news)
+             data-title  → big text under the thumbnail
+             data-sub    → small text under the title (artist/source/etc.)
+             data-image  → thumbnail image URL
+           Add, remove, or reorder freely. JS picks up everything here
+           and rebuilds the grid on page load.
+           ════════════════════════════════════════════════════════════ -->
+      <div id="hiw-content" hidden>
+
+        <!-- ─── SPANISH · MUSIC ─── -->
+        <a data-lang="spanish" data-cat="music" data-title="Vivir Mi Vida" data-sub="Marc Anthony" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/videos/62061ca577553aca824b2050"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Waka Waka (Esto Es África)" data-sub="Shakira" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/videos/62061caa77553aca824c122f"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Un Poco Loco (Coco)" data-sub="Luis Ángel Gómez Jaramillo, Gael García Bernal" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/videos/65467157aecf1952242071bc"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Despacito" data-sub="Luis Fonsi ft. Daddy Yankee" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=music"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Bailando" data-sub="Enrique Iglesias" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=music"></a>
+        <a data-lang="spanish" data-cat="music" data-title="La Bicicleta" data-sub="Carlos Vives, Shakira" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=music"></a>
+
+        <!-- ─── SPANISH · TV & FILM ─── -->
+        <a data-lang="spanish" data-cat="tv" data-title="Coco" data-sub="Pixar Animation" data-image="https://i.ytimg.com/vi/xlnPHQ3TLX8/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Money Heist" data-sub="Netflix · La Casa de Papel" data-image="https://i.ytimg.com/vi/_InqQJRqGW4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Encanto" data-sub="Disney" data-image="https://i.ytimg.com/vi/UvO9wAY2WnE/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Elite" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/xZD7ZcgRSrk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Narcos" data-sub="Netflix" data-image="https://i.ytimg.com/vi/U_g06Y2nrPo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Pan's Labyrinth" data-sub="Guillermo del Toro" data-image="https://i.ytimg.com/vi/eUdM9vrCbow/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+
+        <!-- ─── SPANISH · VIRAL VIDEOS ─── -->
+        <a data-lang="spanish" data-cat="viral" data-title="Spanish Trends" data-sub="Most viewed clips" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Bad Bunny Highlights" data-sub="Top performances" data-image="https://i.ytimg.com/vi/TmKh7lAwnBI/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Rosalía Reels" data-sub="Viral moments" data-image="https://i.ytimg.com/vi/Tj_4lF0eIN0/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Tabletop Talk" data-sub="Trending interviews" data-image="https://i.ytimg.com/vi/Wamy8Zo3vEM/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Karol G Live" data-sub="Concert clips" data-image="https://i.ytimg.com/vi/1qSc3lGoBdY/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Maluma Moments" data-sub="Top features" data-image="https://i.ytimg.com/vi/jzD_yyEcp0M/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+
+        <!-- ─── SPANISH · SOCIAL MEDIA ─── -->
+        <a data-lang="spanish" data-cat="social" data-title="TikTok en Español" data-sub="Viral trends" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Instagram Reels" data-sub="Spanish creators" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="YouTube Shorts" data-sub="Latino voices" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Memes en Español" data-sub="Trending now" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Viñetas Virales" data-sub="Mini-stories" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Comedia Hispana" data-sub="Stand-up clips" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+
+        <!-- ─── SPANISH · PODCASTS ─── -->
+        <a data-lang="spanish" data-cat="podcasts" data-title="El Hilo" data-sub="Radio Ambulante" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Radio Ambulante" data-sub="NPR · Latin stories" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="TED en Español" data-sub="Ideas worth spreading" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Notes en Español" data-sub="Conversational practice" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Coffee Break Spanish" data-sub="Beginner-friendly" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Españolistos" data-sub="Real conversations" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+
+        <!-- ─── SPANISH · NEWS & MEDIA ─── -->
+        <a data-lang="spanish" data-cat="news" data-title="CNN en Español" data-sub="Latest headlines" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="BBC Mundo" data-sub="Global news" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="El País" data-sub="Spain · Reporting" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="Univision Noticias" data-sub="Latino news" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="EFE Noticias" data-sub="Spanish wire service" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="Telemundo" data-sub="Daily reports" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+
+        <!-- ─── FRENCH · MUSIC ─── -->
+        <a data-lang="french" data-cat="music" data-title="La Vie en Rose" data-sub="Edith Piaf" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Alors on Danse" data-sub="Stromae" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Tous les mêmes" data-sub="Stromae" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Champs-Élysées" data-sub="Joe Dassin" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Je Veux" data-sub="Zaz" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Papaoutai" data-sub="Stromae" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+
+        <!-- ─── FRENCH · TV & FILM ─── -->
+        <a data-lang="french" data-cat="tv" data-title="Lupin" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/Z9Vy3DPMlEM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Call My Agent!" data-sub="Dix pour cent" data-image="https://i.ytimg.com/vi/YjJq4FK1l4o/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Amélie" data-sub="Jean-Pierre Jeunet" data-image="https://i.ytimg.com/vi/HUECWi5pX7o/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="The Intouchables" data-sub="Olivier Nakache" data-image="https://i.ytimg.com/vi/34WIbmXkewU/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Family Business" data-sub="Netflix" data-image="https://i.ytimg.com/vi/Z9Vy3DPMlEM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Marseille" data-sub="Netflix" data-image="https://i.ytimg.com/vi/YjJq4FK1l4o/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+
+        <!-- ─── FRENCH · VIRAL VIDEOS ─── -->
+        <a data-lang="french" data-cat="viral" data-title="French TikTok" data-sub="Viral trends" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Cyprien" data-sub="Top YouTuber" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Squeezie Highlights" data-sub="Gaming · Comedy" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Norman fait des vidéos" data-sub="Sketch comedy" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Mister V" data-sub="Music · Comedy" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Tibo InShape" data-sub="Lifestyle" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+
+        <!-- ─── FRENCH · SOCIAL MEDIA ─── -->
+        <a data-lang="french" data-cat="social" data-title="Instagram FR" data-sub="Top creators" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="TikTok France" data-sub="Daily trends" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Snapchat FR" data-sub="Story highlights" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="YouTube Shorts FR" data-sub="Vertical videos" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Memes Français" data-sub="Trending humor" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Twitch FR" data-sub="Live streams" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+
+        <!-- ─── FRENCH · PODCASTS ─── -->
+        <a data-lang="french" data-cat="podcasts" data-title="Coffee Break French" data-sub="Beginner-friendly" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="News in Slow French" data-sub="Slow-paced news" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="Inner French" data-sub="For intermediate" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="La Conversation" data-sub="Native pacing" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="TED en Français" data-sub="Ideas worth sharing" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="France Inter" data-sub="Public radio" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+
+        <!-- ─── FRENCH · NEWS & MEDIA ─── -->
+        <a data-lang="french" data-cat="news" data-title="Le Monde" data-sub="Headlines" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="France 24" data-sub="International" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="BFMTV" data-sub="Breaking news" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Le Figaro" data-sub="Daily" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Libération" data-sub="Reporting" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Radio France" data-sub="Public broadcaster" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+
+        <!-- ─── GERMAN · MUSIC ─── -->
+        <a data-lang="german" data-cat="music" data-title="99 Luftballons" data-sub="Nena" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Du Hast" data-sub="Rammstein" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Atemlos durch die Nacht" data-sub="Helene Fischer" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Auf uns" data-sub="Andreas Bourani" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Engel" data-sub="Rammstein" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Major Tom" data-sub="Peter Schilling" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+
+        <!-- ─── GERMAN · TV & FILM ─── -->
+        <a data-lang="german" data-cat="tv" data-title="Dark" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Babylon Berlin" data-sub="X Filme Creative Pool" data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Tatort" data-sub="Crime drama" data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Good Bye, Lenin!" data-sub="Wolfgang Becker" data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Run Lola Run" data-sub="Tom Tykwer" data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Das Boot" data-sub="WWII drama" data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+
+        <!-- ─── GERMAN · VIRAL VIDEOS ─── -->
+        <a data-lang="german" data-cat="viral" data-title="Y-Titty" data-sub="Classic comedy" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="Gronkh Highlights" data-sub="Gaming legend" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="BibisBeautyPalace" data-sub="Lifestyle vlogs" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="Julien Bam" data-sub="Music · Skits" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="LeFloid" data-sub="News commentary" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="ApeCrime" data-sub="Sketch trio" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+
+        <!-- ─── GERMAN · SOCIAL MEDIA ─── -->
+        <a data-lang="german" data-cat="social" data-title="TikTok DE" data-sub="Trending now" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="Instagram DE" data-sub="Top creators" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="YouTube Shorts DE" data-sub="Daily picks" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="German Reels" data-sub="Mini-stories" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="Memes auf Deutsch" data-sub="Humor" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="Twitch DE" data-sub="Streamers" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+
+        <!-- ─── GERMAN · PODCASTS ─── -->
+        <a data-lang="german" data-cat="podcasts" data-title="Coffee Break German" data-sub="Beginner-friendly" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Slow German" data-sub="Annik Rubens" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Easy German" data-sub="Street interviews" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Auf den Punkt" data-sub="Süddeutsche Zeitung" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Was jetzt?" data-sub="Zeit Online" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="TED auf Deutsch" data-sub="Ideas worth sharing" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+
+        <!-- ─── GERMAN · NEWS & MEDIA ─── -->
+        <a data-lang="german" data-cat="news" data-title="Der Spiegel" data-sub="Weekly magazine" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Die Zeit" data-sub="In-depth reporting" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Tagesschau" data-sub="Daily news" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Deutsche Welle" data-sub="International" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="FAZ" data-sub="Frankfurter Allgemeine" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="BILD" data-sub="Tabloid" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+
+        <!-- ─── ENGLISH · MUSIC ─── -->
+        <a data-lang="english" data-cat="music" data-title="Shape of You" data-sub="Ed Sheeran" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Uptown Funk" data-sub="Mark Ronson ft. Bruno Mars" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Hello" data-sub="Adele" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Roar" data-sub="Katy Perry" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Sorry" data-sub="Justin Bieber" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Happy" data-sub="Pharrell Williams" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+
+        <!-- ─── ENGLISH · TV & FILM ─── -->
+        <a data-lang="english" data-cat="tv" data-title="Stranger Things" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/b9EkMc79ZSU/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="The Crown" data-sub="Netflix" data-image="https://i.ytimg.com/vi/JWtnJjn6ng0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Friends" data-sub="NBC · Sitcom" data-image="https://i.ytimg.com/vi/SAB18cSO0e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Bridgerton" data-sub="Shondaland" data-image="https://i.ytimg.com/vi/gpv7ayf_tyE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="The Office" data-sub="NBC · Mockumentary" data-image="https://i.ytimg.com/vi/LHhVE9JxQNI/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Wednesday" data-sub="Netflix" data-image="https://i.ytimg.com/vi/Q2KCmZQQS1k/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+
+        <!-- ─── ENGLISH · VIRAL VIDEOS ─── -->
+        <a data-lang="english" data-cat="viral" data-title="MrBeast" data-sub="Most-subscribed" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Marques Brownlee" data-sub="Tech reviews" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="PewDiePie" data-sub="Gaming · Comedy" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Try Guys" data-sub="Trying everything" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Dude Perfect" data-sub="Trick shots" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Ryan Trahan" data-sub="Adventure vlogs" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+
+        <!-- ─── ENGLISH · SOCIAL MEDIA ─── -->
+        <a data-lang="english" data-cat="social" data-title="TikTok Trending" data-sub="Worldwide" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Instagram Reels" data-sub="Daily picks" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="YouTube Shorts" data-sub="Vertical video" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Twitter / X" data-sub="Threads &amp; memes" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Snapchat" data-sub="Stories" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Twitch" data-sub="Live streams" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+
+        <!-- ─── ENGLISH · PODCASTS ─── -->
+        <a data-lang="english" data-cat="podcasts" data-title="The Daily" data-sub="New York Times" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="This American Life" data-sub="WBEZ Chicago" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="Radiolab" data-sub="WNYC Studios" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="Stuff You Should Know" data-sub="iHeart Podcasts" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="Conan O'Brien Needs a Friend" data-sub="Team Coco" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="99% Invisible" data-sub="Roman Mars" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+
+        <!-- ─── ENGLISH · NEWS & MEDIA ─── -->
+        <a data-lang="english" data-cat="news" data-title="BBC News" data-sub="International" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="CNN" data-sub="Breaking news" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="The Guardian" data-sub="In-depth reporting" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="Reuters" data-sub="Wire service" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="NPR" data-sub="Public radio" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="AP News" data-sub="Associated Press" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+
+        <!-- ─── CHINESE · MUSIC ─── -->
+        <a data-lang="chinese" data-cat="music" data-title="月亮代表我的心" data-sub="邓丽君 (Teresa Teng)" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="红日 (Red Sun)" data-sub="李克勤 (Hacken Lee)" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="童话 (Fairy Tale)" data-sub="光良 (Michael Wong)" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="龙的传人" data-sub="王力宏 (Wang Leehom)" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="大鱼 (Big Fish)" data-sub="周深 (Zhou Shen)" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="月半小夜曲" data-sub="李克勤 (Hacken Lee)" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+
+        <!-- ─── CHINESE · TV & FILM ─── -->
+        <a data-lang="chinese" data-cat="tv" data-title="Crouching Tiger, Hidden Dragon" data-sub="Ang Lee" data-image="https://i.ytimg.com/vi/WnJUuSfQpsk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Empresses in the Palace" data-sub="甄嬛传" data-image="https://i.ytimg.com/vi/rOgGd8KaUO0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Story of Yanxi Palace" data-sub="延禧攻略" data-image="https://i.ytimg.com/vi/jWZH7zHJ8b8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="The Untamed" data-sub="陈情令" data-image="https://i.ytimg.com/vi/ZFcZAErJ_iY/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Nirvana in Fire" data-sub="琅琊榜" data-image="https://i.ytimg.com/vi/FB5lUGqEbi8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Eternal Love" data-sub="三生三世十里桃花" data-image="https://i.ytimg.com/vi/h87xx4DjGT4/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+
+        <!-- ─── CHINESE · VIRAL VIDEOS ─── -->
+        <a data-lang="chinese" data-cat="viral" data-title="Bilibili Trends" data-sub="China's viral hub" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Li Ziqi" data-sub="Traditional cooking" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Liziqi Highlights" data-sub="Rural lifestyle" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Office Reels" data-sub="Workplace humor" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Asian Viral" data-sub="Top of the week" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Animal Clips" data-sub="Cute &amp; funny" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+
+        <!-- ─── CHINESE · SOCIAL MEDIA ─── -->
+        <a data-lang="chinese" data-cat="social" data-title="Douyin Trending" data-sub="China's TikTok" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="WeChat Channels" data-sub="Short videos" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Weibo Hot Topics" data-sub="Trending posts" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Xiaohongshu" data-sub="Lifestyle posts" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Kuaishou" data-sub="Short-form video" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Bilibili Shorts" data-sub="Daily picks" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+
+        <!-- ─── CHINESE · PODCASTS ─── -->
+        <a data-lang="chinese" data-cat="podcasts" data-title="ChinesePod" data-sub="Lessons for all levels" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Slow Chinese" data-sub="Native pacing" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Mandarin Bean" data-sub="Daily news" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Maomi Chinese" data-sub="For HSK learners" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="声东击西" data-sub="Cross-strait pop culture" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Anchor 锚点" data-sub="In-depth stories" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+
+        <!-- ─── CHINESE · NEWS & MEDIA ─── -->
+        <a data-lang="chinese" data-cat="news" data-title="Xinhua News" data-sub="新华社" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="CCTV News" data-sub="中央电视台" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="People's Daily" data-sub="人民日报" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="South China Morning Post" data-sub="Hong Kong" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="Caixin Global" data-sub="Business news" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="Sing Tao Daily" data-sub="星岛日报" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+
+      </div>
     </div>
   </section>
 

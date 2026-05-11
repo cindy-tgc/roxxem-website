@@ -151,6 +151,37 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .nav__links a:hover { color: var(--lime); }
 
+/* Hamburger button — hidden on desktop, shown at tablet/mobile breakpoint */
+.nav__hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.nav__hamburger-bar {
+  width: 24px;
+  height: 2.5px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav__hamburger.is-open .nav__hamburger-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.nav__hamburger.is-open .nav__hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav__hamburger.is-open .nav__hamburger-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
 /* === HERO === */
 .hero {
   background: var(--cream);
@@ -723,7 +754,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .section-sub--orange { color: var(--orange); font-weight: 700; }
 
 /* === HOW IT WORKS === */
-.how { padding: 128px 0 108px; }
+.how { padding: 128px 0 108px; background: var(--cream); }
 .eyebrow--purple { color: rgba(25, 2, 136, 0.75); }
 
 .how__desc {
@@ -904,7 +935,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* === LESSON STEPS — values from Figma node 129:1971 === */
-.lesson { padding: 128px 0 108px; }
+.lesson { padding: 128px 0 108px; background: var(--cream); }
 
 /* Lesson container has no inner padding so its content (form-mock, video)
    reaches the same outer edge as the nav above (both inset 24px from the
@@ -1973,7 +2004,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* === CURRICULUM (Figma 129:812) === */
-.curriculum { padding: 128px 0; }
+.curriculum { padding: 128px 0; background: var(--cream); }
 .curriculum .container {
   /* Cards align with the nav-bar edges; both are inset 24px from the
      viewport edge until the mobile breakpoint (handled by .container). */
@@ -3063,8 +3094,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Multi-column desktop layouts collapse to single-column stacks
    where they need to. Typography keeps scaling via clamp().      */
 @media (max-width: 1024px) {
-  /* Nav: hide link list (hamburger TBD). Logo stays. */
-  .nav__links { display: none; }
+  /* Nav: hide horizontal link list, show hamburger.
+     When .is-open is set by JS, links drop down as a vertical menu. */
+  .nav__hamburger { display: flex; }
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+    background: var(--navy);
+    padding: 20px 40px 28px;
+    border-radius: 0 0 24px 24px;
+  }
+  .nav__links.is-open { display: flex; }
+  .nav__links a { font-size: 18px; }
+  .nav__inner { position: relative; }
 
   /* Stats: 4 → 2 columns */
   .stats__inner { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -3179,6 +3227,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Typography continues to scale via clamp() — no font-size
    overrides here.                                                */
 @media (max-width: 640px) {
+  /* Extend the navy past the top edge of the viewport on iPhones so the
+     iOS safe-area / status-bar zone (and the 24px gaps to either side of
+     the nav pill) read as one continuous navy block. The nav itself is
+     unchanged — its content stays in the same visual spot. */
+  body { background: var(--navy); }
+
   /* Hero: stack and center everything; show app card scaled to fit. */
   .hero__inner {
     grid-template-columns: 1fr !important;
@@ -3193,10 +3247,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     text-align: center;
   }
   .hero__title {
-    /* Bigger on mobile so the headline breaks into roughly 3 lines and
-       reads as a strong opening like the reference design. */
-    font-size: clamp(34px, 9vw, 46px);
-    line-height: 1.05;
+    /* Sized so the headline wraps to exactly 3 lines on mobile. */
+    font-size: clamp(26px, 7.2vw, 36px);
+    line-height: 1.08;
     text-align: center;
     margin-bottom: 16px;
   }
@@ -3291,6 +3344,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .cur-card__visual--stats { width: 150px; }
   .cur-card__action       { width: 130px; height: 130px; }
   .cur-card__action img   { width: 170px; height: 170px; }
+
+  /* Proficiency score "94 /100" — smaller and forced on one line. */
+  .prof-card__score {
+    font-size: 22px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .prof-card__score span { font-size: 14px; }
 
   /* Trust badges fit on one line on mobile — shrink and tighten gap,
      no wrapping. Sized to fit even the narrowest typical mobile (320px).

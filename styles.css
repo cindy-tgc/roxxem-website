@@ -312,7 +312,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* === HERO === */
 .hero {
   background: var(--cream);
-  overflow: hidden;
+  /* overflow-x clips the appcard's horizontal extension past the
+     viewport, but overflow-y stays visible so the orange glow can
+     bleed up past the top edge of the hero without getting cropped.
+     z-index 1 keeps the hero (and its overflowing appcard) BELOW the
+     .stats section that sits right after it. */
+  overflow-x: clip;
+  overflow-y: visible;
+  position: relative;
+  z-index: 1;
   padding: 39px 0 0 0;
 }
 .hero__inner {
@@ -385,8 +393,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 10.855px;
   padding: 2.714px;
   width: 100%;
-  /* Figma: 572px wide, 79px tall */
-  max-width: 572px;
+  max-width: 587px;
   height: clamp(56px, 6.5vw, 79px);
   margin: 0 0 clamp(28px, 4vw, 56px);
   overflow: hidden;
@@ -841,6 +848,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  /* Sit above the hero so the appcard's overflowing UI (now that .hero
+     allows overflow-y: visible for the glow) is hidden behind the stats
+     band instead of poking up into it. */
+  position: relative;
+  z-index: 2;
 }
 .stats__inner {
   width: 100%;
@@ -3379,28 +3391,39 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    where they need to. Typography keeps scaling via clamp().      */
 @media (max-width: 1024px) {
   /* Nav: hide horizontal link list and the new action buttons; show
-     hamburger. When .is-open is set by JS, links drop down vertically. */
+     hamburger. When .is-open is set by JS, links drop down vertically.
+     Stretch the nav bar edge-to-edge (no 24px margin, no border-radius)
+     for the entire hamburger-menu range, so the dropdown panel below
+     visually flushes against it. */
+  .nav { width: 100%; margin: 0; border-radius: 0; }
   .nav__actions { display: none; }
   .nav__inner { grid-template-columns: auto 1fr auto; }
   .nav__hamburger { display: flex; }
-  .nav__inner { position: relative; }
-  /* Mobile dropdown panel: navy background, anchored to the right side of
-     the nav. Contains both the link list AND the action buttons (Join
-     Game / Log In / Sign Up), stacked vertically with a hairline divider
-     between them. The JS moves .nav__actions into .nav__links on open. */
+  /* Position .nav__links relative to .nav so it can span the FULL nav
+     bar width — and even extend past the nav's 24px margin so it spans
+     the entire viewport width. */
+  .nav__inner { position: static; }
+  /* Mobile dropdown panel: navy background, full viewport width on all
+     screen sizes (extends past nav's horizontal margin via 50% + 100vw
+     trick). Contains the link list AND the action buttons stacked
+     vertically with a divider. */
   .nav__links {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
-    left: auto;
-    width: min(320px, calc(100vw - 32px));
+    /* Anchor the panel's center to the nav's center, then make it
+       100vw wide — this stretches it past the nav's outer margin so
+       it covers the entire viewport width. */
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    transform: translateX(-50%);
     flex-direction: column;
     align-items: stretch;
     gap: 16px;
     background: var(--navy);
-    padding: 22px 24px 22px;
-    border-radius: 0 0 0 24px;
+    padding: 22px 28px 28px;
+    border-radius: 0;
     box-sizing: border-box;
   }
   .nav__links.is-open { display: flex; }
@@ -3509,7 +3532,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .lstep--1 .lstep__copy * { text-align: left; }
   .lstep__visual { order: 2; display: flex; justify-content: center; }
   .lstep__copy { order: 1; }
-  .lstep--3 .lstep__copy { order: 0; }
+  .lstep--3 .lstep__copy {
+    order: 0;
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100%;
+    max-width: 625px;
+    margin: 0 auto;
+  }
+  .lstep--3 .lstep__copy * { text-align: left !important; }
   .lstep--3 .lstep__panels { order: 1; }
   .form-mock, .video-mock { width: min(625px, 100%); }
   .video-mock { max-width: 724px; }
@@ -3669,7 +3700,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   /* Hide the forced <br> on mobile — the smaller font wraps naturally */
   .hero__title-break { display: none; }
-  .hero__sub { white-space: normal !important; text-align: center; margin-bottom: 32px; }
+  .hero__sub {
+    white-space: normal !important;
+    text-align: center;
+    margin-bottom: 32px;
+    /* Smaller on mobile so the subtitle fits on 2 lines */
+    font-size: 14px;
+    line-height: 1.3;
+  }
   .hero__sub-break { display: inline; }
   /* Hide the forced break on mobile — the smaller font wraps naturally */
   .lesson__desc-break { display: none; }

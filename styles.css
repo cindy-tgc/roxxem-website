@@ -3409,12 +3409,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     text-align: left;
     width: 100%;
   }
-  /* Resources dropdown — chevron stays, items appear indented below */
+  /* Resources dropdown — chevron rotates; items collapsed by default and
+     expand when the trigger has .is-open (toggled by JS on tap). */
   .nav__dropdown { flex-direction: column; align-items: stretch; gap: 8px; }
-  .nav__dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; }
-  .nav__dropdown-trigger::after { display: inline-block; }
+  .nav__dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .nav__dropdown-trigger::after { display: inline-block; transition: transform .2s ease; }
+  .nav__dropdown.is-open .nav__dropdown-trigger::after { transform: rotate(180deg); }
   .nav__dropdown-menu {
-    display: flex;
+    display: none;
     position: static;
     transform: none;
     background: transparent;
@@ -3422,8 +3424,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     box-shadow: none;
     padding: 4px 0 0 18px;
     gap: 8px;
+    flex-direction: column;
     align-items: flex-start;
   }
+  .nav__dropdown.is-open .nav__dropdown-menu { display: flex; }
   .nav__dropdown-menu a { font-size: 15px; padding: 2px 0; opacity: 0.75; }
 
   /* Action buttons inside the mobile dropdown panel — divider above,

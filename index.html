@@ -81,9 +81,24 @@
         const open = btn.getAttribute('aria-expanded') === 'true';
         setOpen(!open);
       });
+
+      // Resources sub-dropdown: tap the trigger to expand/collapse the
+      // sub-items (mobile only — on desktop it's a hover dropdown).
+      const dropdown = links.querySelector('.nav__dropdown');
+      const dropdownTrigger = dropdown && dropdown.querySelector('.nav__dropdown-trigger');
+      if (dropdownTrigger) {
+        dropdownTrigger.addEventListener('click', (e) => {
+          // Only intercept the click on mobile (when the hamburger menu is in use)
+          if (window.matchMedia('(max-width: 1024px)').matches) {
+            e.preventDefault();
+            dropdown.classList.toggle('is-open');
+          }
+        });
+      }
+
       // Close menu when any link (links or actions) is tapped
       links.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') setOpen(false);
+        if (e.target.tagName === 'A' && !e.defaultPrevented) setOpen(false);
       });
     })();
   </script>

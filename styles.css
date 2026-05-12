@@ -316,11 +316,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 0;
 }
 .hero__inner {
-  /* Same 24px-from-edge rule as the nav: width = min(1256px, 100% - 48px),
-     centered. Keeps the hero copy's left edge aligned with the nav bar's
-     left edge at every viewport down to mobile. */
+  /* Hero is locked in place: max-width is wide enough to contain the
+     text column + the full fox/appcard so the whole composition stays
+     left-pinned at 24px instead of shifting right with margin-auto
+     centering on common desktop widths. Only on viewports beyond ~1928px
+     does centering kick in, so the hero doesn't drift around between
+     1280 and 1920 displays. */
   width: calc(100% - 48px);
-  max-width: 1256px;
+  max-width: 1880px;
   margin: 0 auto;
   display: grid;
   /* Text column shrinks fluidly with viewport so visuals stay visible */
@@ -341,20 +344,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero__title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(26px, 3.7vw, 42px);
+  /* Figma: 48px Klima Heavy, -0.96px letter-spacing, line-height 1 */
+  font-size: clamp(32px, 4.8vw, 48px);
   line-height: 1;
   color: var(--navy);
   letter-spacing: -0.02em;
   margin: 0 0 8px;
   width: 100%;
+  max-width: 584px;
 }
 .hero__sub {
-  font-family: var(--font-body);
+  /* Figma: Klima Bold, 21.711px, ink color, 2 lines */
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 700;
-  font-size: clamp(14px, 1.7vw, 21px);
-  color: var(--orange);
-  margin: 0 0 72px;
+  font-size: clamp(16px, 1.85vw, 21.711px);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 56px;
   white-space: normal;
 }
 .hero__sub-break { display: none; }
@@ -367,8 +374,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 10.855px;
   padding: 2.714px;
   width: 100%;
-  max-width: 490.032px;
-  height: clamp(56px, 6.5vw, 78.794px);
+  /* Figma: 572px wide, 79px tall */
+  max-width: 572px;
+  height: clamp(56px, 6.5vw, 79px);
   margin: 0 0 clamp(28px, 4vw, 56px);
   overflow: hidden;
   min-width: 0;
@@ -3161,6 +3169,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: -0.01em;
 }
 .newsletter__break { display: none; }
+/* By default (desktop): show the break after "curriculum", hide the mobile one */
+.newsletter__copy-break { display: none; }
+.newsletter__copy-break-desktop { display: inline; }
 .newsletter__copy > p {
   margin: 0 0 16px;
   color: var(--orange);
@@ -3832,6 +3843,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .newsletter__fox { margin: -64px auto 0; width: 200px; }
   .newsletter__copy h3 { font-size: 26px; line-height: 1.15; }
   .newsletter__break { display: block; }
+  /* On mobile: break after "your" so "curriculum and student interests" sits on line 2 */
+  .newsletter__copy-break { display: inline; }
+  .newsletter__copy-break-desktop { display: none; }
 
   /* Curriculum cards stack (visual ALWAYS on top, copy below, centered)
      — `order` forces the image first regardless of DOM order, since
@@ -3873,13 +3887,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   /* Trust badges fit on one line on mobile — shrink and tighten gap,
      no wrapping. Sized to fit even the narrowest typical mobile (320px).
      Total ≈ 60+78+48+48 + 3×6 gap = 252px ≤ 272px content area. */
-  .trust-badges { gap: 6px; flex-wrap: nowrap; margin-top: 36px; }
-  .trust-badge--launchpad { width: 60px; height: auto; }
-  .trust-badge--privacy   { width: 78px; height: auto; }
+  .trust-badges { gap: 4px; flex-wrap: nowrap; margin-top: 36px; }
+  .trust-badge--launchpad { width: 76px; height: auto; }
+  .trust-badge--privacy   { width: 100px; height: auto; }
   .trust-badge--coppa,
   .trust-badge--cosn {
-    width: 48px; height: 57px;
-    background-size: 103.5px 57px;
+    width: 60px; height: 71px;
+    background-size: 129.5px 71px;
   }
-  .trust-badge--cosn { background-position: -55.5px 0; }
+  .trust-badge--cosn { background-position: -69.5px 0; }
 }

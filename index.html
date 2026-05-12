@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roxxem — Interactive Language Lessons Based on Culture</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- NAV -->
@@ -21,11 +23,19 @@
         <a href="#publishers">For Publishers</a>
         <a href="#resources">Resources</a>
       </nav>
-      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <span class="nav__hamburger-bar"></span>
-        <span class="nav__hamburger-bar"></span>
-        <span class="nav__hamburger-bar"></span>
-      </button>
+      <div class="nav__right">
+        <div class="nav__actions">
+          <a class="nav__action" href="#">Join Game</a>
+          <a class="nav__action" href="#">Log In</a>
+          <a class="nav__action nav__action--cta" href="#">Sign Up</a>
+        </div>
+        <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false"
+          aria-controls="nav-links">
+          <span class="nav__hamburger-bar"></span>
+          <span class="nav__hamburger-bar"></span>
+          <span class="nav__hamburger-bar"></span>
+        </button>
+      </div>
     </div>
   </header>
   <script>
@@ -60,15 +70,22 @@
         <form class="hero__email" onsubmit="event.preventDefault();">
           <input type="email" placeholder="Get Started For Free" aria-label="Email" />
           <button type="submit" aria-label="Submit">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </button>
         </form>
         <div class="hero__langs">
-          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇪🇸</span></span>Spanish</button>
+          <button class="lang-chip"><span class="flag-circle"><span
+                class="flag-emoji">🇪🇸</span></span>Spanish</button>
           <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇫🇷</span></span>French</button>
           <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇩🇪</span></span>German</button>
-          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇬🇧</span></span>English</button>
-          <button class="lang-chip"><span class="flag-circle"><span class="flag-emoji">🇨🇳</span></span>Chinese</button>
+          <button class="lang-chip"><span class="flag-circle"><span
+                class="flag-emoji">🇬🇧</span></span>English</button>
+          <button class="lang-chip"><span class="flag-circle"><span
+                class="flag-emoji">🇨🇳</span></span>Chinese</button>
         </div>
       </div>
 
@@ -78,27 +95,75 @@
           <aside class="appcard__sidebar">
             <div class="appcard__brand-tile">r</div>
             <div class="appcard__nav-group">
-              <button class="appcard__icon appcard__icon--active" aria-label="Home"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3l9-8z"/></svg></button>
-              <button class="appcard__icon" aria-label="Music"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></button>
-              <button class="appcard__icon" aria-label="Charts"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></button>
-              <button class="appcard__icon" aria-label="Heart"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="appcard__icon appcard__icon--active" aria-label="Home"><svg width="14" height="14"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3l9-8z" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Music"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Charts"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path d="M3 3v18h18" />
+                  <path d="M7 14l4-4 4 4 5-5" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Heart"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                </svg></button>
             </div>
             <div class="appcard__divider"></div>
             <div class="appcard__nav-group">
-              <button class="appcard__icon" aria-label="Cloud"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></button>
-              <button class="appcard__icon" aria-label="Trophy"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22h10c0-1.76-.85-3.25-2.03-3.79-.5-.23-.97-.66-.97-1.21v-2.34M18 2H6v7a6 6 0 0012 0V2z"/></svg></button>
-              <button class="appcard__icon" aria-label="Refresh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg></button>
-              <button class="appcard__icon" aria-label="Book"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V2H6.5A2.5 2.5 0 004 4.5v15z"/></svg></button>
+              <button class="appcard__icon" aria-label="Cloud"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Trophy"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path
+                    d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22h10c0-1.76-.85-3.25-2.03-3.79-.5-.23-.97-.66-.97-1.21v-2.34M18 2H6v7a6 6 0 0012 0V2z" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Refresh"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10" />
+                  <polyline points="1 20 1 14 7 14" />
+                  <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Book"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20V2H6.5A2.5 2.5 0 004 4.5v15z" />
+                </svg></button>
             </div>
             <div class="appcard__divider"></div>
             <div class="appcard__nav-group">
-              <button class="appcard__icon" aria-label="Help"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></button>
-              <button class="appcard__icon" aria-label="Chat"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
-              <button class="appcard__icon" aria-label="Plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+              <button class="appcard__icon" aria-label="Help"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.4">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Chat"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                </svg></button>
+              <button class="appcard__icon" aria-label="Plus"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></button>
             </div>
             <div class="appcard__divider"></div>
             <div class="appcard__nav-group">
-              <button class="appcard__icon" aria-label="Settings"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+              <button class="appcard__icon" aria-label="Settings"><svg width="14" height="14" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.4">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                </svg></button>
             </div>
           </aside>
 
@@ -111,11 +176,23 @@
               <span>Leaderboard</span>
             </nav>
             <div class="appcard__search">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
               <span>Search songs, artists</span>
             </div>
-            <button class="appcard__topicon" aria-label="Notifications"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></button>
-            <button class="appcard__topicon appcard__topicon--filled" aria-label="Avatar"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></button>
+            <button class="appcard__topicon" aria-label="Notifications"><svg width="11" height="11" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 01-3.46 0" />
+              </svg></button>
+            <button class="appcard__topicon appcard__topicon--filled" aria-label="Avatar"><svg width="10" height="10"
+                viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21a8 8 0 0116 0" />
+              </svg></button>
           </div>
 
           <!-- Main content -->
@@ -125,19 +202,32 @@
               <img class="appcard__hero-img" src="assets/hero-shakira.png" alt="" />
               <div class="appcard__hero-overlay">
                 <span class="appcard__hero-badge"><span class="appcard__hero-dot"></span>NEW CHALLENGE</span>
-                <h3 class="appcard__hero-title">Waka Waka<br/>(Esto es África)</h3>
+                <h3 class="appcard__hero-title">Waka Waka<br />(Esto es África)</h3>
                 <p class="appcard__hero-meta">Shakira · Latin Pop · 3:33</p>
                 <div class="appcard__hero-actions">
-                  <button class="appcard__btn appcard__btn--orange"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>Play Challenge</button>
-                  <button class="appcard__btn appcard__btn--ghost"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>Leaderboard</button>
+                  <button class="appcard__btn appcard__btn--orange"><svg width="9" height="9" viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>Play Challenge</button>
+                  <button class="appcard__btn appcard__btn--ghost"><svg width="8" height="8" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2.4">
+                      <path d="M3 3v18h18" />
+                      <path d="M7 14l4-4 4 4 5-5" />
+                    </svg>Leaderboard</button>
                 </div>
               </div>
             </div>
 
             <!-- Whats new strip -->
             <div class="appcard__whatsnew">
-              <span class="appcard__whatsnew-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.5 5.8 22l2.4-8.1L2 9.4h7.6L12 2z"/></svg></span>
-              <span class="appcard__whatsnew-link">Read <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <span class="appcard__whatsnew-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.5 5.8 22l2.4-8.1L2 9.4h7.6L12 2z" />
+                </svg></span>
+              <span class="appcard__whatsnew-link">Read <svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.4">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></span>
               <div class="appcard__whatsnew-bars">
                 <span class="bar-skel" style="width: 35%;"></span>
                 <span class="bar-skel" style="width: 100%;"></span>
@@ -151,14 +241,38 @@
                   <p class="appcard__kicker">TOP CHARTS</p>
                   <h4 class="appcard__row-title">Most Popular</h4>
                 </div>
-                <a class="appcard__seeall">See All <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="appcard__seeall">See All <svg width="7" height="7" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.4">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg></a>
               </header>
               <div class="appcard__cards">
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-1.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-2.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-3.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-4.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-5.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-1.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-2.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-3.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-4.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-5.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
               </div>
             </section>
 
@@ -169,14 +283,38 @@
                   <p class="appcard__kicker">GENRE</p>
                   <h4 class="appcard__row-title">Hip Hop Essentials</h4>
                 </div>
-                <a class="appcard__seeall">See All <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="appcard__seeall">See All <svg width="7" height="7" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.4">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg></a>
               </header>
               <div class="appcard__cards">
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-6.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-7.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-8.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-9.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
-                <div class="songcard"><div class="songcard__thumb"><img src="assets/thumb-10.png" alt="" /></div><div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel" style="width:50%;"></span></div></div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-6.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-7.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-8.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-9.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
+                <div class="songcard">
+                  <div class="songcard__thumb"><img src="assets/thumb-10.png" alt="" /></div>
+                  <div class="songcard__skel"><span class="bar-skel"></span><span class="bar-skel"
+                      style="width:50%;"></span></div>
+                </div>
               </div>
             </section>
           </div>
@@ -190,10 +328,22 @@
   <!-- STATS -->
   <section class="stats">
     <div class="stats__inner">
-      <div class="stat"><div class="stat__num">1M+</div><div class="stat__label">Students Worldwide</div></div>
-      <div class="stat"><div class="stat__num">4,000+</div><div class="stat__label">School Districts</div></div>
-      <div class="stat"><div class="stat__num">45%</div><div class="stat__label">Increase in<br/>Student Engagement</div></div>
-      <div class="stat"><div class="stat__num">3 hours</div><div class="stat__label">Saved Per Teacher<br/>Each Week on Prep</div></div>
+      <div class="stat">
+        <div class="stat__num">1M+</div>
+        <div class="stat__label">Students Worldwide</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">4,000+</div>
+        <div class="stat__label">School Districts</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">45%</div>
+        <div class="stat__label">Increase in<br />Student Engagement</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">3 hours</div>
+        <div class="stat__label">Saved Per Teacher<br />Each Week on Prep</div>
+      </div>
     </div>
   </section>
 
@@ -203,7 +353,9 @@
       <p class="eyebrow eyebrow--purple">How it Works</p>
       <h2 class="section-title section-title--purple">Use today's pop culture to teach fluency</h2>
       <p class="how__desc">
-        Pick any <span class="hl hl--lime">song, video, or podcast</span> and Roxxem will turn it into an interactive lesson with vocabulary drills, listening exercises, and more equipped with slides, handouts, and other tools you can use to teach. It's all aligned to your <span class="hl hl--blue">curriculum standards</span> too.
+        Pick any <span class="hl hl--lime">song, video, or podcast</span> and Roxxem will turn it into an interactive
+        lesson with vocabulary drills, listening exercises, and more equipped with slides, handouts, and other tools you
+        can use to teach. It's all aligned to your <span class="hl hl--blue">curriculum standards</span> too.
       </p>
 
       <div class="tabs" role="tablist">
@@ -215,7 +367,25 @@
             <option value="english">English</option>
             <option value="chinese">Chinese</option>
           </select>
-          <svg class="lang-select__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="lang-select__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+        <!-- Mobile-only category dropdown — mirrors the .tab buttons below. -->
+        <div class="cat-select-wrap">
+          <select class="cat-select" aria-label="Select content category">
+            <option value="music">Music</option>
+            <option value="tv">TV &amp; Film</option>
+            <option value="viral">Viral Videos</option>
+            <option value="social">Social Media</option>
+            <option value="podcasts">Podcasts</option>
+            <option value="news">News &amp; Media</option>
+          </select>
+          <svg class="cat-select__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
         </div>
         <button class="tab is-active" data-cat="music" role="tab">Music</button>
         <button class="tab" data-cat="tv" role="tab">TV &amp; Film</button>
@@ -244,244 +414,606 @@
       <div id="hiw-content" hidden>
 
         <!-- ─── SPANISH · MUSIC ─── -->
-        <a data-lang="spanish" data-cat="music" data-title="Vivir Mi Vida" data-sub="Marc Anthony" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/videos/62061ca577553aca824b2050"></a>
-        <a data-lang="spanish" data-cat="music" data-title="Waka Waka (Esto Es África)" data-sub="Shakira" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/videos/62061caa77553aca824c122f"></a>
-        <a data-lang="spanish" data-cat="music" data-title="Un Poco Loco (Coco)" data-sub="Luis Ángel Gómez Jaramillo, Gael García Bernal" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/videos/65467157aecf1952242071bc"></a>
-        <a data-lang="spanish" data-cat="music" data-title="Despacito" data-sub="Luis Fonsi ft. Daddy Yankee" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=music"></a>
-        <a data-lang="spanish" data-cat="music" data-title="Bailando" data-sub="Enrique Iglesias" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=music"></a>
-        <a data-lang="spanish" data-cat="music" data-title="La Bicicleta" data-sub="Carlos Vives, Shakira" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=music"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Vivir Mi Vida" data-sub="Marc Anthony"
+          data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/62061ca577553aca824b2050"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Waka Waka (Esto Es África)" data-sub="Shakira"
+          data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/62061caa77553aca824c122f"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Un Poco Loco (Coco)"
+          data-sub="Luis Ángel Gómez Jaramillo, Gael García Bernal"
+          data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/65467157aecf1952242071bc"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Agua" data-sub="Balvin, Tainy"
+          data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/62061ca677553aca824b5978"></a>
+        <a data-lang="spanish" data-cat="music" data-title="La Gozadera" data-sub="Gente De Zona, Marc Anthony"
+          data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=music"></a>
+        <a data-lang="spanish" data-cat="music" data-title="Bailando"
+          data-sub="Enrique Iglesias, Descemer Bueno, Gente De Zona"
+          data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/62061bb3d4d445af52978998"></a>
 
         <!-- ─── SPANISH · TV & FILM ─── -->
-        <a data-lang="spanish" data-cat="tv" data-title="Coco" data-sub="Pixar Animation" data-image="https://i.ytimg.com/vi/xlnPHQ3TLX8/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
-        <a data-lang="spanish" data-cat="tv" data-title="Money Heist" data-sub="Netflix · La Casa de Papel" data-image="https://i.ytimg.com/vi/_InqQJRqGW4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
-        <a data-lang="spanish" data-cat="tv" data-title="Encanto" data-sub="Disney" data-image="https://i.ytimg.com/vi/UvO9wAY2WnE/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
-        <a data-lang="spanish" data-cat="tv" data-title="Elite" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/xZD7ZcgRSrk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
-        <a data-lang="spanish" data-cat="tv" data-title="Narcos" data-sub="Netflix" data-image="https://i.ytimg.com/vi/U_g06Y2nrPo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
-        <a data-lang="spanish" data-cat="tv" data-title="Pan's Labyrinth" data-sub="Guillermo del Toro" data-image="https://i.ytimg.com/vi/eUdM9vrCbow/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Coco" data-sub="Pixar Animation"
+          data-image="https://i.ytimg.com/vi/xlnPHQ3TLX8/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/691b94888f4c706b0f688ab2"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Guerra de Restaurantes | Steven Universe | Cartoon Network"
+          data-sub="Steven Universe LA" data-image="https://i.ytimg.com/vi/_InqQJRqGW4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Encanto" data-sub="Disney"
+          data-image="https://i.ytimg.com/vi/UvO9wAY2WnE/hqdefault.jpg"
+          href="https://app.roxxem.com/videos/691b94888f4c706b0f688ab2"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="hablandoenele Español para extranjeros"
+          data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/xZD7ZcgRSrk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Narcos" data-sub="Netflix"
+          data-image="https://i.ytimg.com/vi/U_g06Y2nrPo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
+        <a data-lang="spanish" data-cat="tv" data-title="Pan's Labyrinth" data-sub="Guillermo del Toro"
+          data-image="https://i.ytimg.com/vi/eUdM9vrCbow/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=tv"></a>
 
         <!-- ─── SPANISH · VIRAL VIDEOS ─── -->
-        <a data-lang="spanish" data-cat="viral" data-title="Spanish Trends" data-sub="Most viewed clips" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
-        <a data-lang="spanish" data-cat="viral" data-title="Bad Bunny Highlights" data-sub="Top performances" data-image="https://i.ytimg.com/vi/TmKh7lAwnBI/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
-        <a data-lang="spanish" data-cat="viral" data-title="Rosalía Reels" data-sub="Viral moments" data-image="https://i.ytimg.com/vi/Tj_4lF0eIN0/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
-        <a data-lang="spanish" data-cat="viral" data-title="Tabletop Talk" data-sub="Trending interviews" data-image="https://i.ytimg.com/vi/Wamy8Zo3vEM/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
-        <a data-lang="spanish" data-cat="viral" data-title="Karol G Live" data-sub="Concert clips" data-image="https://i.ytimg.com/vi/1qSc3lGoBdY/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
-        <a data-lang="spanish" data-cat="viral" data-title="Maluma Moments" data-sub="Top features" data-image="https://i.ytimg.com/vi/jzD_yyEcp0M/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Spanish Trends" data-sub="Most viewed clips"
+          data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Bad Bunny Highlights" data-sub="Top performances"
+          data-image="https://i.ytimg.com/vi/TmKh7lAwnBI/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Rosalía Reels" data-sub="Viral moments"
+          data-image="https://i.ytimg.com/vi/Tj_4lF0eIN0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Tabletop Talk" data-sub="Trending interviews"
+          data-image="https://i.ytimg.com/vi/Wamy8Zo3vEM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Karol G Live" data-sub="Concert clips"
+          data-image="https://i.ytimg.com/vi/1qSc3lGoBdY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
+        <a data-lang="spanish" data-cat="viral" data-title="Maluma Moments" data-sub="Top features"
+          data-image="https://i.ytimg.com/vi/jzD_yyEcp0M/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=viral"></a>
 
         <!-- ─── SPANISH · SOCIAL MEDIA ─── -->
-        <a data-lang="spanish" data-cat="social" data-title="TikTok en Español" data-sub="Viral trends" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
-        <a data-lang="spanish" data-cat="social" data-title="Instagram Reels" data-sub="Spanish creators" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
-        <a data-lang="spanish" data-cat="social" data-title="YouTube Shorts" data-sub="Latino voices" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
-        <a data-lang="spanish" data-cat="social" data-title="Memes en Español" data-sub="Trending now" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
-        <a data-lang="spanish" data-cat="social" data-title="Viñetas Virales" data-sub="Mini-stories" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
-        <a data-lang="spanish" data-cat="social" data-title="Comedia Hispana" data-sub="Stand-up clips" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="TikTok en Español" data-sub="Viral trends"
+          data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Instagram Reels" data-sub="Spanish creators"
+          data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="YouTube Shorts" data-sub="Latino voices"
+          data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Memes en Español" data-sub="Trending now"
+          data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Viñetas Virales" data-sub="Mini-stories"
+          data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=social"></a>
+        <a data-lang="spanish" data-cat="social" data-title="Comedia Hispana" data-sub="Stand-up clips"
+          data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=social"></a>
 
         <!-- ─── SPANISH · PODCASTS ─── -->
-        <a data-lang="spanish" data-cat="podcasts" data-title="El Hilo" data-sub="Radio Ambulante" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
-        <a data-lang="spanish" data-cat="podcasts" data-title="Radio Ambulante" data-sub="NPR · Latin stories" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
-        <a data-lang="spanish" data-cat="podcasts" data-title="TED en Español" data-sub="Ideas worth spreading" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
-        <a data-lang="spanish" data-cat="podcasts" data-title="Notes en Español" data-sub="Conversational practice" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
-        <a data-lang="spanish" data-cat="podcasts" data-title="Coffee Break Spanish" data-sub="Beginner-friendly" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
-        <a data-lang="spanish" data-cat="podcasts" data-title="Españolistos" data-sub="Real conversations" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="El Hilo" data-sub="Radio Ambulante"
+          data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Radio Ambulante" data-sub="NPR · Latin stories"
+          data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="TED en Español" data-sub="Ideas worth spreading"
+          data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Notes en Español" data-sub="Conversational practice"
+          data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Coffee Break Spanish" data-sub="Beginner-friendly"
+          data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
+        <a data-lang="spanish" data-cat="podcasts" data-title="Españolistos" data-sub="Real conversations"
+          data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=podcasts"></a>
 
         <!-- ─── SPANISH · NEWS & MEDIA ─── -->
-        <a data-lang="spanish" data-cat="news" data-title="CNN en Español" data-sub="Latest headlines" data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
-        <a data-lang="spanish" data-cat="news" data-title="BBC Mundo" data-sub="Global news" data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
-        <a data-lang="spanish" data-cat="news" data-title="El País" data-sub="Spain · Reporting" data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
-        <a data-lang="spanish" data-cat="news" data-title="Univision Noticias" data-sub="Latino news" data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
-        <a data-lang="spanish" data-cat="news" data-title="EFE Noticias" data-sub="Spanish wire service" data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
-        <a data-lang="spanish" data-cat="news" data-title="Telemundo" data-sub="Daily reports" data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg" href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="CNN en Español" data-sub="Latest headlines"
+          data-image="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="BBC Mundo" data-sub="Global news"
+          data-image="https://i.ytimg.com/vi/NUsoVlDFqZg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="El País" data-sub="Spain · Reporting"
+          data-image="https://i.ytimg.com/vi/YXnjy5YlDwk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="Univision Noticias" data-sub="Latino news"
+          data-image="https://i.ytimg.com/vi/-UV0QGLmYys/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="EFE Noticias" data-sub="Spanish wire service"
+          data-image="https://i.ytimg.com/vi/dzsuE5ugxf4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=news"></a>
+        <a data-lang="spanish" data-cat="news" data-title="Telemundo" data-sub="Daily reports"
+          data-image="https://i.ytimg.com/vi/yZ7cBunq8xo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=spanish&category=news"></a>
 
         <!-- ─── FRENCH · MUSIC ─── -->
-        <a data-lang="french" data-cat="music" data-title="La Vie en Rose" data-sub="Edith Piaf" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
-        <a data-lang="french" data-cat="music" data-title="Alors on Danse" data-sub="Stromae" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
-        <a data-lang="french" data-cat="music" data-title="Tous les mêmes" data-sub="Stromae" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
-        <a data-lang="french" data-cat="music" data-title="Champs-Élysées" data-sub="Joe Dassin" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
-        <a data-lang="french" data-cat="music" data-title="Je Veux" data-sub="Zaz" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
-        <a data-lang="french" data-cat="music" data-title="Papaoutai" data-sub="Stromae" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="La Vie en Rose" data-sub="Edith Piaf"
+          data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Alors on Danse" data-sub="Stromae"
+          data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Tous les mêmes" data-sub="Stromae"
+          data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Champs-Élysées" data-sub="Joe Dassin"
+          data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Je Veux" data-sub="Zaz"
+          data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=music"></a>
+        <a data-lang="french" data-cat="music" data-title="Papaoutai" data-sub="Stromae"
+          data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=music"></a>
 
         <!-- ─── FRENCH · TV & FILM ─── -->
-        <a data-lang="french" data-cat="tv" data-title="Lupin" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/Z9Vy3DPMlEM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
-        <a data-lang="french" data-cat="tv" data-title="Call My Agent!" data-sub="Dix pour cent" data-image="https://i.ytimg.com/vi/YjJq4FK1l4o/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
-        <a data-lang="french" data-cat="tv" data-title="Amélie" data-sub="Jean-Pierre Jeunet" data-image="https://i.ytimg.com/vi/HUECWi5pX7o/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
-        <a data-lang="french" data-cat="tv" data-title="The Intouchables" data-sub="Olivier Nakache" data-image="https://i.ytimg.com/vi/34WIbmXkewU/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
-        <a data-lang="french" data-cat="tv" data-title="Family Business" data-sub="Netflix" data-image="https://i.ytimg.com/vi/Z9Vy3DPMlEM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
-        <a data-lang="french" data-cat="tv" data-title="Marseille" data-sub="Netflix" data-image="https://i.ytimg.com/vi/YjJq4FK1l4o/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Lupin" data-sub="Netflix Original"
+          data-image="https://i.ytimg.com/vi/Z9Vy3DPMlEM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Call My Agent!" data-sub="Dix pour cent"
+          data-image="https://i.ytimg.com/vi/YjJq4FK1l4o/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Amélie" data-sub="Jean-Pierre Jeunet"
+          data-image="https://i.ytimg.com/vi/HUECWi5pX7o/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="The Intouchables" data-sub="Olivier Nakache"
+          data-image="https://i.ytimg.com/vi/34WIbmXkewU/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Family Business" data-sub="Netflix"
+          data-image="https://i.ytimg.com/vi/Z9Vy3DPMlEM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=tv"></a>
+        <a data-lang="french" data-cat="tv" data-title="Marseille" data-sub="Netflix"
+          data-image="https://i.ytimg.com/vi/YjJq4FK1l4o/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=tv"></a>
 
         <!-- ─── FRENCH · VIRAL VIDEOS ─── -->
-        <a data-lang="french" data-cat="viral" data-title="French TikTok" data-sub="Viral trends" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
-        <a data-lang="french" data-cat="viral" data-title="Cyprien" data-sub="Top YouTuber" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
-        <a data-lang="french" data-cat="viral" data-title="Squeezie Highlights" data-sub="Gaming · Comedy" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
-        <a data-lang="french" data-cat="viral" data-title="Norman fait des vidéos" data-sub="Sketch comedy" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
-        <a data-lang="french" data-cat="viral" data-title="Mister V" data-sub="Music · Comedy" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
-        <a data-lang="french" data-cat="viral" data-title="Tibo InShape" data-sub="Lifestyle" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="French TikTok" data-sub="Viral trends"
+          data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Cyprien" data-sub="Top YouTuber"
+          data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Squeezie Highlights" data-sub="Gaming · Comedy"
+          data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Norman fait des vidéos" data-sub="Sketch comedy"
+          data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Mister V" data-sub="Music · Comedy"
+          data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=viral"></a>
+        <a data-lang="french" data-cat="viral" data-title="Tibo InShape" data-sub="Lifestyle"
+          data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=viral"></a>
 
         <!-- ─── FRENCH · SOCIAL MEDIA ─── -->
-        <a data-lang="french" data-cat="social" data-title="Instagram FR" data-sub="Top creators" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
-        <a data-lang="french" data-cat="social" data-title="TikTok France" data-sub="Daily trends" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
-        <a data-lang="french" data-cat="social" data-title="Snapchat FR" data-sub="Story highlights" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
-        <a data-lang="french" data-cat="social" data-title="YouTube Shorts FR" data-sub="Vertical videos" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
-        <a data-lang="french" data-cat="social" data-title="Memes Français" data-sub="Trending humor" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
-        <a data-lang="french" data-cat="social" data-title="Twitch FR" data-sub="Live streams" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Instagram FR" data-sub="Top creators"
+          data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="TikTok France" data-sub="Daily trends"
+          data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Snapchat FR" data-sub="Story highlights"
+          data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="YouTube Shorts FR" data-sub="Vertical videos"
+          data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Memes Français" data-sub="Trending humor"
+          data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=social"></a>
+        <a data-lang="french" data-cat="social" data-title="Twitch FR" data-sub="Live streams"
+          data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=social"></a>
 
         <!-- ─── FRENCH · PODCASTS ─── -->
-        <a data-lang="french" data-cat="podcasts" data-title="Coffee Break French" data-sub="Beginner-friendly" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
-        <a data-lang="french" data-cat="podcasts" data-title="News in Slow French" data-sub="Slow-paced news" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
-        <a data-lang="french" data-cat="podcasts" data-title="Inner French" data-sub="For intermediate" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
-        <a data-lang="french" data-cat="podcasts" data-title="La Conversation" data-sub="Native pacing" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
-        <a data-lang="french" data-cat="podcasts" data-title="TED en Français" data-sub="Ideas worth sharing" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
-        <a data-lang="french" data-cat="podcasts" data-title="France Inter" data-sub="Public radio" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="Coffee Break French" data-sub="Beginner-friendly"
+          data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="News in Slow French" data-sub="Slow-paced news"
+          data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="Inner French" data-sub="For intermediate"
+          data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="La Conversation" data-sub="Native pacing"
+          data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="TED en Français" data-sub="Ideas worth sharing"
+          data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
+        <a data-lang="french" data-cat="podcasts" data-title="France Inter" data-sub="Public radio"
+          data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=podcasts"></a>
 
         <!-- ─── FRENCH · NEWS & MEDIA ─── -->
-        <a data-lang="french" data-cat="news" data-title="Le Monde" data-sub="Headlines" data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
-        <a data-lang="french" data-cat="news" data-title="France 24" data-sub="International" data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
-        <a data-lang="french" data-cat="news" data-title="BFMTV" data-sub="Breaking news" data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
-        <a data-lang="french" data-cat="news" data-title="Le Figaro" data-sub="Daily" data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
-        <a data-lang="french" data-cat="news" data-title="Libération" data-sub="Reporting" data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
-        <a data-lang="french" data-cat="news" data-title="Radio France" data-sub="Public broadcaster" data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg" href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Le Monde" data-sub="Headlines"
+          data-image="https://i.ytimg.com/vi/K4DyBUG242c/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="France 24" data-sub="International"
+          data-image="https://i.ytimg.com/vi/oiKj0Z_Xnjc/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="BFMTV" data-sub="Breaking news"
+          data-image="https://i.ytimg.com/vi/DKfwukQ5oUM/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Le Figaro" data-sub="Daily"
+          data-image="https://i.ytimg.com/vi/GLBPP9HzNAg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Libération" data-sub="Reporting"
+          data-image="https://i.ytimg.com/vi/VV1XWJN3nJo/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=news"></a>
+        <a data-lang="french" data-cat="news" data-title="Radio France" data-sub="Public broadcaster"
+          data-image="https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=french&category=news"></a>
 
         <!-- ─── GERMAN · MUSIC ─── -->
-        <a data-lang="german" data-cat="music" data-title="99 Luftballons" data-sub="Nena" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
-        <a data-lang="german" data-cat="music" data-title="Du Hast" data-sub="Rammstein" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
-        <a data-lang="german" data-cat="music" data-title="Atemlos durch die Nacht" data-sub="Helene Fischer" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
-        <a data-lang="german" data-cat="music" data-title="Auf uns" data-sub="Andreas Bourani" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
-        <a data-lang="german" data-cat="music" data-title="Engel" data-sub="Rammstein" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
-        <a data-lang="german" data-cat="music" data-title="Major Tom" data-sub="Peter Schilling" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="99 Luftballons" data-sub="Nena"
+          data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Du Hast" data-sub="Rammstein"
+          data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Atemlos durch die Nacht" data-sub="Helene Fischer"
+          data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Auf uns" data-sub="Andreas Bourani"
+          data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Engel" data-sub="Rammstein"
+          data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=music"></a>
+        <a data-lang="german" data-cat="music" data-title="Major Tom" data-sub="Peter Schilling"
+          data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=music"></a>
 
         <!-- ─── GERMAN · TV & FILM ─── -->
-        <a data-lang="german" data-cat="tv" data-title="Dark" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
-        <a data-lang="german" data-cat="tv" data-title="Babylon Berlin" data-sub="X Filme Creative Pool" data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
-        <a data-lang="german" data-cat="tv" data-title="Tatort" data-sub="Crime drama" data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
-        <a data-lang="german" data-cat="tv" data-title="Good Bye, Lenin!" data-sub="Wolfgang Becker" data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
-        <a data-lang="german" data-cat="tv" data-title="Run Lola Run" data-sub="Tom Tykwer" data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
-        <a data-lang="german" data-cat="tv" data-title="Das Boot" data-sub="WWII drama" data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Dark" data-sub="Netflix Original"
+          data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Babylon Berlin" data-sub="X Filme Creative Pool"
+          data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Tatort" data-sub="Crime drama"
+          data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Good Bye, Lenin!" data-sub="Wolfgang Becker"
+          data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Run Lola Run" data-sub="Tom Tykwer"
+          data-image="https://i.ytimg.com/vi/rrwycJ08PSA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=tv"></a>
+        <a data-lang="german" data-cat="tv" data-title="Das Boot" data-sub="WWII drama"
+          data-image="https://i.ytimg.com/vi/q3yh1aIIVtg/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=tv"></a>
 
         <!-- ─── GERMAN · VIRAL VIDEOS ─── -->
-        <a data-lang="german" data-cat="viral" data-title="Y-Titty" data-sub="Classic comedy" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
-        <a data-lang="german" data-cat="viral" data-title="Gronkh Highlights" data-sub="Gaming legend" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
-        <a data-lang="german" data-cat="viral" data-title="BibisBeautyPalace" data-sub="Lifestyle vlogs" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
-        <a data-lang="german" data-cat="viral" data-title="Julien Bam" data-sub="Music · Skits" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
-        <a data-lang="german" data-cat="viral" data-title="LeFloid" data-sub="News commentary" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
-        <a data-lang="german" data-cat="viral" data-title="ApeCrime" data-sub="Sketch trio" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="Y-Titty" data-sub="Classic comedy"
+          data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="Gronkh Highlights" data-sub="Gaming legend"
+          data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="BibisBeautyPalace" data-sub="Lifestyle vlogs"
+          data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="Julien Bam" data-sub="Music · Skits"
+          data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="LeFloid" data-sub="News commentary"
+          data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=viral"></a>
+        <a data-lang="german" data-cat="viral" data-title="ApeCrime" data-sub="Sketch trio"
+          data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=viral"></a>
 
         <!-- ─── GERMAN · SOCIAL MEDIA ─── -->
-        <a data-lang="german" data-cat="social" data-title="TikTok DE" data-sub="Trending now" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
-        <a data-lang="german" data-cat="social" data-title="Instagram DE" data-sub="Top creators" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
-        <a data-lang="german" data-cat="social" data-title="YouTube Shorts DE" data-sub="Daily picks" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
-        <a data-lang="german" data-cat="social" data-title="German Reels" data-sub="Mini-stories" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
-        <a data-lang="german" data-cat="social" data-title="Memes auf Deutsch" data-sub="Humor" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
-        <a data-lang="german" data-cat="social" data-title="Twitch DE" data-sub="Streamers" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="TikTok DE" data-sub="Trending now"
+          data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="Instagram DE" data-sub="Top creators"
+          data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="YouTube Shorts DE" data-sub="Daily picks"
+          data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="German Reels" data-sub="Mini-stories"
+          data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="Memes auf Deutsch" data-sub="Humor"
+          data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=social"></a>
+        <a data-lang="german" data-cat="social" data-title="Twitch DE" data-sub="Streamers"
+          data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=social"></a>
 
         <!-- ─── GERMAN · PODCASTS ─── -->
-        <a data-lang="german" data-cat="podcasts" data-title="Coffee Break German" data-sub="Beginner-friendly" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
-        <a data-lang="german" data-cat="podcasts" data-title="Slow German" data-sub="Annik Rubens" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
-        <a data-lang="german" data-cat="podcasts" data-title="Easy German" data-sub="Street interviews" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
-        <a data-lang="german" data-cat="podcasts" data-title="Auf den Punkt" data-sub="Süddeutsche Zeitung" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
-        <a data-lang="german" data-cat="podcasts" data-title="Was jetzt?" data-sub="Zeit Online" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
-        <a data-lang="german" data-cat="podcasts" data-title="TED auf Deutsch" data-sub="Ideas worth sharing" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Coffee Break German" data-sub="Beginner-friendly"
+          data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Slow German" data-sub="Annik Rubens"
+          data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Easy German" data-sub="Street interviews"
+          data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Auf den Punkt" data-sub="Süddeutsche Zeitung"
+          data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="Was jetzt?" data-sub="Zeit Online"
+          data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
+        <a data-lang="german" data-cat="podcasts" data-title="TED auf Deutsch" data-sub="Ideas worth sharing"
+          data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=podcasts"></a>
 
         <!-- ─── GERMAN · NEWS & MEDIA ─── -->
-        <a data-lang="german" data-cat="news" data-title="Der Spiegel" data-sub="Weekly magazine" data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
-        <a data-lang="german" data-cat="news" data-title="Die Zeit" data-sub="In-depth reporting" data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
-        <a data-lang="german" data-cat="news" data-title="Tagesschau" data-sub="Daily news" data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
-        <a data-lang="german" data-cat="news" data-title="Deutsche Welle" data-sub="International" data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
-        <a data-lang="german" data-cat="news" data-title="FAZ" data-sub="Frankfurter Allgemeine" data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
-        <a data-lang="german" data-cat="news" data-title="BILD" data-sub="Tabloid" data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg" href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Der Spiegel" data-sub="Weekly magazine"
+          data-image="https://i.ytimg.com/vi/Fpu5a0Bl8eY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Die Zeit" data-sub="In-depth reporting"
+          data-image="https://i.ytimg.com/vi/W3q8Od5qJio/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Tagesschau" data-sub="Daily news"
+          data-image="https://i.ytimg.com/vi/VQH8ZTgna3Q/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="Deutsche Welle" data-sub="International"
+          data-image="https://i.ytimg.com/vi/cnDqcFM6Qx4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="FAZ" data-sub="Frankfurter Allgemeine"
+          data-image="https://i.ytimg.com/vi/tWlqMOLLfHs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=news"></a>
+        <a data-lang="german" data-cat="news" data-title="BILD" data-sub="Tabloid"
+          data-image="https://i.ytimg.com/vi/WlBiLNN1NhQ/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=german&category=news"></a>
 
         <!-- ─── ENGLISH · MUSIC ─── -->
-        <a data-lang="english" data-cat="music" data-title="Shape of You" data-sub="Ed Sheeran" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
-        <a data-lang="english" data-cat="music" data-title="Uptown Funk" data-sub="Mark Ronson ft. Bruno Mars" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
-        <a data-lang="english" data-cat="music" data-title="Hello" data-sub="Adele" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
-        <a data-lang="english" data-cat="music" data-title="Roar" data-sub="Katy Perry" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
-        <a data-lang="english" data-cat="music" data-title="Sorry" data-sub="Justin Bieber" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
-        <a data-lang="english" data-cat="music" data-title="Happy" data-sub="Pharrell Williams" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Shape of You" data-sub="Ed Sheeran"
+          data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Uptown Funk" data-sub="Mark Ronson ft. Bruno Mars"
+          data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Hello" data-sub="Adele"
+          data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Roar" data-sub="Katy Perry"
+          data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Sorry" data-sub="Justin Bieber"
+          data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=music"></a>
+        <a data-lang="english" data-cat="music" data-title="Happy" data-sub="Pharrell Williams"
+          data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=music"></a>
 
         <!-- ─── ENGLISH · TV & FILM ─── -->
-        <a data-lang="english" data-cat="tv" data-title="Stranger Things" data-sub="Netflix Original" data-image="https://i.ytimg.com/vi/b9EkMc79ZSU/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
-        <a data-lang="english" data-cat="tv" data-title="The Crown" data-sub="Netflix" data-image="https://i.ytimg.com/vi/JWtnJjn6ng0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
-        <a data-lang="english" data-cat="tv" data-title="Friends" data-sub="NBC · Sitcom" data-image="https://i.ytimg.com/vi/SAB18cSO0e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
-        <a data-lang="english" data-cat="tv" data-title="Bridgerton" data-sub="Shondaland" data-image="https://i.ytimg.com/vi/gpv7ayf_tyE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
-        <a data-lang="english" data-cat="tv" data-title="The Office" data-sub="NBC · Mockumentary" data-image="https://i.ytimg.com/vi/LHhVE9JxQNI/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
-        <a data-lang="english" data-cat="tv" data-title="Wednesday" data-sub="Netflix" data-image="https://i.ytimg.com/vi/Q2KCmZQQS1k/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Stranger Things" data-sub="Netflix Original"
+          data-image="https://i.ytimg.com/vi/b9EkMc79ZSU/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="The Crown" data-sub="Netflix"
+          data-image="https://i.ytimg.com/vi/JWtnJjn6ng0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Friends" data-sub="NBC · Sitcom"
+          data-image="https://i.ytimg.com/vi/SAB18cSO0e0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Bridgerton" data-sub="Shondaland"
+          data-image="https://i.ytimg.com/vi/gpv7ayf_tyE/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="The Office" data-sub="NBC · Mockumentary"
+          data-image="https://i.ytimg.com/vi/LHhVE9JxQNI/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=tv"></a>
+        <a data-lang="english" data-cat="tv" data-title="Wednesday" data-sub="Netflix"
+          data-image="https://i.ytimg.com/vi/Q2KCmZQQS1k/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=tv"></a>
 
         <!-- ─── ENGLISH · VIRAL VIDEOS ─── -->
-        <a data-lang="english" data-cat="viral" data-title="MrBeast" data-sub="Most-subscribed" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
-        <a data-lang="english" data-cat="viral" data-title="Marques Brownlee" data-sub="Tech reviews" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
-        <a data-lang="english" data-cat="viral" data-title="PewDiePie" data-sub="Gaming · Comedy" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
-        <a data-lang="english" data-cat="viral" data-title="Try Guys" data-sub="Trying everything" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
-        <a data-lang="english" data-cat="viral" data-title="Dude Perfect" data-sub="Trick shots" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
-        <a data-lang="english" data-cat="viral" data-title="Ryan Trahan" data-sub="Adventure vlogs" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="MrBeast" data-sub="Most-subscribed"
+          data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Marques Brownlee" data-sub="Tech reviews"
+          data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="PewDiePie" data-sub="Gaming · Comedy"
+          data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Try Guys" data-sub="Trying everything"
+          data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Dude Perfect" data-sub="Trick shots"
+          data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=viral"></a>
+        <a data-lang="english" data-cat="viral" data-title="Ryan Trahan" data-sub="Adventure vlogs"
+          data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=viral"></a>
 
         <!-- ─── ENGLISH · SOCIAL MEDIA ─── -->
-        <a data-lang="english" data-cat="social" data-title="TikTok Trending" data-sub="Worldwide" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
-        <a data-lang="english" data-cat="social" data-title="Instagram Reels" data-sub="Daily picks" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
-        <a data-lang="english" data-cat="social" data-title="YouTube Shorts" data-sub="Vertical video" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
-        <a data-lang="english" data-cat="social" data-title="Twitter / X" data-sub="Threads &amp; memes" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
-        <a data-lang="english" data-cat="social" data-title="Snapchat" data-sub="Stories" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
-        <a data-lang="english" data-cat="social" data-title="Twitch" data-sub="Live streams" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="TikTok Trending" data-sub="Worldwide"
+          data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Instagram Reels" data-sub="Daily picks"
+          data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="YouTube Shorts" data-sub="Vertical video"
+          data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Twitter / X" data-sub="Threads &amp; memes"
+          data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Snapchat" data-sub="Stories"
+          data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=social"></a>
+        <a data-lang="english" data-cat="social" data-title="Twitch" data-sub="Live streams"
+          data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=social"></a>
 
         <!-- ─── ENGLISH · PODCASTS ─── -->
-        <a data-lang="english" data-cat="podcasts" data-title="The Daily" data-sub="New York Times" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
-        <a data-lang="english" data-cat="podcasts" data-title="This American Life" data-sub="WBEZ Chicago" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
-        <a data-lang="english" data-cat="podcasts" data-title="Radiolab" data-sub="WNYC Studios" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
-        <a data-lang="english" data-cat="podcasts" data-title="Stuff You Should Know" data-sub="iHeart Podcasts" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
-        <a data-lang="english" data-cat="podcasts" data-title="Conan O'Brien Needs a Friend" data-sub="Team Coco" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
-        <a data-lang="english" data-cat="podcasts" data-title="99% Invisible" data-sub="Roman Mars" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="The Daily" data-sub="New York Times"
+          data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="This American Life" data-sub="WBEZ Chicago"
+          data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="Radiolab" data-sub="WNYC Studios"
+          data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="Stuff You Should Know" data-sub="iHeart Podcasts"
+          data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="Conan O'Brien Needs a Friend" data-sub="Team Coco"
+          data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
+        <a data-lang="english" data-cat="podcasts" data-title="99% Invisible" data-sub="Roman Mars"
+          data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=podcasts"></a>
 
         <!-- ─── ENGLISH · NEWS & MEDIA ─── -->
-        <a data-lang="english" data-cat="news" data-title="BBC News" data-sub="International" data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
-        <a data-lang="english" data-cat="news" data-title="CNN" data-sub="Breaking news" data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
-        <a data-lang="english" data-cat="news" data-title="The Guardian" data-sub="In-depth reporting" data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
-        <a data-lang="english" data-cat="news" data-title="Reuters" data-sub="Wire service" data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
-        <a data-lang="english" data-cat="news" data-title="NPR" data-sub="Public radio" data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
-        <a data-lang="english" data-cat="news" data-title="AP News" data-sub="Associated Press" data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg" href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="BBC News" data-sub="International"
+          data-image="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="CNN" data-sub="Breaking news"
+          data-image="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="The Guardian" data-sub="In-depth reporting"
+          data-image="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="Reuters" data-sub="Wire service"
+          data-image="https://i.ytimg.com/vi/CevxZvSJLk8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="NPR" data-sub="Public radio"
+          data-image="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=news"></a>
+        <a data-lang="english" data-cat="news" data-title="AP News" data-sub="Associated Press"
+          data-image="https://i.ytimg.com/vi/ZbZSe6N_BXs/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=english&category=news"></a>
 
         <!-- ─── CHINESE · MUSIC ─── -->
-        <a data-lang="chinese" data-cat="music" data-title="月亮代表我的心" data-sub="邓丽君 (Teresa Teng)" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
-        <a data-lang="chinese" data-cat="music" data-title="红日 (Red Sun)" data-sub="李克勤 (Hacken Lee)" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
-        <a data-lang="chinese" data-cat="music" data-title="童话 (Fairy Tale)" data-sub="光良 (Michael Wong)" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
-        <a data-lang="chinese" data-cat="music" data-title="龙的传人" data-sub="王力宏 (Wang Leehom)" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
-        <a data-lang="chinese" data-cat="music" data-title="大鱼 (Big Fish)" data-sub="周深 (Zhou Shen)" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
-        <a data-lang="chinese" data-cat="music" data-title="月半小夜曲" data-sub="李克勤 (Hacken Lee)" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="月亮代表我的心" data-sub="邓丽君 (Teresa Teng)"
+          data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="红日 (Red Sun)" data-sub="李克勤 (Hacken Lee)"
+          data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="童话 (Fairy Tale)" data-sub="光良 (Michael Wong)"
+          data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="龙的传人" data-sub="王力宏 (Wang Leehom)"
+          data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="大鱼 (Big Fish)" data-sub="周深 (Zhou Shen)"
+          data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=music"></a>
+        <a data-lang="chinese" data-cat="music" data-title="月半小夜曲" data-sub="李克勤 (Hacken Lee)"
+          data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=music"></a>
 
         <!-- ─── CHINESE · TV & FILM ─── -->
-        <a data-lang="chinese" data-cat="tv" data-title="Crouching Tiger, Hidden Dragon" data-sub="Ang Lee" data-image="https://i.ytimg.com/vi/WnJUuSfQpsk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
-        <a data-lang="chinese" data-cat="tv" data-title="Empresses in the Palace" data-sub="甄嬛传" data-image="https://i.ytimg.com/vi/rOgGd8KaUO0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
-        <a data-lang="chinese" data-cat="tv" data-title="Story of Yanxi Palace" data-sub="延禧攻略" data-image="https://i.ytimg.com/vi/jWZH7zHJ8b8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
-        <a data-lang="chinese" data-cat="tv" data-title="The Untamed" data-sub="陈情令" data-image="https://i.ytimg.com/vi/ZFcZAErJ_iY/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
-        <a data-lang="chinese" data-cat="tv" data-title="Nirvana in Fire" data-sub="琅琊榜" data-image="https://i.ytimg.com/vi/FB5lUGqEbi8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
-        <a data-lang="chinese" data-cat="tv" data-title="Eternal Love" data-sub="三生三世十里桃花" data-image="https://i.ytimg.com/vi/h87xx4DjGT4/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Crouching Tiger, Hidden Dragon" data-sub="Ang Lee"
+          data-image="https://i.ytimg.com/vi/WnJUuSfQpsk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Empresses in the Palace" data-sub="甄嬛传"
+          data-image="https://i.ytimg.com/vi/rOgGd8KaUO0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Story of Yanxi Palace" data-sub="延禧攻略"
+          data-image="https://i.ytimg.com/vi/jWZH7zHJ8b8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="The Untamed" data-sub="陈情令"
+          data-image="https://i.ytimg.com/vi/ZFcZAErJ_iY/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Nirvana in Fire" data-sub="琅琊榜"
+          data-image="https://i.ytimg.com/vi/FB5lUGqEbi8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
+        <a data-lang="chinese" data-cat="tv" data-title="Eternal Love" data-sub="三生三世十里桃花"
+          data-image="https://i.ytimg.com/vi/h87xx4DjGT4/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=tv"></a>
 
         <!-- ─── CHINESE · VIRAL VIDEOS ─── -->
-        <a data-lang="chinese" data-cat="viral" data-title="Bilibili Trends" data-sub="China's viral hub" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
-        <a data-lang="chinese" data-cat="viral" data-title="Li Ziqi" data-sub="Traditional cooking" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
-        <a data-lang="chinese" data-cat="viral" data-title="Liziqi Highlights" data-sub="Rural lifestyle" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
-        <a data-lang="chinese" data-cat="viral" data-title="Office Reels" data-sub="Workplace humor" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
-        <a data-lang="chinese" data-cat="viral" data-title="Asian Viral" data-sub="Top of the week" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
-        <a data-lang="chinese" data-cat="viral" data-title="Animal Clips" data-sub="Cute &amp; funny" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Bilibili Trends" data-sub="China's viral hub"
+          data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Li Ziqi" data-sub="Traditional cooking"
+          data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Liziqi Highlights" data-sub="Rural lifestyle"
+          data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Office Reels" data-sub="Workplace humor"
+          data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Asian Viral" data-sub="Top of the week"
+          data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
+        <a data-lang="chinese" data-cat="viral" data-title="Animal Clips" data-sub="Cute &amp; funny"
+          data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=viral"></a>
 
         <!-- ─── CHINESE · SOCIAL MEDIA ─── -->
-        <a data-lang="chinese" data-cat="social" data-title="Douyin Trending" data-sub="China's TikTok" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
-        <a data-lang="chinese" data-cat="social" data-title="WeChat Channels" data-sub="Short videos" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
-        <a data-lang="chinese" data-cat="social" data-title="Weibo Hot Topics" data-sub="Trending posts" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
-        <a data-lang="chinese" data-cat="social" data-title="Xiaohongshu" data-sub="Lifestyle posts" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
-        <a data-lang="chinese" data-cat="social" data-title="Kuaishou" data-sub="Short-form video" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
-        <a data-lang="chinese" data-cat="social" data-title="Bilibili Shorts" data-sub="Daily picks" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Douyin Trending" data-sub="China's TikTok"
+          data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="WeChat Channels" data-sub="Short videos"
+          data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Weibo Hot Topics" data-sub="Trending posts"
+          data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Xiaohongshu" data-sub="Lifestyle posts"
+          data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Kuaishou" data-sub="Short-form video"
+          data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=social"></a>
+        <a data-lang="chinese" data-cat="social" data-title="Bilibili Shorts" data-sub="Daily picks"
+          data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=social"></a>
 
         <!-- ─── CHINESE · PODCASTS ─── -->
-        <a data-lang="chinese" data-cat="podcasts" data-title="ChinesePod" data-sub="Lessons for all levels" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
-        <a data-lang="chinese" data-cat="podcasts" data-title="Slow Chinese" data-sub="Native pacing" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
-        <a data-lang="chinese" data-cat="podcasts" data-title="Mandarin Bean" data-sub="Daily news" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
-        <a data-lang="chinese" data-cat="podcasts" data-title="Maomi Chinese" data-sub="For HSK learners" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
-        <a data-lang="chinese" data-cat="podcasts" data-title="声东击西" data-sub="Cross-strait pop culture" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
-        <a data-lang="chinese" data-cat="podcasts" data-title="Anchor 锚点" data-sub="In-depth stories" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="ChinesePod" data-sub="Lessons for all levels"
+          data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Slow Chinese" data-sub="Native pacing"
+          data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Mandarin Bean" data-sub="Daily news"
+          data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Maomi Chinese" data-sub="For HSK learners"
+          data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="声东击西" data-sub="Cross-strait pop culture"
+          data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
+        <a data-lang="chinese" data-cat="podcasts" data-title="Anchor 锚点" data-sub="In-depth stories"
+          data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=podcasts"></a>
 
         <!-- ─── CHINESE · NEWS & MEDIA ─── -->
-        <a data-lang="chinese" data-cat="news" data-title="Xinhua News" data-sub="新华社" data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
-        <a data-lang="chinese" data-cat="news" data-title="CCTV News" data-sub="中央电视台" data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
-        <a data-lang="chinese" data-cat="news" data-title="People's Daily" data-sub="人民日报" data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
-        <a data-lang="chinese" data-cat="news" data-title="South China Morning Post" data-sub="Hong Kong" data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
-        <a data-lang="chinese" data-cat="news" data-title="Caixin Global" data-sub="Business news" data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
-        <a data-lang="chinese" data-cat="news" data-title="Sing Tao Daily" data-sub="星岛日报" data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg" href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="Xinhua News" data-sub="新华社"
+          data-image="https://i.ytimg.com/vi/SrAm-IRGcLA/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="CCTV News" data-sub="中央电视台"
+          data-image="https://i.ytimg.com/vi/qDgmFf0Vyok/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="People's Daily" data-sub="人民日报"
+          data-image="https://i.ytimg.com/vi/jPGXfwAU_T8/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="South China Morning Post" data-sub="Hong Kong"
+          data-image="https://i.ytimg.com/vi/oOmqksKE5e0/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="Caixin Global" data-sub="Business news"
+          data-image="https://i.ytimg.com/vi/6f7xPNJI_no/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=news"></a>
+        <a data-lang="chinese" data-cat="news" data-title="Sing Tao Daily" data-sub="星岛日报"
+          data-image="https://i.ytimg.com/vi/6_OcyTUYbxk/hqdefault.jpg"
+          href="https://app.roxxem.com/home?language=chinese&category=news"></a>
 
       </div>
     </div>
@@ -493,7 +1025,8 @@
       <div class="lesson__head">
         <p class="eyebrow eyebrow--orange">For Teachers</p>
         <h2 class="section-title section-title--purple">Lesson Ready in 3 Steps</h2>
-        <p class="lesson__desc">From any piece of pop culture to a complete, print-ready lesson plan — no extra prep needed.</p>
+        <p class="lesson__desc">From any piece of pop culture to a complete, print-ready lesson plan — no extra prep
+          needed.</p>
       </div>
 
       <!-- Step 1: form mock LEFT, copy RIGHT -->
@@ -507,15 +1040,15 @@
 
             <div class="form-mock__metas">
               <div class="form-mock__meta">
-                <p class="form-mock__meta-label">⏱  Duration</p>
+                <p class="form-mock__meta-label">⏱ Duration</p>
                 <div class="form-mock__meta-pill">30 min <span class="caret">▾</span></div>
               </div>
               <div class="form-mock__meta">
-                <p class="form-mock__meta-label">📊  Difficulty</p>
+                <p class="form-mock__meta-label">📊 Difficulty</p>
                 <div class="form-mock__meta-pill">Novice Low (Pre-A1) <span class="caret">▾</span></div>
               </div>
               <div class="form-mock__meta">
-                <p class="form-mock__meta-label">👥  Class</p>
+                <p class="form-mock__meta-label">👥 Class</p>
                 <div class="form-mock__meta-pill">No class <span class="caret">▾</span></div>
               </div>
             </div>
@@ -528,7 +1061,8 @@
             </div>
 
             <div class="form-mock__input">
-              <span class="form-mock__cursor"><span class="form-mock__typed" id="form-mock-typed"></span><span class="form-mock__caret">|</span></span>
+              <span class="form-mock__cursor"><span class="form-mock__typed" id="form-mock-typed"></span><span
+                  class="form-mock__caret">|</span></span>
               <button class="form-mock__cta">Start Building</button>
             </div>
           </div>
@@ -536,7 +1070,8 @@
         <div class="lstep__copy">
           <p class="lstep__num">Step 1</p>
           <h3 class="lstep__title">Tell us your topic</h3>
-          <p class="lstep__sub">Paste your textbook content, a chapter title, or just a topic name. We'll take it from there.</p>
+          <p class="lstep__sub">Paste your textbook content, a chapter title, or just a topic name. We'll take it from
+            there.</p>
         </div>
       </div>
 
@@ -554,16 +1089,20 @@
             </video>
             <button class="video-mock__sound" id="walkthrough-sound" aria-label="Unmute video" aria-pressed="false">
               <!-- Muted icon (shown by default) -->
-              <svg class="sound-icon sound-icon--off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <line x1="23" y1="9" x2="17" y2="15"/>
-                <line x1="17" y1="9" x2="23" y2="15"/>
+              <svg class="sound-icon sound-icon--off" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
               </svg>
               <!-- Sound-on icon (hidden by default) -->
-              <svg class="sound-icon sound-icon--on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              <svg class="sound-icon sound-icon--on" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
               </svg>
             </button>
           </div>
@@ -575,7 +1114,8 @@
         <div class="lstep__copy lstep__copy--center">
           <p class="lstep__num">Step 3</p>
           <h3 class="lstep__title">Track your students' progress</h3>
-          <p class="lstep__sub">Assign any song, lesson, or game for homework. Track real-time proficiency and engagement for every student.</p>
+          <p class="lstep__sub">Assign any song, lesson, or game for homework. Track real-time proficiency and
+            engagement for every student.</p>
         </div>
 
         <div class="lstep__panels">
@@ -587,7 +1127,10 @@
                 <div class="d-topnav__left">
                   <span class="d-topnav__brand">roxxem</span>
                   <div class="d-topnav__search">
-                    <svg width="7.4" height="7.4" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <svg width="7.4" height="7.4" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2">
+                      <circle cx="11" cy="11" r="7"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
                     <span>Search…</span>
                   </div>
                 </div>
@@ -628,57 +1171,125 @@
                   </div>
 
                   <div class="d-stats">
-                    <div class="d-stat"><div class="d-stat__num d-stat__num--students">26</div><div class="d-stat__label">Students</div></div>
-                    <div class="d-stat"><div class="d-stat__num d-stat__num--songs">142</div><div class="d-stat__label">Songs</div></div>
-                    <div class="d-stat"><div class="d-stat__num d-stat__num--lyrics">2,841</div><div class="d-stat__label">Lyrics</div></div>
-                    <div class="d-stat"><div class="d-stat__num d-stat__num--words">418</div><div class="d-stat__label">Words</div></div>
+                    <div class="d-stat">
+                      <div class="d-stat__num d-stat__num--students">26</div>
+                      <div class="d-stat__label">Students</div>
+                    </div>
+                    <div class="d-stat">
+                      <div class="d-stat__num d-stat__num--songs">142</div>
+                      <div class="d-stat__label">Songs</div>
+                    </div>
+                    <div class="d-stat">
+                      <div class="d-stat__num d-stat__num--lyrics">2,841</div>
+                      <div class="d-stat__label">Lyrics</div>
+                    </div>
+                    <div class="d-stat">
+                      <div class="d-stat__num d-stat__num--words">418</div>
+                      <div class="d-stat__label">Words</div>
+                    </div>
                   </div>
 
                   <div class="d-legend">
-                    <span class="d-legend__item d-legend__item--games"><span class="d-dot" style="background:#F43F5E"></span>Games</span>
-                    <span class="d-legend__item d-legend__item--hours"><span class="d-dot" style="background:#8B5CF6"></span>Hours</span>
-                    <span class="d-legend__item d-legend__item--lyrics"><span class="d-dot" style="background:#F59E0B"></span>Lyrics</span>
-                    <span class="d-legend__item d-legend__item--songs"><span class="d-dot" style="background:#10B981"></span>Songs</span>
-                    <span class="d-legend__item d-legend__item--words"><span class="d-dot" style="background:#3B82F6"></span>Words</span>
+                    <span class="d-legend__item d-legend__item--games"><span class="d-dot"
+                        style="background:#F43F5E"></span>Games</span>
+                    <span class="d-legend__item d-legend__item--hours"><span class="d-dot"
+                        style="background:#8B5CF6"></span>Hours</span>
+                    <span class="d-legend__item d-legend__item--lyrics"><span class="d-dot"
+                        style="background:#F59E0B"></span>Lyrics</span>
+                    <span class="d-legend__item d-legend__item--songs"><span class="d-dot"
+                        style="background:#10B981"></span>Songs</span>
+                    <span class="d-legend__item d-legend__item--words"><span class="d-dot"
+                        style="background:#3B82F6"></span>Words</span>
                   </div>
 
                   <div class="d-chart">
                     <div class="d-chart__yaxis">
                       <span>600</span><span>450</span><span>300</span><span>150</span><span>0</span>
                     </div>
-                    <svg class="d-chart__canvas" viewBox="0 0 502.59 170.9" preserveAspectRatio="none" aria-hidden="true">
-                      <line x1="0" y1="0" x2="502.59" y2="0" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
-                      <line x1="0" y1="42.73" x2="502.59" y2="42.73" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
-                      <line x1="0" y1="85.45" x2="502.59" y2="85.45" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
-                      <line x1="0" y1="128.18" x2="502.59" y2="128.18" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
-                      <line x1="0" y1="170.9" x2="502.59" y2="170.9" stroke="#CBD5E1" stroke-width="0.5" stroke-dasharray="3,2"/>
+                    <svg class="d-chart__canvas" viewBox="0 0 502.59 170.9" preserveAspectRatio="none"
+                      aria-hidden="true">
+                      <line x1="0" y1="0" x2="502.59" y2="0" stroke="#CBD5E1" stroke-width="0.5"
+                        stroke-dasharray="3,2" />
+                      <line x1="0" y1="42.73" x2="502.59" y2="42.73" stroke="#CBD5E1" stroke-width="0.5"
+                        stroke-dasharray="3,2" />
+                      <line x1="0" y1="85.45" x2="502.59" y2="85.45" stroke="#CBD5E1" stroke-width="0.5"
+                        stroke-dasharray="3,2" />
+                      <line x1="0" y1="128.18" x2="502.59" y2="128.18" stroke="#CBD5E1" stroke-width="0.5"
+                        stroke-dasharray="3,2" />
+                      <line x1="0" y1="170.9" x2="502.59" y2="170.9" stroke="#CBD5E1" stroke-width="0.5"
+                        stroke-dasharray="3,2" />
 
                       <!-- Words (#3B82F6) at y=53.28 -->
-                      <polyline points="0,53.28 71.87,53.28 143.74,53.28 215.61,53.28 286.98,53.28 358.85,53.28 430.72,53.28 502.59,53.28" fill="none" stroke="#3B82F6" stroke-width="1.26"/>
+                      <polyline
+                        points="0,53.28 71.87,53.28 143.74,53.28 215.61,53.28 286.98,53.28 358.85,53.28 430.72,53.28 502.59,53.28"
+                        fill="none" stroke="#3B82F6" stroke-width="1.26" />
                       <!-- Lyrics (#F59E0B) at y=76.91 -->
-                      <polyline points="0,76.91 71.87,76.91 143.74,76.91 215.61,76.91 286.98,76.91 358.85,76.91 430.72,76.91 502.59,76.91" fill="none" stroke="#F59E0B" stroke-width="1.26"/>
+                      <polyline
+                        points="0,76.91 71.87,76.91 143.74,76.91 215.61,76.91 286.98,76.91 358.85,76.91 430.72,76.91 502.59,76.91"
+                        fill="none" stroke="#F59E0B" stroke-width="1.26" />
                       <!-- Games (#F43F5E) sloping from 97 down to 82 -->
-                      <polyline points="0,97.01 71.87,95.51 143.74,88.47 215.61,82.44 286.98,82.44 358.85,82.44 430.72,82.44 502.59,82.44" fill="none" stroke="#F43F5E" stroke-width="1.26"/>
+                      <polyline
+                        points="0,97.01 71.87,95.51 143.74,88.47 215.61,82.44 286.98,82.44 358.85,82.44 430.72,82.44 502.59,82.44"
+                        fill="none" stroke="#F43F5E" stroke-width="1.26" />
                       <!-- Hours (#8B5CF6) near bottom -->
-                      <polyline points="0,164.87 71.87,164.87 143.74,163.87 215.61,163.87 286.98,162.86 358.85,163.36 430.72,163.36 502.59,163.36" fill="none" stroke="#8B5CF6" stroke-width="1.26"/>
+                      <polyline
+                        points="0,164.87 71.87,164.87 143.74,163.87 215.61,163.87 286.98,162.86 358.85,163.36 430.72,163.36 502.59,163.36"
+                        fill="none" stroke="#8B5CF6" stroke-width="1.26" />
                       <!-- Songs (#10B981) at the very bottom -->
-                      <polyline points="0,166.88 71.87,166.88 143.74,166.88 215.61,166.88 286.98,166.88 358.85,166.88 430.72,166.88 502.59,166.88" fill="none" stroke="#10B981" stroke-width="1.26"/>
+                      <polyline
+                        points="0,166.88 71.87,166.88 143.74,166.88 215.61,166.88 286.98,166.88 358.85,166.88 430.72,166.88 502.59,166.88"
+                        fill="none" stroke="#10B981" stroke-width="1.26" />
 
                       <!-- Data point dots -->
                       <g fill="#3B82F6" stroke="#FFFFFF" stroke-width="0.5">
-                        <circle cx="0" cy="53.28" r="2.26"/><circle cx="71.87" cy="53.28" r="2.26"/><circle cx="143.74" cy="53.28" r="2.26"/><circle cx="215.61" cy="53.28" r="2.26"/><circle cx="286.98" cy="53.28" r="2.26"/><circle cx="358.85" cy="53.28" r="2.26"/><circle cx="430.72" cy="53.28" r="2.26"/><circle cx="502.59" cy="53.28" r="2.26"/>
+                        <circle cx="0" cy="53.28" r="2.26" />
+                        <circle cx="71.87" cy="53.28" r="2.26" />
+                        <circle cx="143.74" cy="53.28" r="2.26" />
+                        <circle cx="215.61" cy="53.28" r="2.26" />
+                        <circle cx="286.98" cy="53.28" r="2.26" />
+                        <circle cx="358.85" cy="53.28" r="2.26" />
+                        <circle cx="430.72" cy="53.28" r="2.26" />
+                        <circle cx="502.59" cy="53.28" r="2.26" />
                       </g>
                       <g fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.5">
-                        <circle cx="0" cy="76.91" r="2.26"/><circle cx="71.87" cy="76.91" r="2.26"/><circle cx="143.74" cy="76.91" r="2.26"/><circle cx="215.61" cy="76.91" r="2.26"/><circle cx="286.98" cy="76.91" r="2.26"/><circle cx="358.85" cy="76.91" r="2.26"/><circle cx="430.72" cy="76.91" r="2.26"/><circle cx="502.59" cy="76.91" r="2.26"/>
+                        <circle cx="0" cy="76.91" r="2.26" />
+                        <circle cx="71.87" cy="76.91" r="2.26" />
+                        <circle cx="143.74" cy="76.91" r="2.26" />
+                        <circle cx="215.61" cy="76.91" r="2.26" />
+                        <circle cx="286.98" cy="76.91" r="2.26" />
+                        <circle cx="358.85" cy="76.91" r="2.26" />
+                        <circle cx="430.72" cy="76.91" r="2.26" />
+                        <circle cx="502.59" cy="76.91" r="2.26" />
                       </g>
                       <g fill="#F43F5E" stroke="#FFFFFF" stroke-width="0.5">
-                        <circle cx="0" cy="97.01" r="2.26"/><circle cx="71.87" cy="95.51" r="2.26"/><circle cx="143.74" cy="93.24" r="2.26"/><circle cx="215.61" cy="86.21" r="2.26"/><circle cx="286.98" cy="80.17" r="2.26"/><circle cx="358.85" cy="80.17" r="2.26"/><circle cx="430.72" cy="80.17" r="2.26"/><circle cx="502.59" cy="80.17" r="2.26"/>
+                        <circle cx="0" cy="97.01" r="2.26" />
+                        <circle cx="71.87" cy="95.51" r="2.26" />
+                        <circle cx="143.74" cy="93.24" r="2.26" />
+                        <circle cx="215.61" cy="86.21" r="2.26" />
+                        <circle cx="286.98" cy="80.17" r="2.26" />
+                        <circle cx="358.85" cy="80.17" r="2.26" />
+                        <circle cx="430.72" cy="80.17" r="2.26" />
+                        <circle cx="502.59" cy="80.17" r="2.26" />
                       </g>
                       <g fill="#8B5CF6" stroke="#FFFFFF" stroke-width="0.5">
-                        <circle cx="0" cy="164.87" r="2.26"/><circle cx="71.87" cy="164.87" r="2.26"/><circle cx="143.74" cy="163.87" r="2.26"/><circle cx="215.61" cy="163.87" r="2.26"/><circle cx="286.98" cy="162.86" r="2.26"/><circle cx="358.85" cy="162.86" r="2.26"/><circle cx="430.72" cy="163.36" r="2.26"/><circle cx="502.59" cy="163.36" r="2.26"/>
+                        <circle cx="0" cy="164.87" r="2.26" />
+                        <circle cx="71.87" cy="164.87" r="2.26" />
+                        <circle cx="143.74" cy="163.87" r="2.26" />
+                        <circle cx="215.61" cy="163.87" r="2.26" />
+                        <circle cx="286.98" cy="162.86" r="2.26" />
+                        <circle cx="358.85" cy="162.86" r="2.26" />
+                        <circle cx="430.72" cy="163.36" r="2.26" />
+                        <circle cx="502.59" cy="163.36" r="2.26" />
                       </g>
                       <g fill="#10B981" stroke="#FFFFFF" stroke-width="0.5">
-                        <circle cx="0" cy="166.88" r="2.26"/><circle cx="71.87" cy="166.88" r="2.26"/><circle cx="143.74" cy="166.88" r="2.26"/><circle cx="215.61" cy="166.88" r="2.26"/><circle cx="286.98" cy="166.88" r="2.26"/><circle cx="358.85" cy="166.88" r="2.26"/><circle cx="430.72" cy="166.88" r="2.26"/><circle cx="502.59" cy="166.88" r="2.26"/>
+                        <circle cx="0" cy="166.88" r="2.26" />
+                        <circle cx="71.87" cy="166.88" r="2.26" />
+                        <circle cx="143.74" cy="166.88" r="2.26" />
+                        <circle cx="215.61" cy="166.88" r="2.26" />
+                        <circle cx="286.98" cy="166.88" r="2.26" />
+                        <circle cx="358.85" cy="166.88" r="2.26" />
+                        <circle cx="430.72" cy="166.88" r="2.26" />
+                        <circle cx="502.59" cy="166.88" r="2.26" />
                       </g>
                     </svg>
                   </div>
@@ -724,7 +1335,8 @@
                 <span class="prof-card__note-text">Progress in last 5 weeks: +41 points</span>
                 <span class="prof-card__improving">
                   <span class="prof-card__improving-icon" aria-hidden="true">
-                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="3.5"
+                      stroke-linecap="round" stroke-linejoin="round">
                       <line x1="12" y1="19" x2="12" y2="5"></line>
                       <polyline points="5 12 12 5 19 12"></polyline>
                     </svg>
@@ -764,8 +1376,10 @@
           </span>
         </a>
         <div class="trust-badges">
-          <img class="trust-badge trust-badge--launchpad" src="assets/launchpad-award.png" alt="LaunchPad Education Award" />
-          <img class="trust-badge trust-badge--privacy" src="assets/student-privacy-pledge.png" alt="Student Privacy Pledge" />
+          <img class="trust-badge trust-badge--launchpad" src="assets/launchpad-award.png"
+            alt="LaunchPad Education Award" />
+          <img class="trust-badge trust-badge--privacy" src="assets/student-privacy-pledge.png"
+            alt="Student Privacy Pledge" />
           <span class="trust-badge trust-badge--coppa" role="img" aria-label="COPPA Compliant"></span>
           <span class="trust-badge trust-badge--cosn" role="img" aria-label="CoSN Trusted"></span>
         </div>
@@ -782,38 +1396,42 @@
         <p class="curriculum__sub">Publishers — plug us in. Three upgrades. Zero rebuild.</p>
       </div>
 
-      <!-- All 3 cards: image on LEFT, text on RIGHT (left-aligned) -->
+      <!-- Cards alternate: 1 = text-LEFT/image-RIGHT, 2 = image-LEFT/text-RIGHT,
+           3 = text-LEFT/image-RIGHT (matching Figma 129:817 / 823 / 829). -->
 
-      <!-- Card 1: blue, socials image on LEFT, text on RIGHT -->
+      <!-- Card 1: blue, TEXT on LEFT, image on RIGHT -->
       <div class="cur-card cur-card--blue">
-        <div class="cur-card__visual cur-card__visual--socials">
-          <img src="assets/curriculum-socials.png" alt="" />
-        </div>
         <div class="cur-card__copy cur-card__copy--left">
           <p class="cur-card__title">Popular Content, Curriculum-Aligned</p>
-          <p class="cur-card__desc">Match every unit to music, videos, and social content your students already love, personalized by class, refreshed automatically.</p>
+          <p class="cur-card__desc">Match every unit to music, videos, and social content your students already love,
+            personalized by class, refreshed automatically.</p>
+        </div>
+        <div class="cur-card__visual cur-card__visual--card1">
+          <img src="assets/curriculum-card-1.png" alt="" />
         </div>
       </div>
 
-      <!-- Card 2: lime, stats image on LEFT, text on RIGHT -->
+      <!-- Card 2: lime, image on LEFT, TEXT on RIGHT -->
       <div class="cur-card cur-card--lime">
-        <div class="cur-card__visual cur-card__visual--stats">
-          <img src="assets/curriculum-stats.png" alt="" />
+        <div class="cur-card__visual cur-card__visual--card2">
+          <img src="assets/curriculum-card-2.png" alt="" />
         </div>
         <div class="cur-card__copy cur-card__copy--left">
           <p class="cur-card__title">Know Every Student</p>
-          <p class="cur-card__desc">See what each student has mastered, where they're stuck, and who's falling behind — before it's too late.</p>
+          <p class="cur-card__desc">See what each student has mastered. Find where they're stuck. Spot who's falling
+            behind before it's too late.</p>
         </div>
       </div>
 
-      <!-- Card 3: orange, lime circle (action) on LEFT, cream text on RIGHT -->
+      <!-- Card 3: orange, TEXT on LEFT (cream), image on RIGHT -->
       <div class="cur-card cur-card--orange">
-        <div class="cur-card__action">
-          <img src="assets/curriculum-action.png" alt="" />
-        </div>
         <div class="cur-card__copy cur-card__copy--left cur-card__copy--cream">
           <p class="cur-card__title">Turn Data Into Action</p>
-          <p class="cur-card__desc">Roxxem tells teachers precisely what to review and reinforce, based on where their class actually is.</p>
+          <p class="cur-card__desc">Roxxem shows teachers exactly what to review. It highlights key areas to reinforce.
+            This is all based on the class's current progress.</p>
+        </div>
+        <div class="cur-card__visual cur-card__visual--card3">
+          <img src="assets/curriculum-card-3.png" alt="" />
         </div>
       </div>
 
@@ -821,7 +1439,8 @@
         <p class="curriculum__footer-tag">Your content. Their attention. Real results.</p>
         <a href="#" class="curriculum__cta">
           <span>Book a Publisher Demo</span>
-          <svg width="40" height="41" viewBox="0 0 24 24" fill="none" stroke="#190288" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="40" height="41" viewBox="0 0 24 24" fill="none" stroke="#190288" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
@@ -849,15 +1468,15 @@
               </div>
               <div class="ld-stat ld-stat--tall">
                 <p class="ld-stat__num ld-stat__num--mixed">
-                  <span class="ld-stat__num--big">18</span><br/>
-                  <span class="ld-stat__num--small">hours/week</span>
+                  <span class="ld-stat__num--big">18</span><br />
+                  <span class="ld-stat__num--small">Hours/Week</span>
                 </p>
                 <p class="ld-stat__desc" style="width:200px;">Spent adapting materials from rigid textbooks</p>
               </div>
             </div>
             <div class="ld-stats__col ld-stats__col--2">
               <div class="ld-stat ld-stat--tall">
-                <p class="ld-stat__num" style="width:140px;">Every<br/>5 Years</p>
+                <p class="ld-stat__num" style="width:140px;">Every<br />5 Years</p>
                 <p class="ld-stat__desc" style="width:215px;">Textbooks replaced for $450 / student &amp; subject</p>
               </div>
               <div class="ld-stat ld-stat--short">
@@ -874,7 +1493,11 @@
               <div class="quote-card__form">
                 <input class="quote-card__input" type="email" placeholder="Enter your email" />
                 <button class="quote-card__submit" type="submit" aria-label="Submit">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#190288" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#190288" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
                 </button>
               </div>
             </div>
@@ -925,7 +1548,9 @@
             <p class="tcard__role">French Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far the most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so often. You are deeply appreciated and make teachers' lives so much easier.</p>
+        <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far the
+          most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so often.
+          You are deeply appreciated and make teachers' lives so much easier.</p>
       </div>
 
       <div class="tcard tcard--blue">
@@ -935,7 +1560,9 @@
             <p class="tcard__role">Spanish Learner</p>
           </div>
         </div>
-        <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
+        <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks
+          song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement
+          I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
       </div>
 
       <div class="tcard tcard--lime">
@@ -946,7 +1573,9 @@
             <p class="tcard__role">SCOLT Teacher of the Year &amp; Spanish Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such a wonderful app.</p>
+        <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you
+          work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such a
+          wonderful app.</p>
       </div>
 
       <div class="tcard tcard--purple tcard--tall-pad">
@@ -956,7 +1585,9 @@
             <p class="tcard__role">Spanish Learner</p>
           </div>
         </div>
-        <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so happy this exists. MUCHAS GRACIAS!!!!!</p>
+        <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My
+          students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so
+          happy this exists. MUCHAS GRACIAS!!!!!</p>
       </div>
 
       <div class="tcard tcard--orange">
@@ -967,7 +1598,9 @@
             <p class="tcard__role">Chinese Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my students actually look forward to, which is amazing!</p>
+        <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of
+          breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my students
+          actually look forward to, which is amazing!</p>
       </div>
 
       <div class="tcard tcard--blue tcard--tall-pad">
@@ -977,7 +1610,9 @@
             <p class="tcard__role">French Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the words and see the words. And the selection of songs is fantastic!</p>
+        <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid
+          other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the words
+          and see the words. And the selection of songs is fantastic!</p>
       </div>
 
       <div class="tcard tcard--lime">
@@ -987,7 +1622,9 @@
             <p class="tcard__role">Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work on songs they choose — great for fast finishers or extra class time.</p>
+        <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and
+          comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work on
+          songs they choose — great for fast finishers or extra class time.</p>
       </div>
 
       <div class="tcard tcard--purple">
@@ -998,7 +1635,9 @@
             <p class="tcard__role">French Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students loved it!!! Thank you for creating this website.</p>
+        <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with
+          the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students loved
+          it!!! Thank you for creating this website.</p>
       </div>
 
       <!-- ── SET 2 (seamless loop duplicate) ── -->
@@ -1010,7 +1649,9 @@
             <p class="tcard__role">French Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far the most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so often. You are deeply appreciated and make teachers' lives so much easier.</p>
+        <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far the
+          most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so often.
+          You are deeply appreciated and make teachers' lives so much easier.</p>
       </div>
 
       <div class="tcard tcard--blue">
@@ -1020,7 +1661,9 @@
             <p class="tcard__role">Spanish Learner</p>
           </div>
         </div>
-        <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
+        <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks
+          song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement
+          I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
       </div>
 
       <div class="tcard tcard--lime">
@@ -1031,7 +1674,9 @@
             <p class="tcard__role">SCOLT Teacher of the Year &amp; Spanish Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such a wonderful app.</p>
+        <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you
+          work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such a
+          wonderful app.</p>
       </div>
 
       <div class="tcard tcard--purple tcard--tall-pad">
@@ -1041,7 +1686,9 @@
             <p class="tcard__role">Spanish Learner</p>
           </div>
         </div>
-        <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so happy this exists. MUCHAS GRACIAS!!!!!</p>
+        <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My
+          students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so
+          happy this exists. MUCHAS GRACIAS!!!!!</p>
       </div>
 
       <div class="tcard tcard--orange">
@@ -1052,7 +1699,9 @@
             <p class="tcard__role">Chinese Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my students actually look forward to, which is amazing!</p>
+        <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of
+          breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my students
+          actually look forward to, which is amazing!</p>
       </div>
 
       <div class="tcard tcard--blue tcard--tall-pad">
@@ -1062,7 +1711,9 @@
             <p class="tcard__role">French Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the words and see the words. And the selection of songs is fantastic!</p>
+        <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid
+          other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the words
+          and see the words. And the selection of songs is fantastic!</p>
       </div>
 
       <div class="tcard tcard--lime">
@@ -1072,7 +1723,9 @@
             <p class="tcard__role">Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work on songs they choose — great for fast finishers or extra class time.</p>
+        <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and
+          comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work on
+          songs they choose — great for fast finishers or extra class time.</p>
       </div>
 
       <div class="tcard tcard--purple">
@@ -1083,7 +1736,9 @@
             <p class="tcard__role">French Teacher</p>
           </div>
         </div>
-        <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students loved it!!! Thank you for creating this website.</p>
+        <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with
+          the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students loved
+          it!!! Thank you for creating this website.</p>
       </div>
 
     </div>
@@ -1092,7 +1747,8 @@
     <a class="wall-of-love-cta" href="https://www.roxxem.com/wall-of-love">
       See the Wall of Love
       <span class="wall-of-love-cta__icon" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
@@ -1184,7 +1840,11 @@
           <form class="newsletter__form" onsubmit="event.preventDefault();">
             <input type="email" placeholder="Get Started For Free" aria-label="Email" />
             <button type="submit" aria-label="Submit">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </button>
           </form>
         </div>
@@ -1203,16 +1863,34 @@
           <p class="footer__tag">Interactive language lessons based on culture your students already love</p>
           <div class="socials">
             <a class="social" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
             </a>
             <a class="social" aria-label="Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
             </a>
             <a class="social" aria-label="Facebook">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
             </a>
             <a class="social" aria-label="Music">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
             </a>
           </div>
         </div>
@@ -1256,17 +1934,17 @@
     /* Testimonials video carousel */
     (function () {
       var TESTIMONIALS = [
-        { name: 'Andrea Sotelo | Spanish Teacher 🇲🇽', role: 'at Winnebago High School',   src: 'assets/Andrea.mov'  },
-        { name: 'Brandon | Language Teacher',           role: 'Roxxem User',                src: 'assets/Brandon.mov' },
-        { name: 'Brynell | Language Teacher',           role: 'Roxxem User',                src: 'assets/Brynell.mov' },
-        { name: 'Menya | Language Teacher',             role: 'Roxxem User',                src: 'assets/Menya.mov'   }
+        { name: 'Andrea Sotelo | Spanish Teacher 🇲🇽', role: 'at Winnebago High School', src: 'assets/Andrea.mov' },
+        { name: 'Brandon | Language Teacher', role: 'Roxxem User', src: 'assets/Brandon.mov' },
+        { name: 'Brynell | Language Teacher', role: 'Roxxem User', src: 'assets/Brynell.mov' },
+        { name: 'Menya | Language Teacher', role: 'Roxxem User', src: 'assets/Menya.mov' }
       ];
 
-      var current  = 0;
-      var video    = document.getElementById('testi-video');
-      var nameEl   = document.getElementById('testi-name');
-      var roleEl   = document.getElementById('testi-role');
-      var btnLeft  = document.querySelector('.video-arrow--left');
+      var current = 0;
+      var video = document.getElementById('testi-video');
+      var nameEl = document.getElementById('testi-name');
+      var roleEl = document.getElementById('testi-role');
+      var btnLeft = document.querySelector('.video-arrow--left');
       var btnRight = document.querySelector('.video-arrow--right');
 
       if (!video || !nameEl || !roleEl || !btnLeft || !btnRight) return;
@@ -1280,7 +1958,7 @@
         roleEl.textContent = t.role;
       }
 
-      btnLeft.addEventListener('click',  function () { load(current - 1); });
+      btnLeft.addEventListener('click', function () { load(current - 1); });
       btnRight.addEventListener('click', function () { load(current + 1); });
 
       load(0); // initialise with first video
@@ -1315,10 +1993,10 @@
         'Plan a class on Mexican Day of the Dead traditions'
       ];
 
-      var TYPE_MS   = 55;   // per-character typing speed
-      var ERASE_MS  = 25;   // per-character erase speed
-      var HOLD_MS   = 2400; // how long to leave the full text on screen
-      var BLANK_MS  = 450;  // pause after erase before next prompt starts
+      var TYPE_MS = 55;   // per-character typing speed
+      var ERASE_MS = 25;   // per-character erase speed
+      var HOLD_MS = 2400; // how long to leave the full text on screen
+      var BLANK_MS = 450;  // pause after erase before next prompt starts
 
       var idx = 0;
 
@@ -1360,5 +2038,23 @@
       }
     })();
   </script>
+  <script>
+    /* Testimonial marquee: pause animation while the user is pressing/
+       touching it (mobile). CSS handles desktop :hover pause. */
+    (function () {
+      var marquee = document.querySelector('.marquee-reviews');
+      if (!marquee) return;
+      var pause = function () { marquee.classList.add('is-paused'); };
+      var resume = function () { marquee.classList.remove('is-paused'); };
+      marquee.addEventListener('touchstart', pause, { passive: true });
+      marquee.addEventListener('touchend',   resume, { passive: true });
+      marquee.addEventListener('touchcancel',resume, { passive: true });
+      // Also support mouse press-and-hold on devices that support both.
+      marquee.addEventListener('pointerdown', pause);
+      marquee.addEventListener('pointerup',   resume);
+      marquee.addEventListener('pointerleave',resume);
+    })();
+  </script>
 </body>
+
 </html>

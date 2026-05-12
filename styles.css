@@ -122,8 +122,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   top: 0;
   z-index: 100;
   background: #190288;
-  padding: 18px 40px;
-  border-radius: 0 0 40px 40px;
+  /* Tighter vertical padding + softer rounded bottom for a less chunky
+     feel. Side padding shrunk so the brand and right group sit closer
+     to the visual edge of the pill. */
+  padding: 14px 28px;
+  border-radius: 0 0 24px 24px;
   display: flex;
   justify-content: center;
   max-width: 1256px;
@@ -136,10 +139,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav__inner {
   width: 100%;
   max-width: 1054px;
-  display: flex;
+  /* 3-column grid keeps .nav__links visually centered in the bar
+     regardless of the right action-group width. */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  gap: 28px;
 }
 .nav__brand {
   display: inline-flex;
@@ -147,25 +152,68 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 0;
 }
 .nav__brand img {
-  width: 219px;
+  /* Slightly smaller wordmark so the bar feels balanced with the new
+     14px vertical padding. */
+  width: 170px;
   height: auto;
   display: block;
 }
 .nav__links {
   display: flex;
-  gap: 26px;
+  gap: 30px;
   align-items: center;
+  justify-self: center;
 }
 .nav__links a {
   color: var(--white);
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: -0.32px;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: -0.2px;
   line-height: normal;
   white-space: nowrap;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, color 0.15s ease;
 }
-.nav__links a:hover { color: var(--lime); }
+.nav__links a:hover { color: var(--lime); opacity: 1; }
+.nav__right {
+  display: flex;
+  align-items: center;
+  /* Tighter, more refined gap between the two text links and the CTA. */
+  gap: 22px;
+  justify-self: end;
+}
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.nav__action {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.2px;
+  color: var(--white);
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.nav__action:hover { color: var(--lime); opacity: 1; }
+.nav__action--cta {
+  /* Filled lime pill — primary action gets full weight + a tighter pill
+     shape than before so it reads as a proper button, not a banner. */
+  background: var(--lime);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 999px;
+  opacity: 1;
+}
+.nav__action--cta:hover {
+  background: var(--lime-2);
+  color: var(--navy);
+  opacity: 1;
+}
 
 /* Hamburger button — hidden on desktop, shown at tablet/mobile breakpoint */
 .nav__hamburger {
@@ -770,7 +818,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .section-sub--orange { color: var(--orange); font-weight: 700; }
 
 /* === HOW IT WORKS === */
-.how { padding: 128px 0 108px; background: var(--cream); }
+.how { padding: 85px 0 72px; background: var(--cream); }
 .eyebrow--purple { color: rgba(25, 2, 136, 0.75); }
 
 .how__desc {
@@ -924,6 +972,40 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   pointer-events: none;
 }
 
+/* Category dropdown (mobile-only twin of .lang-select). Hidden on desktop
+   — the .tab buttons replace it. */
+.cat-select-wrap {
+  display: none;
+  position: relative;
+  align-items: center;
+}
+.cat-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  padding: 10px 36px 10px 20px;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+.cat-select:focus { box-shadow: 0 0 0 3px rgba(25, 2, 136, 0.18); }
+.cat-select__chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  pointer-events: none;
+}
+
 .tab-pagination {
   display: flex;
   align-items: center;
@@ -951,7 +1033,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* === LESSON STEPS — values from Figma node 129:1971 === */
-.lesson { padding: 128px 0 108px; background: var(--cream); }
+.lesson { padding: 85px 0 72px; background: var(--cream); }
 
 /* Lesson container has no inner padding so its content (form-mock, video)
    reaches the same outer edge as the nav above (both inset 24px from the
@@ -1021,7 +1103,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .lstep--3 .lstep__copy { width: 100%; max-width: 680px; margin: 0 auto; align-items: center; gap: 0; }
 .lstep--3 .lstep__copy * { text-align: center; }
-.lstep--3 .lstep__title { font-size: 37.779px; line-height: 43px; letter-spacing: -0.314826px; }
+.lstep--3 .lstep__title { line-height: 1.1; letter-spacing: -0.314826px; }
 .lstep--3 .lstep__sub {
   width: auto;
   /* font-size inherited from base .lstep__sub (clamp max 21px) so all
@@ -1193,7 +1275,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-height: 85.097px;
+  /* Pre-sized for up to 2 lines of cursor text + the CTA so the typing
+     animation never visibly resizes the box. */
+  min-height: 130px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1216,6 +1300,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .form-mock__cta {
   align-self: flex-end;
+  /* Push the button to the BOTTOM of the input box so the text area
+     above it can grow to 2 lines without shoving the button down. */
+  margin-top: auto;
   background: #ff5e32;
   color: white;
   border: none;
@@ -2020,7 +2107,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* === CURRICULUM (Figma 129:812) === */
-.curriculum { padding: 128px 0; background: var(--cream); }
+.curriculum { padding: 85px 0; background: var(--cream); }
 .curriculum .container {
   /* Cards align with the nav-bar edges; both are inset 24px from the
      viewport edge until the mobile breakpoint (handled by .container). */
@@ -2159,6 +2246,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   object-fit: contain;
 }
 
+/* Figma redesign — three new full illustrations sized ~200×200 inside
+   the cards (Figma node 129:817 / 823 / 829). */
+.cur-card__visual--card1,
+.cur-card__visual--card2,
+.cur-card__visual--card3 {
+  width: clamp(140px, 16vw, 207px);
+  height: clamp(140px, 16vw, 207px);
+}
+.cur-card__visual--card1 img,
+.cur-card__visual--card2 img,
+.cur-card__visual--card3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* Card 3 — lime circle with action image (129:833) */
 .cur-card__action {
   width: clamp(110px, 11vw, 152px);
@@ -2233,7 +2336,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    directly below the orange shape, at every viewport width */
 .langdept {
   width: 100%;
-  margin: 84px 0;
+  margin: 56px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2345,7 +2448,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .ld-stat__num--small { font-size: clamp(22px, 2.4vw, 31px); line-height: 1.15; }
 .ld-stat__num--mixed {
   display: block;
-  line-height: 41px;
+  /* Same ratio as "Every 5 Years" so the gap between the big number and
+     the unit line scales with font-size at every viewport, including
+     mobile. (was fixed 41px which left a big gap when the font shrunk.) */
+  line-height: 1.15;
 }
 
 .ld-stat__desc {
@@ -2432,7 +2538,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* === TESTIMONIALS === */
-.testimonials { padding: 108px 0 128px; }
+.testimonials { padding: 72px 0 85px; }
 .video-card {
   background: var(--navy);
   border-radius: var(--radius-lg);
@@ -2509,7 +2615,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .marquee-reviews {
   width: 100%;
   overflow: hidden;
-  padding: 64px 0 86px;
+  padding: 43px 0 57px;
   background: var(--cream);
 }
 
@@ -2543,27 +2649,33 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .wall-of-love-cta:hover .wall-of-love-cta__icon { background: var(--lime-2); }
 
-/* Track — doubled content for seamless loop */
+/* Track — doubled content for seamless loop. Width/gap come from CSS
+   vars so mobile can shrink the cards without breaking the loop math. */
+.marquee-reviews {
+  --tcard-w: 390px;
+  --marquee-gap: 27px;
+}
 .marquee-reviews__track {
   display: flex;
-  gap: 27px;
+  gap: var(--marquee-gap);
   width: max-content;
   animation: marquee-scroll 50s linear infinite;
 }
-/* Pause on hover */
-.marquee-reviews:hover .marquee-reviews__track {
+/* Pause on hover (desktop) or while pressed (mobile, set by JS). */
+.marquee-reviews:hover .marquee-reviews__track,
+.marquee-reviews.is-paused .marquee-reviews__track {
   animation-play-state: paused;
 }
 
-/* Each card scrolls by exactly 8 × (390 + 27) = 3336px — one full set */
+/* Each card scrolls by exactly 8 × (card-width + gap) — one full set. */
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-3336px); }
+  to   { transform: translateX(calc(-8 * (var(--tcard-w) + var(--marquee-gap)))); }
 }
 
 /* Base card */
 .tcard {
-  width: 390px;
+  width: var(--tcard-w);
   min-height: 434px;
   border-radius: 36.8px;
   border: 2px solid #0a0911;
@@ -2646,7 +2758,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* === PRICING === */
 /* === PRICING (Figma 129:545) === */
 .pricing {
-  padding: 128px 0;
+  padding: 85px 0;
   background: var(--cream);
 }
 
@@ -2870,7 +2982,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .price-card__more:hover { text-decoration: underline; }
 
 /* === NEWSLETTER === */
-.newsletter { padding: 86px 0; }
+.newsletter { padding: 57px 0; }
 
 /* Newsletter container aligns with the nav-bar edges (both inset 24px
    via .container's width calc). */
@@ -3110,8 +3222,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Multi-column desktop layouts collapse to single-column stacks
    where they need to. Typography keeps scaling via clamp().      */
 @media (max-width: 1024px) {
-  /* Nav: hide horizontal link list, show hamburger.
-     When .is-open is set by JS, links drop down as a vertical menu. */
+  /* Nav: hide horizontal link list and the new action buttons; show
+     hamburger. When .is-open is set by JS, links drop down vertically. */
+  .nav__actions { display: none; }
+  .nav__inner { grid-template-columns: auto 1fr auto; }
   .nav__hamburger { display: flex; }
   .nav__links {
     display: none;
@@ -3243,6 +3357,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Typography continues to scale via clamp() — no font-size
    overrides here.                                                */
 @media (max-width: 640px) {
+  /* Fill the strip above the nav (iOS status-bar zone / Safari URL-bar
+     fade-out area) with navy so there's no cream gap at the very top.
+     Fixed at viewport top, behind the sticky nav (z-index 99 < nav 100). */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--navy);
+    z-index: 99;
+    pointer-events: none;
+  }
+
+  /* Nav: shrink to 2/3 of desktop height — padding and logo scale down
+     proportionally. Border-radius tightens to stay proportional too. */
+  .nav { padding: 12px 24px; border-radius: 0 0 28px 28px; }
+  .nav__brand img { width: 146px; }
+
   /* Hero: stack and center everything; show app card scaled to fit. */
   .hero__inner {
     grid-template-columns: 1fr !important;
@@ -3335,6 +3469,115 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .form-mock { padding: 24px 16px; }
   .form-mock__metas { flex-wrap: wrap; height: auto; }
   .form-mock__chips { gap: 8px; }
+  /* Input box: tall enough to fit the longest typing prompt at the
+     narrowest mobile width (up to 3 wrapped lines) — so the box never
+     visibly grows as the typewriter types. */
+  .form-mock__input { min-height: 170px; }
+
+  /* How It Works tab strip on mobile: replace 6 horizontal-scroll tab
+     buttons with a single category <select>, stacked under the existing
+     language <select>. No more horizontal swiping needed. */
+  .tabs {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0;
+    margin: 0 auto 32px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .lang-select-wrap,
+  .cat-select-wrap { display: flex; width: 100%; }
+  .lang-select, .cat-select { width: 100%; }
+  .tab { display: none; }
+
+  /* Marquee testimonials: smaller cards (tighter padding, narrower
+     width), text sizes unchanged. Variables drive the animation distance
+     so the loop stays seamless at the new card size. */
+  .marquee-reviews {
+    --tcard-w: 280px;
+    --marquee-gap: 14px;
+  }
+  .tcard {
+    min-height: 0;
+    padding: 22px 18px 26px;
+    border-radius: 24px;
+    gap: 10px;
+  }
+  .tcard--tall-pad { padding-top: 30px; padding-bottom: 32px; }
+
+  /* Testimonial video: much bigger video, much thinner frame & arrows. */
+  .video-card {
+    padding: 6px;
+    border-width: 1.5px;
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 18px;
+  }
+  .video-card__bar {
+    gap: 4px;
+    padding-bottom: 6px;
+  }
+  .dot { width: 6px; height: 6px; }
+  .video-card__url { font-size: 9px; padding: 2px 10px; }
+  .video-card__main {
+    /* Slim arrow columns + tight gap → video fills nearly the whole card. */
+    grid-template-columns: 22px 1fr 22px;
+    gap: 4px;
+  }
+  .video-arrow {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+  .video-stage { border-radius: 10px; }
+
+  /* Lang Dept stats: 2×2 grid on mobile (was stacked 1-col at tablet). */
+  .ld-stats {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    max-width: none;
+  }
+  .ld-stats__col,
+  .ld-stats__col--1,
+  .ld-stats__col--2 {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+  }
+  .ld-stat--short,
+  .ld-stat--tall {
+    min-height: 0;
+    height: auto;
+    padding: 16px;
+    width: 100%;
+  }
+  /* Fluid desc widths — override the inline width:215px/200px styles. */
+  .ld-stat__desc { width: auto !important; }
+
+  /* Get a quote card: scale everything to mobile (was sized for desktop
+     with fixed 35px title + 72px tall input — caused the giant cropped
+     box on iPhone). */
+  .quote-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .quote-card__title { font-size: 24px; line-height: 1.15; margin-bottom: 4px; }
+  .quote-card__form {
+    height: 56px;
+    border-width: 2px;
+    border-radius: 10px;
+  }
+  .quote-card__input { font-size: 16px; height: auto; padding: 0 12px; }
+  .quote-card__submit { width: 38px; height: 38px; }
+  .quote-card__submit svg { width: 20px; height: 20px; }
 
   /* Curriculum cards stack (visual on top, copy below, centered) */
   .cur-card {

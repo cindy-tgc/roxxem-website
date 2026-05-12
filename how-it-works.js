@@ -165,6 +165,9 @@
         t.classList.toggle('is-active', t.dataset.cat === catKey);
       });
     }
+    // Keep the mobile category <select> in sync with the active tab.
+    const catSelect = document.querySelector('.cat-select');
+    if (catSelect && catSelect.value !== catKey) catSelect.value = catKey;
     Object.entries(state).forEach(([key, s]) => {
       s.panel.classList.toggle('is-active', key === catKey);
       if (key === catKey) startAuto(key); else stopAuto(key);
@@ -204,6 +207,15 @@
       if (!t) return;
       activateTab(t.dataset.cat);
     });
+
+    // Mobile category <select> — same effect as clicking a tab button.
+    const catSelect = document.querySelector('.cat-select');
+    if (catSelect) {
+      catSelect.value = currentCategory;
+      catSelect.addEventListener('change', (e) => {
+        activateTab(e.target.value);
+      });
+    }
 
     // Pagination clicks (delegated)
     panelsHost.addEventListener('click', (e) => {

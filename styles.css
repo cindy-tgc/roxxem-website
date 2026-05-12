@@ -2685,7 +2685,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--navy);
   border-radius: var(--radius-lg);
   border: 2.5px solid #0a0911;
-  padding: 14px;
+  padding: 0;
+  overflow: hidden;
   max-width: 1256px;
   margin: 32px auto 0;
 }
@@ -2694,7 +2695,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .video-stage {
   position: relative;
-  border-radius: 14px;
+  /* No own border-radius — the card's overflow:hidden does the clipping
+     so the video sits flush against the card's outer rounded corners. */
+  border-radius: 0;
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: var(--navy);
@@ -2716,13 +2719,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .video-quote { display: none; }
 
-/* Prev / next arrows row, centered below the video */
+/* Prev / next arrows row, centered below the video (inside the navy
+   card; padding gives breathing room since the card itself has no
+   internal padding now). */
 .video-card__controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding-top: 16px;
+  padding: 16px 14px 14px;
 }
 .video-arrow {
   width: 44px;
@@ -3210,7 +3215,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: none;
   outline: none;
   background: transparent;
-  padding: 0 14px 0 clamp(14px, 2.4vw, 32px);
+  padding: 0 14px 0 18px;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(14px, 1.85vw, 21.711px);

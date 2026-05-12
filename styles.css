@@ -51,7 +51,7 @@
   --navy-deep: #110066;
   --orange: #FF5E32;
   --orange-bright: #FF6A2E;
-  --cream: #F4EFD8;
+  --cream: #F8F7EC;
   --cream-2: #F8F2E2;
   --lime: #E3F50D;
   --lime-2: #ECF940;
@@ -176,6 +176,69 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: opacity 0.15s ease, color 0.15s ease;
 }
 .nav__links a:hover { color: var(--lime); opacity: 1; }
+
+/* Resources dropdown */
+.nav__dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav__dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.nav__dropdown-trigger::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.85;
+  margin-top: 1px;
+  transition: transform 0.2s ease;
+}
+.nav__dropdown:hover .nav__dropdown-trigger::after,
+.nav__dropdown:focus-within .nav__dropdown-trigger::after {
+  transform: rotate(180deg);
+}
+.nav__dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 8px;
+  min-width: 160px;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu {
+  display: flex;
+}
+.nav__dropdown-menu a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0.85;
+  transition: background 0.12s, opacity 0.12s;
+}
+.nav__dropdown-menu a:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--lime);
+  opacity: 1;
+}
 .nav__right {
   display: flex;
   align-items: center;
@@ -287,7 +350,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero__sub {
   font-family: var(--font-body);
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
   font-size: clamp(14px, 1.7vw, 21px);
   color: var(--orange);
@@ -315,7 +378,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: none;
   outline: none;
   background: transparent;
-  padding: 0 14px 0 clamp(14px, 2.4vw, 32px);
+  /* Left padding matches the 18px gap between the input and the lime
+     button on the right, so the placeholder is visually centered with
+     equal breathing room on both sides of the pill. */
+  padding: 0 14px 0 18px;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(14px, 1.85vw, 21.711px);
@@ -362,6 +428,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--navy);
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
 }
 .lang-chip:hover { background: var(--cream-2); }
 .flag-circle {
@@ -844,8 +911,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
-.hl--lime { background: linear-gradient(to top, var(--lime) 55%, transparent 55%); }
-.hl--blue { background: linear-gradient(to top, var(--periwinkle) 55%, transparent 55%); }
+/* Highlight stripes vertically CENTERED on the text. Band runs from
+   22.5% to 77.5% of the line box (a 55%-tall stripe in the middle). */
+.hl--lime { background: linear-gradient(to top, transparent 22.5%, var(--lime) 22.5%, var(--lime) 77.5%, transparent 77.5%); }
+.hl--blue { background: linear-gradient(to top, transparent 22.5%, var(--periwinkle) 22.5%, var(--periwinkle) 77.5%, transparent 77.5%); }
 
 .tabs {
   display: flex;
@@ -1159,8 +1228,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    either fill the column (when column < max-width) or sit at the column's
    natural edge. No justify-self override needed. */
 .lstep__sub { margin-top: 12px; }
-.lstep--1 .lstep__copy { width: 100%; max-width: 559.137px; align-items: flex-end; text-align: right; }
-.lstep--1 .lstep__copy * { text-align: right; }
+.lstep--1 .lstep__copy { width: 100%; max-width: 559.137px; align-items: flex-start; text-align: left; }
+.lstep--1 .lstep__copy * { text-align: left; }
 .lstep--2 .lstep__copy { width: 100%; max-width: 566px; }
 .lstep__copy--center {
   text-align: center;
@@ -1171,7 +1240,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Step 1 — form mock (form-card 169:113 specs) */
 .form-mock {
-  background: #f8f7ec;
+  background: #ECEADC;
   border-radius: 16px;
   padding: 34px 20px 28px;
   width: 100%;
@@ -1275,9 +1344,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   flex-direction: column;
   gap: 16px;
-  /* Pre-sized for up to 2 lines of cursor text + the CTA so the typing
-     animation never visibly resizes the box. */
-  min-height: 130px;
+  /* Fixed height so the typing animation never causes layout shifts */
+  height: 130px;
+  overflow: hidden;
   width: 100%;
   box-sizing: border-box;
 }
@@ -2034,7 +2103,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* Trust badges row — Figma 129:850 (4 actual logo images, gap 34) */
 .trust-badges {
   display: flex;
-  gap: 34px;
+  gap: 72px;
   justify-content: center;
   align-items: center;
   margin-top: 56px;
@@ -2108,6 +2177,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* === CURRICULUM (Figma 129:812) === */
 .curriculum { padding: 85px 0; background: var(--cream); }
+
+/* Decorative paw prints clustered around the TOP of the langdept orange
+   strip — the topmost paws sit right at the top edge of the strip, with
+   a few drifting upward into the cream area above. They sit behind
+   everything (z-index: 0) and don't block clicks. */
+.paw {
+  position: absolute;
+  width: clamp(60px, 7vw, 110px);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+.paw--1 { top: -120px; left: 2%;   transform: rotate(-18deg); width: clamp(70px, 8vw, 120px); }
+.paw--2 { top: -40px;  left: 14%;  transform: rotate(-32deg); }
+.paw--3 { top: 30px;   left: 36%;  transform: rotate(8deg);   width: clamp(55px, 6vw, 90px); }
+.paw--4 { top: -60px;  right: 12%; transform: rotate(20deg); }
+.paw--5 { top: 10px;   right: 4%;  transform: rotate(-12deg); width: clamp(70px, 8vw, 120px); }
 .curriculum .container {
   /* Cards align with the nav-bar edges; both are inset 24px from the
      viewport edge until the mobile breakpoint (handled by .container). */
@@ -2159,13 +2245,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Cards (shared) — side-by-side at all non-mobile widths.
    Uses clamp() for fluid text + visual scaling so the layout
-   shrinks smoothly instead of snapping at breakpoints. */
+   shrinks smoothly instead of snapping at breakpoints.
+   Cards hug their content (inline-flex + max-width) so the box
+   is only as wide as image + text needs, not the full container. */
 .cur-card {
   border: 2.5px solid #0a0911;
   border-radius: 35px;
-  padding: clamp(18px, 2.2vw, 28px);
-  width: 100%;
-  display: flex;
+  padding: clamp(18px, 2.2vw, 28px) clamp(9px, 1.1vw, 14px);
+  width: fit-content;
+  max-width: 100%;
+  display: inline-flex;
   align-items: center;
   /* Image + text are kept together with a fixed 28px gap and centered
      as a unit inside the card (justify-content: center). Children do
@@ -2314,7 +2403,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 0 24px;
   text-decoration: none;
   gap: 10px;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
+.curriculum__cta:hover {
+  background: var(--lime-2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(25, 2, 136, 0.15);
+}
+.curriculum__cta:hover svg { transform: translateX(3px); }
+.curriculum__cta svg { transition: transform 0.15s ease; }
+.curriculum__cta:active { transform: translateY(0); box-shadow: none; }
 .curriculum__cta span {
   font-family: var(--font-display);
   font-weight: 700;
@@ -2340,6 +2438,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 /* Fox head peeking above the orange band */
@@ -2542,11 +2641,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .video-card {
   background: var(--navy);
   border-radius: var(--radius-lg);
-  border: 2px solid var(--ink);
+  border: 2.5px solid #0a0911;
   padding: 14px;
-  max-width: 880px;
+  max-width: 1256px;
   margin: 32px auto 0;
-  box-shadow: 8px 8px 0 var(--ink);
 }
 .video-card__bar {
   display: flex;
@@ -2571,21 +2669,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .video-card__main {
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: 44px 1fr 44px;
   align-items: center;
   gap: 12px;
 }
 .video-arrow {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--lime);
   color: var(--navy);
-  font-size: 22px;
-  font-weight: 800;
-  display: grid;
-  place-items: center;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
+.video-arrow svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.video-arrow:hover { background: var(--lime-2); transform: scale(1.06); }
 .video-stage {
   position: relative;
   border-radius: 14px;
@@ -2726,7 +2832,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .tcard__role {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
   margin: 0;
@@ -2760,6 +2866,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .pricing {
   padding: 85px 0;
   background: var(--cream);
+  position: relative;
+  overflow: hidden;
 }
 
 /* Pricing container aligns with the nav-bar edges (both inset 24px
@@ -2778,7 +2886,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-align: center;
   max-width: 860px;
   margin: 0 auto 64px;
+  position: relative;
+  z-index: 1;
 }
+
+/* Decorative fox tails ABOVE the "Pricing Options" title, anchored to
+   the left/right edges of the section. The SVG has its orange/cream tip
+   on the LEFT, so the LEFT-side tail flips horizontally (tip points
+   right, toward the title) and the RIGHT-side tail uses it as-is (tip
+   points left, toward the title). */
+.pricing__tail {
+  position: absolute;
+  top: 20px;
+  width: clamp(320px, 40vw, 600px);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+.pricing__tail--left  { left:  clamp(-220px, -14vw, -80px); transform: scaleX(-1); }
+.pricing__tail--right { right: clamp(-220px, -14vw, -80px); }
+.pricing__title,
+.pricing__sub { position: relative; z-index: 1; }
 .pricing__title {
   font-family: var(--font-display);
   font-weight: 800;
@@ -2995,16 +3123,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--lime);
   border: 2.5px solid #0a0911;
   border-radius: var(--radius-lg);
-  padding: 32px 56px 32px 32px;
+  padding: 32px 56px 32px 40px;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 360px 1fr;
   align-items: center;
-  gap: 32px;
+  gap: 64px;
 }
 .newsletter__fox {
-  width: 260px;
+  width: 360px;
   height: auto;
-  margin: -64px 0 -32px;
+  /* Bleeds above AND below the green card for a more playful overlap */
+  margin: -96px 0 -72px;
 }
 .newsletter__copy h3 {
   font-family: var(--font-display);
@@ -3014,6 +3143,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0 0 6px;
   letter-spacing: -0.01em;
 }
+.newsletter__break { display: none; }
 .newsletter__copy > p {
   margin: 0 0 16px;
   color: var(--orange);
@@ -3127,8 +3257,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 17px;
 }
 .social {
-  width: 56px;
-  height: 56px;
+  width: 37px;
+  height: 37px;
   border: 1.4px solid rgba(253, 243, 227, 0.3);
   border-radius: 50%;
   display: grid;
@@ -3139,8 +3269,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 0.15s, border-color 0.15s;
 }
 .social svg {
-  width: 25px;
-  height: 25px;
+  width: 17px;
+  height: 17px;
 }
 .social:hover {
   background: rgba(253, 243, 227, 0.08);
@@ -3242,6 +3372,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .nav__links.is-open { display: flex; }
   .nav__links a { font-size: 18px; }
+  /* On mobile the dropdown is inline — always show items below the trigger */
+  .nav__dropdown { flex-direction: column; align-items: flex-end; gap: 8px; }
+  .nav__dropdown-menu {
+    display: flex;
+    position: static;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 8px;
+  }
+  .nav__dropdown-menu a { font-size: 16px; padding: 4px 0; }
+  .nav__dropdown-trigger::after { display: none; }
   .nav__inner { position: relative; }
 
   /* Stats: 4 → 2 columns */
@@ -3296,14 +3440,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .dashboard-root, .d-card, .d-overview,
   .d-stats, .d-chart, .d-dates, .d-footer { max-width: 100%; }
 
-  /* Lang Dept: stats stack on top, quote below */
+  /* Lang Dept: quote card stacks below the stats, but the stats themselves
+     stay in a 2×2 grid (matches mobile) — never collapse to a single column. */
   .langdept__row { flex-direction: column; gap: 32px; align-items: center; }
-  .ld-stats { flex-direction: column; align-items: stretch; gap: 11px; }
-  .ld-stats__col, .ld-stats__col--1, .ld-stats__col--2 {
-    width: 100%; max-width: 320px; margin: 0 auto;
+  .ld-stats {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    max-width: 548px;
+    margin: 0 auto;
   }
-  .ld-stat--short { height: auto; min-height: 130px; padding: 20px; }
-  .ld-stat--tall  { height: auto; min-height: 180px; padding: 24px; }
+  .ld-stats__col,
+  .ld-stats__col--1,
+  .ld-stats__col--2 {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+  }
+  .ld-stat--short { height: 140px; padding: 18px; }
+  .ld-stat--tall  { height: 215px; padding: 22px; }
+  .ld-stat__desc { width: auto !important; }
   .langdept__fox-head { width: min(300px, 75vw); height: auto; margin-bottom: -48px; }
   .langdept__fox-tail { width: min(180px, 55vw); height: auto; }
   .langdept__content { padding: 60px 24px; }
@@ -3317,9 +3476,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .price-card--districts { width: min(399px, 90vw); height: auto; min-height: 435px; }
   .price-card__list { width: 100% !important; }
 
-  /* Newsletter: stack */
-  .newsletter__card { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
-  .newsletter__fox { margin: -64px auto 0; width: 200px; }
+  /* Newsletter on tablet: keep the desktop 2-column layout (fox left,
+     copy right) — trim padding + gap so the text sits closer to the
+     fox and to the outer card edges. */
+  .newsletter__card {
+    padding: 22px 24px 22px 16px;
+    gap: 12px;
+    grid-template-columns: 200px 1fr;
+  }
+  .newsletter__fox { width: 200px; }
+  .newsletter__copy h3 { line-height: 1.05; margin: 0 0 2px; }
+  .newsletter__copy > p { margin: 0 0 12px; }
 
   /* Footer: 5 → 2 columns (brand spans both) */
   .footer { padding: 56px 40px 36px; }
@@ -3336,7 +3503,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .btn-mega__icon img { width: 16px; height: 14px; }
 
   /* Trust badges scale to fit */
-  .trust-badges { gap: 18px; }
+  .trust-badges { gap: 40px; }
   .trust-badge--launchpad { width: 130px; height: auto; }
   .trust-badge--privacy  { width: 170px; height: auto; }
   .trust-badge--coppa,
@@ -3357,20 +3524,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Typography continues to scale via clamp() — no font-size
    overrides here.                                                */
 @media (max-width: 640px) {
-  /* Fill the strip above the nav (iOS status-bar zone / Safari URL-bar
-     fade-out area) with navy so there's no cream gap at the very top.
-     Fixed at viewport top, behind the sticky nav (z-index 99 < nav 100). */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: var(--navy);
-    z-index: 99;
-    pointer-events: none;
-  }
+  /* Hide the decorative fox tails on mobile — not enough room beside the title */
+  .pricing__tail { display: none; }
+
+  /* Hide most paws on mobile, keep just 2 small ones near corners */
+  .paw--1, .paw--3, .paw--5 { display: none; }
+  .paw--2 { width: 50px; bottom: 8%; left: 4%; }
+  .paw--4 { width: 50px; bottom: 18%; right: 4%; }
+
+  /* Section spacing on mobile — tighter top/bottom paddings on every
+     section so the page feels condensed instead of luxuriously spaced. */
+  .how          { padding: 48px 0 40px; }
+  .lesson       { padding: 48px 0 40px; }
+  .curriculum   { padding: 48px 0; }
+  .langdept     { margin: 32px 0; }
+  .testimonials { padding: 40px 0 48px; }
+  .marquee-reviews { padding: 28px 0 32px; }
+  .pricing      { padding: 48px 0; }
+  .newsletter   { padding: 36px 0; }
+
+  /* Lesson head → Step 1 gap, and step-to-step gap. */
+  .lesson__head { margin-bottom: 56px; }
+  .lstep { margin-bottom: 48px; }
 
   /* Nav: shrink to 2/3 of desktop height — padding and logo scale down
      proportionally. Border-radius tightens to stay proportional too. */
@@ -3393,7 +3568,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero__title {
     /* Sized so the headline wraps to exactly 3 lines on mobile. */
     font-size: clamp(26px, 7.2vw, 36px);
-    line-height: 1.08;
+    line-height: 1;
     text-align: center;
     margin-bottom: 16px;
   }
@@ -3462,17 +3637,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .footer__grid { grid-template-columns: 1fr; gap: 28px; }
   .footer__logo img { width: 150px; }
   .footer__tag { margin-bottom: 24px; }
-  .social { width: 46px; height: 46px; }
-  .social svg { width: 20px; height: 20px; }
+  .social { width: 31px; height: 31px; }
+  .social svg { width: 13px; height: 13px; }
 
   /* Form mock: tighten */
   .form-mock { padding: 24px 16px; }
   .form-mock__metas { flex-wrap: wrap; height: auto; }
   .form-mock__chips { gap: 8px; }
-  /* Input box: tall enough to fit the longest typing prompt at the
-     narrowest mobile width (up to 3 wrapped lines) — so the box never
-     visibly grows as the typewriter types. */
-  .form-mock__input { min-height: 170px; }
+  /* Fixed height on mobile — prevents layout jumps as typed text wraps */
+  .form-mock__input { height: 190px; }
 
   /* How It Works tab strip on mobile: replace 6 horizontal-scroll tab
      buttons with a single category <select>, stacked under the existing
@@ -3508,12 +3681,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .tcard--tall-pad { padding-top: 30px; padding-bottom: 32px; }
 
-  /* Testimonial video: much bigger video, much thinner frame & arrows. */
+  /* Testimonial video on mobile:
+     - Container itself is wider (less side padding from .container)
+     - Arrows are smaller so the video stage takes nearly the full width
+     - Both arrows stack vertically on the right (up / down navigation) */
+  .testimonials .container {
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 100%;
+    max-width: none;
+  }
   .video-card {
     padding: 6px;
     border-width: 1.5px;
     box-shadow: 4px 4px 0 var(--ink);
     border-radius: 18px;
+    max-width: none;
   }
   .video-card__bar {
     gap: 4px;
@@ -3522,16 +3705,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .dot { width: 6px; height: 6px; }
   .video-card__url { font-size: 9px; padding: 2px 10px; }
   .video-card__main {
-    /* Slim arrow columns + tight gap → video fills nearly the whole card. */
-    grid-template-columns: 22px 1fr 22px;
-    gap: 4px;
+    /* Video on left taking max space, slim arrow column on the right. */
+    grid-template-columns: 1fr 30px;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 6px;
+  }
+  .video-stage {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    border-radius: 10px;
   }
   .video-arrow {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
+    width: 30px;
+    height: 30px;
   }
-  .video-stage { border-radius: 10px; }
+  .video-arrow svg {
+    /* Rotate 90° so left chevron points UP, right chevron points DOWN. */
+    width: 18px;
+    height: 18px;
+    transform: rotate(90deg);
+  }
+  .video-arrow--left  { grid-column: 2; grid-row: 1; }
+  .video-arrow--right { grid-column: 2; grid-row: 2; }
 
   /* Lang Dept stats: 2×2 grid on mobile (was stacked 1-col at tablet). */
   .ld-stats {
@@ -3550,15 +3746,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     min-width: 0;
     margin: 0;
   }
-  .ld-stat--short,
-  .ld-stat--tall {
+  /* Stat boxes — keep desktop shape on mobile (short stays short, tall
+     stays taller). Text scales down to fit the narrower columns. */
+  .ld-stat--short {
+    height: 130px;
     min-height: 0;
-    height: auto;
-    padding: 16px;
+    padding: 16px 14px;
+    width: 100%;
+  }
+  .ld-stat--tall {
+    height: 200px;
+    min-height: 0;
+    padding: 18px 14px;
     width: 100%;
   }
   /* Fluid desc widths — override the inline width:215px/200px styles. */
-  .ld-stat__desc { width: auto !important; }
+  .ld-stat__desc {
+    width: auto !important;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+  .ld-stat__num { font-size: 20px; line-height: 1.15; }
+  .ld-stat__num--big   { font-size: 22px; }
+  .ld-stat__num--small { font-size: 17px; }
 
   /* Get a quote card: scale everything to mobile (was sized for desktop
      with fixed 35px title + 72px tall input — caused the giant cropped
@@ -3579,14 +3789,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .quote-card__submit { width: 38px; height: 38px; }
   .quote-card__submit svg { width: 20px; height: 20px; }
 
-  /* Curriculum cards stack (visual on top, copy below, centered) */
+  /* Newsletter on mobile: stack the fox on top of the copy */
+  .newsletter__card { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+  .newsletter__fox { margin: -64px auto 0; width: 200px; }
+  .newsletter__copy h3 { font-size: 26px; line-height: 1.15; }
+  .newsletter__break { display: block; }
+
+  /* Curriculum cards stack (visual ALWAYS on top, copy below, centered)
+     — `order` forces the image first regardless of DOM order, since
+     desktop cards 1 & 3 have copy first in the DOM. */
   .cur-card {
     flex-direction: column;
     text-align: center;
     min-height: 0;
     padding: 24px 20px;
     gap: 18px;
+    width: 100%;
+    display: flex;
   }
+  .cur-card__visual,
+  .cur-card__visual--card1,
+  .cur-card__visual--card2,
+  .cur-card__visual--card3,
+  .cur-card__action { order: 0; }
+  .cur-card__copy   { order: 1; }
   .cur-card__copy {
     align-items: center !important;
     text-align: center !important;

@@ -313,46 +313,57 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero {
   background: var(--cream);
   overflow: hidden;
-  padding: 0;
+  padding: 39px 0 0 0;
 }
 .hero__inner {
-  /* Hero is locked in place: max-width is wide enough to contain the
-     text column + the full fox/appcard so the whole composition stays
-     left-pinned at 24px instead of shifting right with margin-auto
-     centering on common desktop widths. Only on viewports beyond ~1928px
-     does centering kick in, so the hero doesn't drift around between
-     1280 and 1920 displays. */
+  /* Same 24px-from-edge rule as the nav: width = min(1256px, 100% - 48px),
+     centered. Keeps the hero copy's left edge aligned with the nav bar's
+     left edge at every viewport. */
   width: calc(100% - 48px);
-  max-width: 1880px;
+  max-width: 1256px;
   margin: 0 auto;
   display: grid;
   /* Text column shrinks fluidly with viewport so visuals stay visible */
   grid-template-columns: clamp(380px, 50vw, 660px) 1fr;
   position: relative;
-  min-height: calc(100vh - 70px);
+  /* Fixed hero height so the next sections peek into view on shorter
+     viewports instead of the hero filling the full window height. */
+  min-height: 720px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 .hero__copy {
-  /* No left inset at desktop — aligns the headline/buttons with the nav bar's
-     left edge (both sit inside the same 1256px max-width content lane).
-     Narrow viewports add side breathing room via the media query below. */
-  padding: 84px 0 0 0;
+  /* Left padding (28px) matches the nav's internal padding so the hero
+     text/email line up with the "ROXXEM" logo inside the nav bar.
+     Both .hero__inner and .nav share max-width 1256 centered, and both
+     have 28px left padding inside, so the visual left-edge matches. */
+  padding: 0 0 0 28px;
   width: 100%;
-  max-width: 660px;
-  align-self: start;
+  max-width: 688px;
+  /* Vertically center the text block in the hero grid row so it stays
+     aligned with the fox/appcard frame on the right as the viewport
+     resizes. Translate up 30px to nudge the text above the visual
+     center while keeping the fox/appcard at their original position. */
+  align-self: center;
+  transform: translateY(-30px);
   min-width: 0;
 }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 800;
-  /* Figma: 48px Klima Heavy, -0.96px letter-spacing, line-height 1 */
-  font-size: clamp(32px, 4.8vw, 48px);
-  line-height: 1;
+  font-size: clamp(28px, 3.8vw, 40px);
+  line-height: 1.05;
   color: var(--navy);
   letter-spacing: -0.02em;
   margin: 0 0 8px;
   width: 100%;
-  max-width: 584px;
+  max-width: 660px;
+  /* text-wrap: balance lets the browser distribute words evenly across
+     however many lines are needed — prevents the "lonely orphan" word on
+     a final line. Falls back to normal wrap on older browsers. */
+  text-wrap: balance;
 }
+.hero__title-break { display: inline; }
 .hero__sub {
   /* Figma: Klima Bold, 21.711px, ink color, 2 lines */
   font-family: var(--font-display);
@@ -463,13 +474,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   width: 1201px;
   height: 100%;
-  min-height: calc(100vh - 70px);
 }
 
 .appcard {
   position: absolute;
   left: 100px;
-  bottom: -200px;
+  bottom: -250px;
   width: 947px;
   height: 932px;
   background: white;
@@ -802,7 +812,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero__roxxy {
   position: absolute;
   left: 10px;
-  bottom: 0;
+  bottom: -50px;
   width: 409px;
   height: 446px;
   z-index: 5;
@@ -1544,7 +1554,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 555px;
   min-height: 474px;
   background: #F8F7EC;
-  border-radius: 16px;
+  /* Matches the "Your Proficiency Score" prof-card radius */
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -2663,6 +2674,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* === TESTIMONIALS === */
 .testimonials { padding: 72px 0 85px; }
+/* Simplified video card: navy frame with the video filling it edge-to-edge,
+   arrows centered below the video for prev/next navigation. */
 .video-card {
   background: var(--navy);
   border-radius: var(--radius-lg);
@@ -2671,32 +2684,40 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 1256px;
   margin: 32px auto 0;
 }
-.video-card__bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding-bottom: 10px;
-}
-.dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-}
-.dot:nth-child(1) { background: #FF6868; }
-.dot:nth-child(2) { background: #FFC83A; }
-.dot:nth-child(3) { background: #5DD074; }
-.video-card__url {
-  margin: 0 auto;
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.6);
-  font-size: 12px;
-  padding: 4px 18px;
-  border-radius: 999px;
-}
 .video-card__main {
-  display: grid;
-  grid-template-columns: 44px 1fr 44px;
+  display: block;
+}
+.video-stage {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--navy);
+  width: 100%;
+}
+.video-stage__inner {
+  position: absolute;
+  inset: 0;
+}
+.video-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Fill the navy frame with the video, no left/right black bars */
+  object-fit: cover;
+  display: block;
+  background: var(--navy);
+}
+.video-quote { display: none; }
+
+/* Prev / next arrows row, centered below the video */
+.video-card__controls {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
+  padding-top: 16px;
 }
 .video-arrow {
   width: 44px;
@@ -2709,6 +2730,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: none;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 .video-arrow svg {
@@ -2717,30 +2739,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: block;
 }
 .video-arrow:hover { background: var(--lime-2); transform: scale(1.06); }
-.video-stage {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #555, #2a2a2a);
-}
-.video-stage__inner {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 60% 50%, rgba(255,200,160,0.25), transparent 40%),
-    linear-gradient(180deg, #cfb39e 0%, #8d6f57 60%, #5a4435 100%);
-}
-.video-thumb {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  background: #000; /* letterbox colour while loading */
-}
-.video-quote { display: none; }
 
 /* === TESTIMONIAL MARQUEE (129:740) === */
 .marquee-reviews {
@@ -3604,6 +3602,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     text-align: center;
     margin-bottom: 16px;
   }
+  /* Hide the forced <br> on mobile — the smaller font wraps naturally */
+  .hero__title-break { display: none; }
   .hero__sub { white-space: normal !important; text-align: center; margin-bottom: 32px; }
   .hero__sub-break { display: inline; }
 
@@ -3742,41 +3742,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     max-width: none;
   }
   .video-card {
-    padding: 6px;
+    padding: 8px;
     border-width: 1.5px;
     border-radius: 18px;
     max-width: none;
   }
-  .video-card__bar {
-    gap: 4px;
-    padding-bottom: 6px;
-  }
-  .dot { width: 6px; height: 6px; }
-  .video-card__url { font-size: 9px; padding: 2px 10px; }
-  .video-card__main {
-    /* Video on left taking max space, slim arrow column on the right. */
-    grid-template-columns: 1fr 30px;
-    grid-template-rows: 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 6px;
-  }
   .video-stage {
-    grid-column: 1;
-    grid-row: 1 / span 2;
     border-radius: 10px;
   }
+  .video-card__controls {
+    gap: 16px;
+    padding-top: 12px;
+  }
   .video-arrow {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
   }
   .video-arrow svg {
-    /* Rotate 90° so left chevron points UP, right chevron points DOWN. */
     width: 18px;
     height: 18px;
-    transform: rotate(90deg);
   }
-  .video-arrow--left  { grid-column: 2; grid-row: 1; }
-  .video-arrow--right { grid-column: 2; grid-row: 2; }
 
   /* Lang Dept stats: 2×2 grid on mobile (was stacked 1-col at tablet). */
   .ld-stats {

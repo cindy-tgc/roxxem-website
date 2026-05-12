@@ -1343,13 +1343,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 14.183px;
   padding: 17.019px;
   /* Fixed height + position:relative anchors the absolutely-positioned
-     CTA below. The cursor flows normally at the top — long text just
-     gets clipped by overflow:hidden rather than pushing the CTA. */
+     cursor and CTA. Both children are out of normal flow, so no matter
+     what the typewriter types, the box layout is completely frozen. */
   position: relative;
   height: 130px;
-  overflow: hidden;
   width: 100%;
   box-sizing: border-box;
+  /* `contain: strict` tells the browser this element is fully isolated —
+     nothing inside it can ever affect layout / paint outside the box. */
+  contain: strict;
+  overflow: hidden;
 }
 .form-mock__cursor {
   font-family: 'Inter', var(--font-body);
@@ -1357,10 +1360,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: #111827;
   font-weight: 400;
   line-height: 1.4;
-  display: block;
-  /* Cap text height so growing text never overlaps the CTA */
-  max-height: calc(130px - 78px);
+  /* Absolutely positioned so the typewriter text can NEVER influence the
+     input box's layout (no reflow possible). */
+  position: absolute;
+  top: 17.019px;
+  left: 17.019px;
+  right: 17.019px;
+  bottom: 55px;
   overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 .form-mock__caret {
   display: inline-block;
@@ -3664,7 +3673,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .form-mock__chips { gap: 8px; }
   /* Fixed height on mobile — prevents layout jumps as typed text wraps */
   .form-mock__input { height: 190px; }
-  .form-mock__cursor { max-height: calc(190px - 78px); }
 
   /* How It Works tab strip on mobile: replace 6 horizontal-scroll tab
      buttons with a single category <select>, stacked under the existing

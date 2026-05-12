@@ -2251,10 +2251,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cur-card {
   border: 2.5px solid #0a0911;
   border-radius: 35px;
-  padding: clamp(18px, 2.2vw, 28px) clamp(9px, 1.1vw, 14px);
-  width: fit-content;
-  max-width: 100%;
-  display: inline-flex;
+  padding: clamp(18px, 2.2vw, 28px) clamp(28px, 3.5vw, 56px);
+  width: min(981px, 100%);
+  display: flex;
   align-items: center;
   /* Image + text are kept together with a fixed 28px gap and centered
      as a unit inside the card (justify-content: center). Children do

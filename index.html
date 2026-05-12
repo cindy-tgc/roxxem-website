@@ -56,24 +56,34 @@
     </div>
   </header>
   <script>
-    // Hamburger menu toggle (mobile)
+    // Hamburger menu toggle (mobile). On mobile we MOVE the .nav__actions
+    // panel (Join Game / Log In / Sign Up) into the .nav__links dropdown
+    // when opening, so they stack together as one unified panel.
     (function () {
       const btn = document.getElementById('nav-hamburger');
       const links = document.getElementById('nav-links');
+      const actions = document.querySelector('.nav__actions');
+      const actionsHome = actions ? actions.parentElement : null;
       if (!btn || !links) return;
+      const setOpen = (open) => {
+        btn.setAttribute('aria-expanded', String(open));
+        links.classList.toggle('is-open', open);
+        btn.classList.toggle('is-open', open);
+        if (actions && actionsHome) {
+          if (open && actions.parentElement !== links) {
+            links.appendChild(actions);
+          } else if (!open && actions.parentElement === links) {
+            actionsHome.insertBefore(actions, actionsHome.firstChild);
+          }
+        }
+      };
       btn.addEventListener('click', () => {
         const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        links.classList.toggle('is-open', !open);
-        btn.classList.toggle('is-open', !open);
+        setOpen(!open);
       });
-      // Close menu when a link is tapped
+      // Close menu when any link (links or actions) is tapped
       links.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-          btn.setAttribute('aria-expanded', 'false');
-          links.classList.remove('is-open');
-          btn.classList.remove('is-open');
-        }
+        if (e.target.tagName === 'A') setOpen(false);
       });
     })();
   </script>
@@ -83,7 +93,8 @@
     <div class="hero__inner">
       <div class="hero__copy">
         <h1 class="hero__title">Interactive language lessons based on culture your students already love</h1>
-        <p class="hero__sub">Build a lesson plan for your class level in just minutes<br>with our incredibly intuitive learning platform</p>
+        <p class="hero__sub">Build a lesson plan for your class level in just minutes<br>with our incredibly intuitive
+          learning platform</p>
         <form class="hero__email" onsubmit="event.preventDefault();">
           <input type="email" placeholder="Get Started For Free" aria-label="Email" />
           <button type="submit" aria-label="Submit">
@@ -1044,8 +1055,7 @@
       <div class="lesson__head">
         <p class="eyebrow eyebrow--orange">For Teachers</p>
         <h2 class="section-title section-title--purple">Lesson Ready in 3 Steps</h2>
-        <p class="lesson__desc">From any piece of pop culture to a complete, print-ready lesson plan — no extra prep
-          needed.</p>
+        <p class="lesson__desc">From any piece of pop culture to a complete, print-ready lesson plan<br class="lesson__desc-break"> — no extra prep needed.</p>
       </div>
 
       <!-- Step 1: form mock LEFT, copy RIGHT -->
@@ -1375,8 +1385,10 @@
                 </div>
                 <div class="prof-line">
                   <div class="prof-line__bar"></div>
-                  <svg class="prof-line__arrow" width="32" height="12" viewBox="0 0 32 12" fill="none" aria-hidden="true">
-                    <line x1="2" y1="6" x2="24" y2="6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round"></line>
+                  <svg class="prof-line__arrow" width="32" height="12" viewBox="0 0 32 12" fill="none"
+                    aria-hidden="true">
+                    <line x1="2" y1="6" x2="24" y2="6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round">
+                    </line>
                     <polygon points="22,1 32,6 22,11" fill="#8B5CF6"></polygon>
                   </svg>
                 </div>
@@ -1414,7 +1426,8 @@
     <div class="container">
       <div class="curriculum__head">
         <p class="curriculum__eyebrow">For Publishers</p>
-        <h2 class="curriculum__title">Your Curriculum: AI-Native & Packed<br class="curriculum__title-break"> with Popular Content</h2>
+        <h2 class="curriculum__title">Your Curriculum: AI-Native & Packed<br class="curriculum__title-break"> with
+          Popular Content</h2>
         <p class="curriculum__sub">Publishers: plug us in. Three upgrades. Zero rebuild.</p>
       </div>
 
@@ -1485,7 +1498,7 @@
 
     <div class="langdept__shape">
       <div class="langdept__content">
-        <h2 class="langdept__title">For Language Dept. Head</h2>
+        <h2 class="langdept__title">For Language Dept. Heads</h2>
 
         <div class="langdept__row">
           <!-- Stats grid (2 columns x 2 rows, alternating tall/short) -->
@@ -1576,219 +1589,233 @@
   <!-- TESTIMONIAL MARQUEE (Figma node 129:740) -->
   <section class="marquee-reviews" aria-label="Customer testimonials">
     <div class="marquee-reviews__scroll">
-    <div class="marquee-reviews__track">
+      <div class="marquee-reviews__track">
 
-      <!-- ── SET 1 ── -->
-      <div class="tcard tcard--orange">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-gretchen.png" alt="Gretchen Hurst" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Gretchen Hurst</p>
-            <p class="tcard__role">French Teacher</p>
+        <!-- ── SET 1 ── -->
+        <div class="tcard tcard--orange">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-gretchen.png" alt="Gretchen Hurst" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Gretchen Hurst</p>
+              <p class="tcard__role">French Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far
+            the
+            most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so
+            often.
+            You are deeply appreciated and make teachers' lives so much easier.</p>
         </div>
-        <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far the
-          most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so often.
-          You are deeply appreciated and make teachers' lives so much easier.</p>
-      </div>
 
-      <div class="tcard tcard--blue">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-goke.svg" alt="Goke" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Goke</p>
-            <p class="tcard__role">Spanish Learner</p>
+        <div class="tcard tcard--blue">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-goke.svg" alt="Goke" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Goke</p>
+              <p class="tcard__role">Spanish Learner</p>
+            </div>
           </div>
+          <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks
+            song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement
+            I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
         </div>
-        <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks
-          song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement
-          I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
-      </div>
 
-      <div class="tcard tcard--lime">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-bertha.png" alt="Bertha Delgadillo" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Bertha Delgadillo</p>
-            <p class="tcard__role">SCOLT Teacher of the Year &amp; Spanish Teacher</p>
+        <div class="tcard tcard--lime">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-bertha.png" alt="Bertha Delgadillo" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Bertha Delgadillo</p>
+              <p class="tcard__role">SCOLT Teacher of the Year &amp; Spanish Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you
+            work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such
+            a
+            wonderful app.</p>
         </div>
-        <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you
-          work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such a
-          wonderful app.</p>
-      </div>
 
-      <div class="tcard tcard--purple tcard--tall-pad">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-sarah.svg" alt="Sarah Reade" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Sarah Reade</p>
-            <p class="tcard__role">Spanish Learner</p>
+        <div class="tcard tcard--purple tcard--tall-pad">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-sarah.svg" alt="Sarah Reade" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Sarah Reade</p>
+              <p class="tcard__role">Spanish Learner</p>
+            </div>
           </div>
+          <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My
+            students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so
+            happy this exists. MUCHAS GRACIAS!!!!!</p>
         </div>
-        <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My
-          students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so
-          happy this exists. MUCHAS GRACIAS!!!!!</p>
-      </div>
 
-      <div class="tcard tcard--orange">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-kathy.png" alt="Kathy Yang" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Kathy Yang</p>
-            <p class="tcard__role">Chinese Teacher</p>
+        <div class="tcard tcard--orange">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-kathy.png" alt="Kathy Yang" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Kathy Yang</p>
+              <p class="tcard__role">Chinese Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of
+            breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my
+            students
+            actually look forward to, which is amazing!</p>
         </div>
-        <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of
-          breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my students
-          actually look forward to, which is amazing!</p>
-      </div>
 
-      <div class="tcard tcard--blue tcard--tall-pad">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-edmund.svg" alt="Edmund Curran" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Edmund Curran</p>
-            <p class="tcard__role">French Teacher</p>
+        <div class="tcard tcard--blue tcard--tall-pad">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-edmund.svg" alt="Edmund Curran" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Edmund Curran</p>
+              <p class="tcard__role">French Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid
+            other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the
+            words
+            and see the words. And the selection of songs is fantastic!</p>
         </div>
-        <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid
-          other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the words
-          and see the words. And the selection of songs is fantastic!</p>
-      </div>
 
-      <div class="tcard tcard--lime">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-barbara.svg" alt="Barbara J." />
-          <div class="tcard__meta">
-            <p class="tcard__name">Barbara J.</p>
-            <p class="tcard__role">Teacher</p>
+        <div class="tcard tcard--lime">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-barbara.svg" alt="Barbara J." />
+            <div class="tcard__meta">
+              <p class="tcard__name">Barbara J.</p>
+              <p class="tcard__role">Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and
+            comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work
+            on
+            songs they choose — great for fast finishers or extra class time.</p>
         </div>
-        <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and
-          comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work on
-          songs they choose — great for fast finishers or extra class time.</p>
-      </div>
 
-      <div class="tcard tcard--purple">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-agnes.png" alt="Agnes Pommier" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Agnes Pommier</p>
-            <p class="tcard__role">French Teacher</p>
+        <div class="tcard tcard--purple">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-agnes.png" alt="Agnes Pommier" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Agnes Pommier</p>
+              <p class="tcard__role">French Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with
+            the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students
+            loved
+            it!!! Thank you for creating this website.</p>
         </div>
-        <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with
-          the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students loved
-          it!!! Thank you for creating this website.</p>
-      </div>
 
-      <!-- ── SET 2 (seamless loop duplicate) ── -->
-      <div class="tcard tcard--orange">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-gretchen.png" alt="Gretchen Hurst" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Gretchen Hurst</p>
-            <p class="tcard__role">French Teacher</p>
+        <!-- ── SET 2 (seamless loop duplicate) ── -->
+        <div class="tcard tcard--orange">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-gretchen.png" alt="Gretchen Hurst" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Gretchen Hurst</p>
+              <p class="tcard__role">French Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far
+            the
+            most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so
+            often.
+            You are deeply appreciated and make teachers' lives so much easier.</p>
         </div>
-        <p class="tcard__quote">After 21 years teaching French to middle and high school students, Roxxem is by far the
-          most enjoyable language-learning app I've used. Thank you for keeping it affordable and improving it so often.
-          You are deeply appreciated and make teachers' lives so much easier.</p>
-      </div>
 
-      <div class="tcard tcard--blue">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-goke.svg" alt="Goke" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Goke</p>
-            <p class="tcard__role">Spanish Learner</p>
+        <div class="tcard tcard--blue">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-goke.svg" alt="Goke" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Goke</p>
+              <p class="tcard__role">Spanish Learner</p>
+            </div>
           </div>
+          <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks
+            song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement
+            I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
         </div>
-        <p class="tcard__quote">As an intermediate Spanish learner, music keeps me motivated. I like how Roxxem breaks
-          song lyrics down line by line, so before long I'm learning a big part of the song. The biggest improvement
-          I've noticed is in my listening ability. It's as if the speakers have slowed down.</p>
-      </div>
 
-      <div class="tcard tcard--lime">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-bertha.png" alt="Bertha Delgadillo" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Bertha Delgadillo</p>
-            <p class="tcard__role">SCOLT Teacher of the Year &amp; Spanish Teacher</p>
+        <div class="tcard tcard--lime">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-bertha.png" alt="Bertha Delgadillo" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Bertha Delgadillo</p>
+              <p class="tcard__role">SCOLT Teacher of the Year &amp; Spanish Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you
+            work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such
+            a
+            wonderful app.</p>
         </div>
-        <p class="tcard__quote">For the thousandth time, Roxxem is simply amazing, and I truly appreciate how hard you
-          work to apply teacher feedback! You've taken music competitions to an entirely new level. Thank you for such a
-          wonderful app.</p>
-      </div>
 
-      <div class="tcard tcard--purple tcard--tall-pad">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-sarah.svg" alt="Sarah Reade" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Sarah Reade</p>
-            <p class="tcard__role">Spanish Learner</p>
+        <div class="tcard tcard--purple tcard--tall-pad">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-sarah.svg" alt="Sarah Reade" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Sarah Reade</p>
+              <p class="tcard__role">Spanish Learner</p>
+            </div>
           </div>
+          <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My
+            students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so
+            happy this exists. MUCHAS GRACIAS!!!!!</p>
         </div>
-        <p class="tcard__quote">Hola!!! Roxxem is THE BEST program I have EVER purchased and used in my classroom! My
-          students LOVE IT!!! They were glued to Live Whac a Word and couldn't wait to request the next song. I'm so
-          happy this exists. MUCHAS GRACIAS!!!!!</p>
-      </div>
 
-      <div class="tcard tcard--orange">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-kathy.png" alt="Kathy Yang" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Kathy Yang</p>
-            <p class="tcard__role">Chinese Teacher</p>
+        <div class="tcard tcard--orange">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-kathy.png" alt="Kathy Yang" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Kathy Yang</p>
+              <p class="tcard__role">Chinese Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of
+            breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my
+            students
+            actually look forward to, which is amazing!</p>
         </div>
-        <p class="tcard__quote">Teachers know that music is the way to a person's soul. Roxxem has a nice way of
-          breaking down a complex song into digestible nuggets, even for beginners. Roxxem is homework that my students
-          actually look forward to, which is amazing!</p>
-      </div>
 
-      <div class="tcard tcard--blue tcard--tall-pad">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-edmund.svg" alt="Edmund Curran" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Edmund Curran</p>
-            <p class="tcard__role">French Teacher</p>
+        <div class="tcard tcard--blue tcard--tall-pad">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-edmund.svg" alt="Edmund Curran" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Edmund Curran</p>
+              <p class="tcard__role">French Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid
+            other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the
+            words
+            and see the words. And the selection of songs is fantastic!</p>
         </div>
-        <p class="tcard__quote">This is one of the most useful and fun tools I use in my classroom. I tend to avoid
-          other internet tools that "gamify" learning; but Roxxem "gamifies" music so well. The students hear the words
-          and see the words. And the selection of songs is fantastic!</p>
-      </div>
 
-      <div class="tcard tcard--lime">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-barbara.svg" alt="Barbara J." />
-          <div class="tcard__meta">
-            <p class="tcard__name">Barbara J.</p>
-            <p class="tcard__role">Teacher</p>
+        <div class="tcard tcard--lime">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-barbara.svg" alt="Barbara J." />
+            <div class="tcard__meta">
+              <p class="tcard__name">Barbara J.</p>
+              <p class="tcard__role">Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and
+            comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work
+            on
+            songs they choose — great for fast finishers or extra class time.</p>
         </div>
-        <p class="tcard__quote">Hugo Xiong, the creator, is very responsive and thoughtfully considers questions and
-          comments. He's continually improving the platform. I've assigned the "sandbox" option for students to work on
-          songs they choose — great for fast finishers or extra class time.</p>
-      </div>
 
-      <div class="tcard tcard--purple">
-        <div class="tcard__author">
-          <img class="tcard__avatar" src="assets/testimonial-agnes.png" alt="Agnes Pommier" />
-          <div class="tcard__meta">
-            <p class="tcard__name">Agnes Pommier</p>
-            <p class="tcard__role">French Teacher</p>
+        <div class="tcard tcard--purple">
+          <div class="tcard__author">
+            <img class="tcard__avatar" src="assets/testimonial-agnes.png" alt="Agnes Pommier" />
+            <div class="tcard__meta">
+              <p class="tcard__name">Agnes Pommier</p>
+              <p class="tcard__role">French Teacher</p>
+            </div>
           </div>
+          <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with
+            the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students
+            loved
+            it!!! Thank you for creating this website.</p>
         </div>
-        <p class="tcard__quote">Bonjour ! First I want to thank you for allowing us to play live in the classroom with
-          the songs we study. Brilliant idea! We played "Mon précieux" Live in class this morning, and my students loved
-          it!!! Thank you for creating this website.</p>
-      </div>
 
-    </div>
+      </div>
     </div>
 
     <!-- See the Wall of Love CTA (Figma 129:795) -->
@@ -1831,9 +1858,11 @@
                 <li>Vocab Lists</li>
               </ul>
             </div>
-            <button class="price-card__btn">Select Plan</button>
+            <a class="price-card__btn" href="https://app.roxxem.com/plans" target="_blank"
+              rel="noopener noreferrer">Select Plan</a>
           </div>
-          <a class="price-card__more" href="#">Learn More</a>
+          <a class="price-card__more" href="https://www.roxxem.com/pricing" target="_blank"
+            rel="noopener noreferrer">Learn More</a>
         </div>
 
         <!-- Pro Teacher -->
@@ -1851,9 +1880,11 @@
                 <li>Progress Tracking</li>
               </ul>
             </div>
-            <button class="price-card__btn price-card__btn--solid">Select Plan</button>
+            <a class="price-card__btn price-card__btn--solid" href="https://app.roxxem.com/plans" target="_blank"
+              rel="noopener noreferrer">Select Plan</a>
           </div>
-          <a class="price-card__more" href="#">Learn More</a>
+          <a class="price-card__more" href="https://www.roxxem.com/pricing" target="_blank"
+            rel="noopener noreferrer">Learn More</a>
         </div>
 
         <!-- For Districts -->
@@ -1872,7 +1903,8 @@
             </div>
             <button class="price-card__btn">Select Plan</button>
           </div>
-          <a class="price-card__more" href="#">Learn More</a>
+          <a class="price-card__more" href="https://www.roxxem.com/pricing" target="_blank"
+            rel="noopener noreferrer">Learn More</a>
         </div>
 
       </div>
@@ -1886,7 +1918,8 @@
         <img class="newsletter__fox" src="mascot-full.png" alt="Roxxem fox holding sign" />
         <div class="newsletter__copy">
           <h3>Get your first,<br class="newsletter__break"> free lesson plan</h3>
-          <p>Personalizable content that aligns to your<br class="newsletter__copy-break"> curriculum<br class="newsletter__copy-break-desktop"> and student interests</p>
+          <p>Personalizable content that aligns to your<br class="newsletter__copy-break"> curriculum<br
+              class="newsletter__copy-break-desktop"> and student interests</p>
           <form class="newsletter__form" onsubmit="event.preventDefault();">
             <input type="email" placeholder="Get Started For Free" aria-label="Email" />
             <button type="submit" aria-label="Submit">

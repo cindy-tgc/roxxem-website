@@ -924,16 +924,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    repeat correctly if the highlight wraps across lines. */
 .how__desc .hl {
   display: inline;
-  padding: 0 0.2em;
+  padding: 0.08em 0.5em;
   color: var(--orange);
-  border-radius: 0.25em;
+  /* Pill-shaped highlight (oval ends) */
+  border-radius: 999px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
-/* Highlight stripes vertically CENTERED on the text. Band runs from
-   22.5% to 77.5% of the line box (a 55%-tall stripe in the middle). */
-.hl--lime { background: linear-gradient(to top, transparent 22.5%, var(--lime) 22.5%, var(--lime) 77.5%, transparent 77.5%); }
-.hl--blue { background: linear-gradient(to top, transparent 22.5%, var(--periwinkle) 22.5%, var(--periwinkle) 77.5%, transparent 77.5%); }
+.hl--lime { background: var(--lime); }
+.hl--blue { background: var(--periwinkle); }
 
 .tabs {
   display: flex;
@@ -1168,6 +1167,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-align: center;
   margin: 0;
 }
+.lesson__desc-break { display: inline; }
 
 /* Step row layout (from 169:195 in Figma — gap 24, justify between) */
 .lstep {
@@ -1427,7 +1427,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   aspect-ratio: 724 / 464;
   border-radius: 12px;
   overflow: hidden;
-  border: none;
+  border: 4px solid #ECEADD;
   box-shadow: none;
   background: linear-gradient(135deg, #ffe9d8, #fff5e8);
 }
@@ -1554,7 +1554,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 555px;
   min-height: 474px;
   background: #F8F7EC;
-  /* Matches the "Your Proficiency Score" prof-card radius */
+  /* Matches the outer .dashboard-mock orange/beige container radius */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -3032,21 +3032,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .price-card__price {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 47px;
-  line-height: 56px;
-  letter-spacing: -0.94px;
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -1.12px;
   color: #190288;
   margin: 0;
 }
 /* Pro Teacher price */
 .price-card--featured .price-card__price {
-  font-size: 51px;
-  letter-spacing: -1.01px;
+  font-size: 56px;
+  letter-spacing: -1.12px;
 }
 /* "Custom" has wider tracking */
 .price-card--districts .price-card__price {
-  font-size: 51px;
-  letter-spacing: -2.17px;
+  font-size: 56px;
+  letter-spacing: -1.12px;
 }
 .price-card__period {
   font-family: var(--font-display);
@@ -3101,6 +3101,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: #ff5e32;
   cursor: pointer;
   transition: opacity 0.15s;
+  /* Anchor-tag compat: make <a> render like the original <button> */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 .price-card__btn:hover { opacity: 0.8; }
 
@@ -3301,6 +3307,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer__col {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 .footer__head {
   font-family: var(--font-display);
@@ -3376,23 +3383,36 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .nav__actions { display: none; }
   .nav__inner { grid-template-columns: auto 1fr auto; }
   .nav__hamburger { display: flex; }
+  .nav__inner { position: relative; }
+  /* Mobile dropdown panel: navy background, anchored to the right side of
+     the nav. Contains both the link list AND the action buttons (Join
+     Game / Log In / Sign Up), stacked vertically with a hairline divider
+     between them. The JS moves .nav__actions into .nav__links on open. */
   .nav__links {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
-    left: 0;
+    left: auto;
+    width: min(320px, calc(100vw - 32px));
     flex-direction: column;
-    align-items: flex-end;
-    gap: 18px;
+    align-items: stretch;
+    gap: 16px;
     background: var(--navy);
-    padding: 20px 40px 28px;
-    border-radius: 0 0 24px 24px;
+    padding: 22px 24px 22px;
+    border-radius: 0 0 0 24px;
+    box-sizing: border-box;
   }
   .nav__links.is-open { display: flex; }
-  .nav__links a { font-size: 18px; }
-  /* On mobile the dropdown is inline — always show items below the trigger */
-  .nav__dropdown { flex-direction: column; align-items: flex-end; gap: 8px; }
+  .nav__links a {
+    font-size: 17px;
+    text-align: left;
+    width: 100%;
+  }
+  /* Resources dropdown — chevron stays, items appear indented below */
+  .nav__dropdown { flex-direction: column; align-items: stretch; gap: 8px; }
+  .nav__dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; }
+  .nav__dropdown-trigger::after { display: inline-block; }
   .nav__dropdown-menu {
     display: flex;
     position: static;
@@ -3400,12 +3420,55 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background: transparent;
     border: none;
     box-shadow: none;
-    padding: 0;
+    padding: 4px 0 0 18px;
     gap: 8px;
+    align-items: flex-start;
   }
-  .nav__dropdown-menu a { font-size: 16px; padding: 4px 0; }
-  .nav__dropdown-trigger::after { display: none; }
-  .nav__inner { position: relative; }
+  .nav__dropdown-menu a { font-size: 15px; padding: 2px 0; opacity: 0.75; }
+
+  /* Action buttons inside the mobile dropdown panel — divider above,
+     stacked vertically with Join Game as text, Log In outlined, Sign Up
+     filled lime. */
+  .nav__links .nav__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin-top: 4px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(253, 243, 227, 0.18);
+  }
+  .nav__links .nav__action {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+  }
+  .nav__links .nav__action:nth-child(1) {
+    /* Join Game — plain text, left-aligned (no border, no fill) */
+    background: transparent;
+    color: var(--white);
+    border: none;
+    padding: 4px 0 8px;
+    text-align: left;
+    font-size: 17px;
+  }
+  .nav__links .nav__action:nth-child(2) {
+    /* Log In — outlined */
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+  }
+  .nav__links .nav__action--cta {
+    /* Sign Up — filled lime */
+    background: var(--lime);
+    color: var(--navy);
+    border: 2px solid var(--lime);
+    font-weight: 700;
+  }
 
   /* Stats: 4 → 2 columns */
   .stats__inner { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -3604,6 +3667,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero__title-break { display: none; }
   .hero__sub { white-space: normal !important; text-align: center; margin-bottom: 32px; }
   .hero__sub-break { display: inline; }
+  /* Hide the forced break on mobile — the smaller font wraps naturally */
+  .lesson__desc-break { display: none; }
 
   /* Curriculum title: keep the forced <br> visible on mobile and shrink
      the font enough that "Your Curriculum: AI-Native & Packed" fits on

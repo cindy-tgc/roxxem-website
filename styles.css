@@ -1565,7 +1565,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .d-topnav {
   height: 29.62px;
   background: #190288;
-  border-radius: 16px 16px 0 0;
+  border-radius: 12px 12px 0 0;
   padding: 0 9.258px;
   display: flex;
   justify-content: space-between;
@@ -3511,7 +3511,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     grid-template-columns: 200px 1fr;
   }
   .newsletter__fox { width: 200px; }
-  .newsletter__copy h3 { line-height: 1.05; margin: 0 0 2px; }
+  .newsletter__copy h3 { font-size: clamp(20px, 3.2vw, 28px); line-height: 1.05; margin: 0 0 2px; white-space: nowrap; }
   .newsletter__copy > p { margin: 0 0 12px; }
 
   /* Footer: 5 → 2 columns (brand spans both) */

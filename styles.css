@@ -4,42 +4,42 @@
   src: url('fonts/klima-regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Klima';
   src: url('fonts/klima-regular-italic.woff') format('woff');
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Klima';
   src: url('fonts/klima-bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Klima';
   src: url('fonts/klima-bold-italic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Klima';
   src: url('fonts/klima-black.woff') format('woff');
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Klima';
   src: url('fonts/klima-black-italic.woff') format('woff');
   font-weight: 800;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* === Tokens === */
@@ -2073,23 +2073,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .prof-line__arrow {
   position: absolute;
-  width: 26px;
-  height: 0;
+  width: 32px;
+  height: 12px;
   left: 50%;
+  top: calc(50% - 6px);
   transform: translateX(-50%);
-  top: 25.5px;
-  border-top: 2.5px solid #8B5CF6;
-}
-.prof-line__arrow::after {
-  content: '';
-  position: absolute;
-  right: -7px;
-  top: -3.75px;
-  width: 0;
-  height: 0;
-  border-left: 7px solid #8B5CF6;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
+  display: block;
 }
 
 /* CTA + trust badges */
@@ -2099,15 +2088,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 /* Mega CTA "Create a Free Lesson" — Figma 129:806 */
 .btn-mega {
+  /* Sized to match .curriculum__cta (the "Book a Publisher Demo" button) */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12.356px;
+  gap: 10px;
   background: #ff5e32;
   color: white;
   border: none;
-  border-radius: 11.227px;
-  padding: 20.593px 27.458px;
+  border-radius: 20px;
+  height: 68px;
+  padding: 0 24px;
   text-decoration: none;
   transition: transform .1s ease, box-shadow .1s ease;
 }
@@ -2118,22 +2109,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-mega__label {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 28.068px;
-  line-height: 39.295px;
-  letter-spacing: -0.7017px;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.55px;
   color: #ffffff;
   white-space: nowrap;
 }
 .btn-mega__icon {
-  width: 33.681px;
-  height: 33.681px;
+  width: 26px;
+  height: 26px;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
 }
 .btn-mega__icon img {
-  width: 21.86px;
-  height: 18.5px;
+  width: 17px;
+  height: 14.4px;
   display: block;
 }
 
@@ -2332,7 +2323,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: -0.3px;
   margin: 0;
   line-height: 1.1;
-  max-width: 500px;
+  /* Wide enough for "Popular Content, Curriculum-Aligned" to fit on
+     a single line at the desktop font-size cap (30px) */
+  max-width: 600px;
 }
 .cur-card__desc {
   font-family: var(--font-display);
@@ -3587,6 +3580,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     grid-template-columns: 1fr !important;
     min-height: 0 !important;
     gap: 0 !important;
+    /* Mobile: shrink the top padding (~50px less than desktop) and
+       remove the bottom padding so the orange backplate at the bottom
+       of .hero__app connects directly to the next section. */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
   .hero__copy {
     width: 100% !important;
@@ -3643,7 +3641,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     aspect-ratio: 947 / 838;
     height: auto;
     min-height: 0;
+    /* No bottom margin so the orange backplate (::before) flushes against
+       the next section seamlessly. */
     margin: 32px auto 0;
+    margin-bottom: 0;
     background: transparent;
     overflow: visible;
   }

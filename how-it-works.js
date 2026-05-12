@@ -103,7 +103,8 @@
     return { panel, pageCount: pages.length };
   }
 
-  let state = {}; // { catKey: { idx, total, timer, panel } }
+  let state = {}; // { catKey: { idx, total, panel } }
+  let categoryTimer = null; // single global timer that cycles between categories
 
   function gotoPage(catKey, nextIdx) {
     const s = state[catKey];
@@ -117,24 +118,33 @@
     if (counter) counter.textContent = String(idx + 1);
   }
 
-  function startAuto(catKey) {
-    stopAuto(catKey);
-    const s = state[catKey];
-    if (!s || s.total <= 1) return;
-    s.timer = setInterval(() => gotoPage(catKey, s.idx + 1), CYCLE_MS);
+  /**
+   * Auto-rotate through the CATEGORY tabs (Music → TV & Film → Viral Videos →
+   * Social Media → Podcasts → News & Media → loop), instead of paging
+   * through cards inside a single category.
+   */
+  function startCategoryAuto() {
+    stopCategoryAuto();
+    const tabsEl = document.querySelector('.tabs');
+    if (!tabsEl) return;
+    const tabs = Array.from(tabsEl.querySelectorAll('.tab'));
+    if (tabs.length <= 1) return;
+    categoryTimer = setInterval(() => {
+      const i = tabs.findIndex((t) => t.dataset.cat === currentCategory);
+      const next = tabs[(i + 1) % tabs.length];
+      if (next && next.dataset.cat) activateTab(next.dataset.cat);
+    }, CYCLE_MS);
   }
 
-  function stopAuto(catKey) {
-    const s = state[catKey];
-    if (s && s.timer) {
-      clearInterval(s.timer);
-      s.timer = null;
+  function stopCategoryAuto() {
+    if (categoryTimer) {
+      clearInterval(categoryTimer);
+      categoryTimer = null;
     }
   }
 
   function renderPanels() {
-    // Tear down existing
-    Object.keys(state).forEach(stopAuto);
+    stopCategoryAuto();
     const panelsHost = document.querySelector('.tab-panels');
     if (!panelsHost) return;
     panelsHost.innerHTML = '';
@@ -151,10 +161,11 @@
       if (!items) return;
       const { panel, pageCount } = buildPanel(catKey, items);
       panelsHost.appendChild(panel);
-      state[catKey] = { idx: 0, total: pageCount, timer: null, panel };
+      state[catKey] = { idx: 0, total: pageCount, panel };
     });
 
     activateTab(currentCategory);
+    startCategoryAuto();
   }
 
   function activateTab(catKey) {
@@ -170,7 +181,8 @@
     if (catSelect && catSelect.value !== catKey) catSelect.value = catKey;
     Object.entries(state).forEach(([key, s]) => {
       s.panel.classList.toggle('is-active', key === catKey);
-      if (key === catKey) startAuto(key); else stopAuto(key);
+      // Reset the page counter to page 1 whenever a category becomes active
+      if (key === catKey) gotoPage(key, 0);
     });
   }
 
@@ -201,11 +213,13 @@
       });
     }
 
-    // Tab clicks
+    // Tab clicks — also restart the category auto-rotation so it cycles
+    // forward from whichever tab the user just clicked.
     tabsEl.addEventListener('click', (e) => {
       const t = e.target.closest('.tab');
       if (!t) return;
       activateTab(t.dataset.cat);
+      startCategoryAuto();
     });
 
     // Mobile category <select> — same effect as clicking a tab button.
@@ -214,10 +228,12 @@
       catSelect.value = currentCategory;
       catSelect.addEventListener('change', (e) => {
         activateTab(e.target.value);
+        startCategoryAuto();
       });
     }
 
-    // Pagination clicks (delegated)
+    // Pagination clicks (manual paging inside a category — does not affect
+    // the category auto-rotation timer).
     panelsHost.addEventListener('click', (e) => {
       const next = e.target.closest('.page-btn--next');
       const prev = e.target.closest('.page-btn--prev');
@@ -227,20 +243,14 @@
       if (!catKey) return;
       const s = state[catKey];
       gotoPage(catKey, s.idx + (next ? 1 : -1));
-      startAuto(catKey);
     });
 
-    // Pause autoplay when hovering a panel
-    panelsHost.addEventListener('mouseenter', (e) => {
-      const panel = e.target.closest && e.target.closest('.tab-panel.is-active');
-      if (!panel) return;
-      stopAuto(panel.dataset.cat);
-    }, true);
-    panelsHost.addEventListener('mouseleave', (e) => {
-      const panel = e.target.closest && e.target.closest('.tab-panel.is-active');
-      if (!panel) return;
-      startAuto(panel.dataset.cat);
-    }, true);
+    // Pause the category auto-rotation when the user hovers anywhere over
+    // the content area, so they can read a category without it switching.
+    panelsHost.addEventListener('mouseenter', stopCategoryAuto, true);
+    panelsHost.addEventListener('mouseleave', startCategoryAuto, true);
+    tabsEl.addEventListener('mouseenter', stopCategoryAuto, true);
+    tabsEl.addEventListener('mouseleave', startCategoryAuto, true);
 
     renderPanels();
   }
